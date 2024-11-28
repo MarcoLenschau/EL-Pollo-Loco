@@ -1,23 +1,37 @@
 class World {
     character = new Character();
+    background = new Background();
+    air = new Air();
     enemies = [
-        new Chicken(550, 350),
-        new Chicken(500, 350),
-        new Chicken(450, 350)
+        new Chicken(),
+        new Chicken(),
+        new Chicken()
     ]
+    clouds = [
+        new Cloud()
+    ];
+    canvas;
     ctx;
 
     constructor(canvas) {
         this.ctx = canvas.getContext("2d");
+        this.canvas = canvas;
         this.draw();
     }
 
     draw() {
-        setTimeout(() => {
-            this.ctx.drawImage(this.character.img, this.character.x, this.character.y ,this.character.width, this.character.heigth);
-            this.enemies.forEach(element => {    
-                this.ctx.drawImage(element.img, element.x, element.y ,element.width, element.heigth);
-            });
-        },100);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.ctx.drawImage(this.background.img, this.background.x, this.background.y ,this.background.width, this.background.heigth)
+        this.ctx.drawImage(this.air.img, this.air.x, this.air.y ,this.air.width, this.air.heigth)
+        
+        this.ctx.drawImage(this.character.img, this.character.x, this.character.y ,this.character.width, this.character.heigth);
+        this.enemies.forEach(enemie => {    
+            this.ctx.drawImage(enemie.img, enemie.x, enemie.y ,enemie.width, enemie.heigth);
+        });
+        this.clouds.forEach(cloud => {    
+            this.ctx.drawImage(cloud.img, cloud.x, cloud.y, cloud.width, cloud.heigth)    
+        });
+        let self = this;
+        requestAnimationFrame(() => self.draw())
     }
 }

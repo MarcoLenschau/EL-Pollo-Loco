@@ -1,11 +1,11 @@
 class World {
     character = new Character();
     backgrounds = [
+        new Background("./assetes/img/5_background/layers/air.png", 0),
         new Background(backgroundImages[0], 0),
         new Background(backgroundImages[1], 0),
         new Background(backgroundImages[2], 0)
     ]
-    air = new Air();
     statusbars = [
         new Statusbar(statusbarImages[0], 0),
         new Statusbar(statusbarImages[1], 60),
@@ -30,7 +30,6 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.addToMap(this.air);
         this.addObjToMap(this.backgrounds)
         this.addObjToMap(this.clouds)
         this.drawCharacterAndAnemies();

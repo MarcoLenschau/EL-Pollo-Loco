@@ -7,12 +7,6 @@ function init() {
     world = new World(canvas);
 }
 
-//* Function is executed when button is pressed 
-
-document.addEventListener('keydown', (event) => { 
-    whichKeyIsDown(event);
-});
-
 function whichKeyIsDown(event) {
     if(event.keyCode == 32) {
         world.character.jump();
@@ -24,3 +18,10 @@ function whichKeyIsDown(event) {
         world.character.moveRight();
     }
 }
+
+//* Function is executed when button is pressed 
+
+document.addEventListener('keydown', (event) => { 
+    whichKeyIsDown(event);
+});
+

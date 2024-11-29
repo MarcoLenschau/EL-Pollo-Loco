@@ -12,11 +12,17 @@ class MovableObject {
 
     moveRight() {
         if (this.x >= 590) return false;
-        this.x = this.x + 20;
+        this.x += 20;
     }
 
     moveLeft() {
         if (this.x <= 10) return false;
-        this.x = this.x - 20;
+        this.x -= 20;
+    }
+
+    moveInterval() {
+        setInterval(() => {
+            this.x -= 0.15;
+        },1000 / 60);
     }
 }

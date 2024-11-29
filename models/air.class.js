@@ -4,6 +4,6 @@ class Air extends MovableObject {
     y = 0;
     x = 0;
     constructor() {
-        super().loadImage("./assetes/img/5_background/layers/air.png");
+        super().loadImage();
     }
 }

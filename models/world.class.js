@@ -1,12 +1,16 @@
 class World {
     character = new Character();
     backgrounds = [
-        new Background("./assetes/img/5_background/layers/3_third_layer/1.png", 0),
-        new Background("./assetes/img/5_background/layers/2_second_layer/1.png", 0),
-        new Background("./assetes/img/5_background/layers/1_first_layer/1.png", 0)
+        new Background("./assetes/img/5_background/layers/air.png", 0),
+        new Background(backgroundImages[0], 0),
+        new Background(backgroundImages[1], 0),
+        new Background(backgroundImages[2], 0)
     ]
-    air = new Air();
-    statusbar = new Statusbar();
+    statusbars = [
+        new Statusbar(statusbarImages[0], 0),
+        new Statusbar(statusbarImages[1], 60),
+        new Statusbar(statusbarImages[2], 130)        
+    ]
     enemies = [
         new Chicken(),
         new Chicken(),
@@ -26,7 +30,6 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.addToMap(this.air);
         this.addObjToMap(this.backgrounds)
         this.addObjToMap(this.clouds)
         this.drawCharacterAndAnemies();
@@ -36,7 +39,7 @@ class World {
 
     drawCharacterAndAnemies() {
         this.addToMap(this.character);
-        this.addToMap(this.statusbar);
+        this.addObjToMap(this.statusbars);
         this.addObjToMap(this.enemies);
     }
 

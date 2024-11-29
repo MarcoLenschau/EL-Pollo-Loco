@@ -7,8 +7,13 @@ function init() {
     world = new World(canvas);
 }
 
+//* Function is executed when button is pressed 
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', (event) => { 
+    whichKeyIsDown(event);
+});
+
+function whichKeyIsDown(event) {
     if(event.keyCode == 32) {
         world.character.jump();
     }
@@ -18,4 +23,4 @@ document.addEventListener('keydown', function(event) {
     else if(event.keyCode == 39) {
         world.character.moveRight();
     }
-});
+}

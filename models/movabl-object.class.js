@@ -4,25 +4,29 @@ class MovableObject {
     heigth;
     width;
     img;
-    
+    imageCache = {};
+
     loadImage(path) {
         this.img = new Image();
         this.img.src = path;
     }
 
-    moveRight() {
-        if (this.x >= 590) return false;
-        this.x += 20;
-    }
+    loadImages(images) {
+        images.forEach(path => {
+            const img = new Image();
+            img.src = path;
+            this.imageCache[path] = img;
+        });
+    } 
 
-    moveLeft() {
-        if (this.x <= 10) return false;
-        this.x -= 20;
-    }
-
-    moveInterval() {
+    moveInterval(minX) {
         setInterval(() => {
-            this.x -= 0.15;
+            if (this.x <= minX) {
+                this.x = 300 + Math.random() * 500;    
+            } else {
+                this.x -= 0.15;
+            }
+        
         },1000 / 60);
     }
 }

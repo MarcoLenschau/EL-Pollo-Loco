@@ -1,0 +1,6 @@
+services:
+  web:
+    container_name: pokedex
+    image: el-pollo-loco:latest
+    ports:
+      - "80:80"

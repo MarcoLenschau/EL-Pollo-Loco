@@ -21,7 +21,6 @@ function whichKeyIsDown(event) {
 
 //* Function is executed when button is pressed 
 
-document.addEventListener('keydown', (event) => { 
+document.addEventListener("keydown", (event) => { 
     whichKeyIsDown(event);
 });
-

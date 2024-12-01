@@ -1,3 +1,6 @@
 .git
-push.sh
-*.mddocker-compose.yml
+*.sh
+*.md
+docker-compose.yml
+eslint.config.js
+LICENSE

@@ -2,31 +2,43 @@ class Character extends MovableObject{
     width = 150;
     heigth = 200;
     y = 235;
-    currentImage = 0;
+    world;
+    speed = 5;
 
     constructor() {
         super().loadImage(characterImages[0]);
-        this.loadImages(characterImages); 
+        this.loadImages(characterImages);
         this.moveAnimation();
     }
 
     moveAnimation() {
         setInterval(() => {
-            const i = this.currentImage % characterImages.length;
-            const path = characterImages[i];
-            this.img = this.imageCache[path];
-            this.currentImage++;
-        },100);
+            if (this.world.keyboard.RIGHT) this.moveRight();
+            if (this.world.keyboard.LEFT) this.moveLeft(); 
+            if (this.world.keyboard.SPACE) this.jump(); 
+        }, 1000 / 60);
+        this.walkAnimation();
+    }
+
+    walkAnimation() {
+        setInterval(() => {
+            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                const i = this.currentImage % characterImages.length;
+                const path = characterImages[i];
+                this.img = this.imageCache[path];
+                this.currentImage++;
+            };
+        },50); 
     }
 
     moveRight() {
-        if (this.x >= 590) return false;
-        this.x += 20;
+        if (this.x >= 590) return false
+        this.x += this.speed;
     }
 
     moveLeft() {
         if (this.x <= 10) return false;
-        this.x -= 20;
+        this.x -= this.speed;
     }
 
     jump() {

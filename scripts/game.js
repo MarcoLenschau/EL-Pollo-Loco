@@ -1,26 +1,17 @@
 let canvas;
 let world;
 let ctx;
+let keyboard = new Keyboard();
 
 function init() {
     canvas = document.getElementById("canvas");
-    world = new World(canvas);
+    world = new World(canvas, keyboard);
 }
-
-function whichKeyIsDown(event) {
-    if(event.keyCode == 32) {
-        world.character.jump();
-    }
-    else if(event.keyCode == 37) {
-        world.character.moveLeft();
-    } 
-    else if(event.keyCode == 39) {
-        world.character.moveRight();
-    }
-}
-
-//* Function is executed when button is pressed 
 
 document.addEventListener("keydown", (event) => { 
-    whichKeyIsDown(event);
+    keyboard.searchKeyEvent(event, true);
+});
+
+document.addEventListener("keyup", (event) => { 
+    keyboard.searchKeyEvent(event, false);
 });

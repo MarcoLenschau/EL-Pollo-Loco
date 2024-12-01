@@ -5,6 +5,8 @@ class MovableObject {
     width;
     img;
     imageCache = {};
+    currentImage = 0;
+    speed = 0.15;
 
     loadImage(path) {
         this.img = new Image();
@@ -17,16 +19,15 @@ class MovableObject {
             img.src = path;
             this.imageCache[path] = img;
         });
-    } 
-
+    }
+    
     moveInterval(minX) {
         setInterval(() => {
             if (this.x <= minX) {
                 this.x = 300 + Math.random() * 500;    
             } else {
-                this.x -= 0.15;
+                this.x -= this.speed;
             }
-        
         },1000 / 60);
     }
 }

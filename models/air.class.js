@@ -3,6 +3,7 @@ class Air extends MovableObject {
     heigth = 600;
     y = 0;
     x = 0;
+    
     constructor() {
         super().loadImage();
     }

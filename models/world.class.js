@@ -5,17 +5,17 @@ class World {
         new Background(backgroundImages[0], 0),
         new Background(backgroundImages[1], 0),
         new Background(backgroundImages[2], 0)
-    ]
+    ];
     statusbars = [
         new Statusbar(statusbarImages[0], 0),
         new Statusbar(statusbarImages[1], 60),
         new Statusbar(statusbarImages[2], 130)        
-    ]
+    ];
     enemies = [
         new Chicken(),
         new Chicken(),
         new Chicken()
-    ]
+    ];
     clouds = [
         new Cloud()
     ];
@@ -29,12 +29,12 @@ class World {
     }
 
     draw() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.addObjToMap(this.backgrounds)
-        this.addObjToMap(this.clouds)
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.addObjToMap(this.backgrounds);
+        this.addObjToMap(this.clouds);
         this.drawCharacterAndAnemies();
-        let self = this;
-        requestAnimationFrame(() => self.draw())
+        const self = this;
+        requestAnimationFrame(() => self.draw());
     }
 
     drawCharacterAndAnemies() {

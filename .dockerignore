@@ -1,0 +1,6 @@
+.git
+*.sh
+*.md
+docker-compose.yml
+eslint.config.js
+LICENSE

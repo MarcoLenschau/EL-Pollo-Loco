@@ -32,7 +32,7 @@ class Character extends MovableObject{
     }
 
     moveRight() {
-        if (this.x >= 590) return false
+        if (this.x >= 590) return false;
         this.x += this.speed;
     }
 

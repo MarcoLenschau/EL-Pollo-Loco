@@ -4,7 +4,11 @@ class World {
         new Background("./assetes/img/5_background/layers/air.png", 0),
         new Background(backgroundImages[0], 0),
         new Background(backgroundImages[1], 0),
-        new Background(backgroundImages[2], 0)
+        new Background(backgroundImages[2], 0),
+        new Background("./assetes/img/5_background/layers/air.png", 720),
+        new Background(backgroundImages[0], 720),
+        new Background(backgroundImages[1], 720),
+        new Background(backgroundImages[2], 720)
     ];
     statusbars = [
         new Statusbar(statusbarImages[0], 0),
@@ -22,6 +26,7 @@ class World {
     canvas;
     ctx;
     keyboard;
+    camera_x = 0;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
@@ -37,9 +42,11 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.translate(this.camera_x, 0);
         this.addObjToMap(this.backgrounds);
         this.addObjToMap(this.clouds);
         this.drawCharacterAndAnemies();
+        this.ctx.translate(-this.camera_x, 0);
         const self = this;
         requestAnimationFrame(() => self.draw());
     }
@@ -57,6 +64,24 @@ class World {
     }
     
     addToMap(object) {
+        if (object.otherDirection) {
+            this.flipImage(object);
+        }
         this.ctx.drawImage(object.img, object.x, object.y ,object.width, object.heigth);
+        if (object.otherDirection) {
+            this.flipImageBack(object);
+        }
+    }
+
+    flipImage(object) {
+        this.ctx.save();
+        this.ctx.translate(object.width, 0);
+        this.ctx.scale(-1, 1);
+        object.x = object.x * - 1;
+    }
+
+    flipImageBack(object) {
+        this.ctx.restore();
+        object.x = object.x * - 1;
     }
 }

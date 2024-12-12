@@ -1,7 +1,10 @@
 const backgroundImages = [
     "./assetes/img/5_background/layers/3_third_layer/1.png",
     "./assetes/img/5_background/layers/2_second_layer/1.png",
-    "./assetes/img/5_background/layers/1_first_layer/1.png"
+    "./assetes/img/5_background/layers/1_first_layer/1.png",
+    "./assetes/img/5_background/layers/3_third_layer/2.png",
+    "./assetes/img/5_background/layers/2_second_layer/2.png",
+    "./assetes/img/5_background/layers/1_first_layer/2.png"
 ];
 
 const statusbarImages = [
@@ -36,3 +39,6 @@ const chickenImages = [
     "./assetes/img/3_enemies_chicken/chicken_normal/1_walk/2_w.png",
     "./assetes/img/3_enemies_chicken/chicken_normal/1_walk/3_w.png"
 ];
+
+const airImage = "./assetes/img/5_background/layers/air.png";
+const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";

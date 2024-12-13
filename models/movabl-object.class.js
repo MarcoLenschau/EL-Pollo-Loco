@@ -31,4 +31,11 @@ class MovableObject {
             }
         },1000 / 60);
     }
+
+    playAnimation(images) {
+        const i = this.currentImage % images.length;
+        const path = images[i];
+        this.img = this.imageCache[path];
+        this.currentImage++;
+    }
 }

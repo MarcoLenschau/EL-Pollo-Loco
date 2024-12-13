@@ -7,6 +7,7 @@ class Character extends MovableObject{
     walking_sound = new Audio("./audio/walk.mp3");
     jump_sound = new Audio("./audio/jump.mp3");
 
+
     constructor() {
         super().loadImage(characterImages[0]);
         this.loadImages(characterImages);
@@ -32,26 +33,23 @@ class Character extends MovableObject{
 
     moveAnimation() {
         if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-            const i = this.currentImage % characterImages.length;
-            const path = characterImages[i];
-            this.img = this.imageCache[path];
-            this.currentImage++;
+            this.playAnimation(characterImages);
         }
     }
 
     moveRight() {
         this.x += this.speed;
+        this.walking_sound.play();
         this.moveElementsRight(this.world.statusbars, true);
         this.moveElementsRight(this.world.level.clouds, true);
-        this.walking_sound.play();
         this.otherDirection = false;
     }
 
     moveLeft() {
         this.x -= this.speed;
+        this.walking_sound.play();
         this.moveElementsRight(this.world.statusbars, false);
         this.moveElementsRight(this.world.level.clouds, false);
-        this.walking_sound.play();
         this.otherDirection = true;
     }
     

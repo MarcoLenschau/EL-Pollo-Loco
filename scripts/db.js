@@ -40,5 +40,17 @@ const chickenImages = [
     "./assetes/img/3_enemies_chicken/chicken_normal/1_walk/3_w.png"
 ];
 
+const endbossImages = [
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G5.png",
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G6.png",
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G7.png",
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G8.png",
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G9.png",
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G10.png",
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G11.png",
+    "./assetes/img/4_enemie_boss_chicken/2_alert/G12.png"
+];
+
 const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";
+const coinImage = "./assetes/img/8_coin/coin_1.png"

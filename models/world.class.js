@@ -6,6 +6,12 @@ class World {
         new Statusbar(statusbarImages[1], 60),
         new Statusbar(statusbarImages[2], 130)        
     ];
+    coin = [
+        new Coin(coinImage),
+        new Coin(coinImage),
+        new Coin(coinImage),
+        new Coin(coinImage)
+    ];
     canvas;
     ctx;
     keyboard;
@@ -29,6 +35,7 @@ class World {
         this.drawCharacterAndAnemies();
         this.ctx.translate(-this.camera_x - 30, 0);
         const self = this;
+        this.addObjToMap(this.coin)
         requestAnimationFrame(() => self.draw());
     }
 

@@ -21,6 +21,7 @@ class World {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
         this.keyboard = keyboard;
+        this.level.enemies[3].world = this;
         this.draw();
         this.setWorld();
     }
@@ -35,7 +36,7 @@ class World {
         this.drawCharacterAndAnemies();
         this.ctx.translate(-this.camera_x - 30, 0);
         const self = this;
-        this.addObjToMap(this.coin)
+        this.addObjToMap(this.coin);
         requestAnimationFrame(() => self.draw());
     }
 

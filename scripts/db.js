@@ -53,4 +53,4 @@ const endbossImages = [
 
 const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";
-const coinImage = "./assetes/img/8_coin/coin_1.png"
+const coinImage = "./assetes/img/8_coin/coin_1.png";

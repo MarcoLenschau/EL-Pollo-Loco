@@ -36,7 +36,14 @@ canvas {
     background-size: cover;
 }
 
-.play-button:hover {
+.refresh-button {
+    background-image: url("../assetes/icon/refresh.png");
+    background-position: center;
+    background-size: cover;
+    background-color: #e75a4d;
+}
+
+.overlay-start-screen-button:hover {
     cursor: pointer;
 }
 

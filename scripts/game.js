@@ -8,6 +8,10 @@ function init() {
     world = new World(canvas, keyboard);
 }
 
+function playTheGame() {
+    document.getElementsByClassName("overlay-start-screen")[0].classList.add("hidden");
+}
+
 document.addEventListener("keydown", (event) => { 
     keyboard.searchKeyEvent(event, true);
 });

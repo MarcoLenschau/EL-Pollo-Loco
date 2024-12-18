@@ -19,9 +19,16 @@
     <script src="./levels/level1.js"></script>
     <script src="./models/coin.class.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/flexbox.css">
 </head>
 <body onload="init();">
     <h1>El pollo loco</h1>
-    <canvas width="720" height="480" id="canvas"></canvas>     
+    <canvas width="720" height="480" id="canvas"></canvas>    
+    <div class="overlay-start-screen hidden">
+            <div class="d_flex" style="margin-bottom: 48px;">
+                <div class="overlay-start-screen-button refresh-button"></div>
+                <div onclick="playTheGame();" class="overlay-start-screen-button play-button"></div>
+            </div>
+    </div> 
 </body>
 </html>

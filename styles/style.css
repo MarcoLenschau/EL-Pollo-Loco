@@ -7,3 +7,46 @@ body {
 canvas { 
    background-color: black;
 }
+
+.overlay-start-screen {
+    position: absolute;
+    top: 97px;
+    height: 480px;
+    width: 720px;
+    background-image: url("../assetes/img/9_intro_outro_screens/start/startscreen_1.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: ease 2s;
+    overflow: hidden;
+}
+
+.overlay-start-screen-button {
+    height: 48px;
+    width: 58px;
+    border-radius: 24px;
+    margin-left: 32px;
+}
+
+.play-button {
+    background-image: url("../assetes/icon/play.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.refresh-button {
+    background-image: url("../assetes/icon/refresh.png");
+    background-position: center;
+    background-size: cover;
+    background-color: #e75a4d;
+}
+
+.overlay-start-screen-button:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    width: 0;
+}

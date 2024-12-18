@@ -34,6 +34,22 @@ const characterJumpImages = [
     "./assetes/img/2_character_pepe/3_jump/J-39.png"
 ];
 
+const characterDeadImages = [
+    "./assetes/img/2_character_pepe/5_dead/D-51.png",
+    "./assetes/img/2_character_pepe/5_dead/D-52.png",
+    "./assetes/img/2_character_pepe/5_dead/D-53.png",
+    "./assetes/img/2_character_pepe/5_dead/D-54.png",
+    "./assetes/img/2_character_pepe/5_dead/D-55.png",
+    "./assetes/img/2_character_pepe/5_dead/D-56.png",
+    "./assetes/img/2_character_pepe/5_dead/D-57.png"
+]
+
+const characterHurtImages = [
+    "./assetes/img/2_character_pepe/4_hurt/H-41.png",
+    "./assetes/img/2_character_pepe/4_hurt/H-42.png",
+    "./assetes/img/2_character_pepe/4_hurt/H-43.png"
+]
+
 const chickenImages = [
     "./assetes/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png",
     "./assetes/img/3_enemies_chicken/chicken_normal/1_walk/2_w.png",

@@ -13,6 +13,34 @@ const statusbarImages = [
     "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/blue/0.png"
 ];
 
+const statusbarLiveImages = [
+    "./assetes/img/7_statusbars/1_statusbar/2_statusbar_health/green/0.png",
+    "./assetes/img/7_statusbars/1_statusbar/2_statusbar_health/green/20.png",
+    "./assetes/img/7_statusbars/1_statusbar/2_statusbar_health/green/40.png",
+    "./assetes/img/7_statusbars/1_statusbar/2_statusbar_health/green/60.png",
+    "./assetes/img/7_statusbars/1_statusbar/2_statusbar_health/green/80.png",
+    "./assetes/img/7_statusbars/1_statusbar/2_statusbar_health/green/100.png",
+];
+
+const statusbarCoinImages = [
+    "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/0.png",
+    "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/20.png",
+    "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/40.png",
+    "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/60.png",
+    "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/80.png",
+    "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/100.png"
+];
+
+
+const statusbarBootleImages = [
+    "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/0.png",
+    "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/20.png",
+    "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/40.png",
+    "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/60.png",
+    "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/80.png",
+    "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/100.png"
+];
+
 const characterImages = [
     "./assetes/img/2_character_pepe/2_walk/W-21.png",
     "./assetes/img/2_character_pepe/2_walk/W-22.png",
@@ -42,13 +70,13 @@ const characterDeadImages = [
     "./assetes/img/2_character_pepe/5_dead/D-55.png",
     "./assetes/img/2_character_pepe/5_dead/D-56.png",
     "./assetes/img/2_character_pepe/5_dead/D-57.png"
-]
+];
 
 const characterHurtImages = [
     "./assetes/img/2_character_pepe/4_hurt/H-41.png",
     "./assetes/img/2_character_pepe/4_hurt/H-42.png",
     "./assetes/img/2_character_pepe/4_hurt/H-43.png"
-]
+];
 
 const chickenImages = [
     "./assetes/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png",
@@ -70,3 +98,4 @@ const endbossImages = [
 const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";
 const coinImage = "./assetes/img/8_coin/coin_1.png";
+const bootleImage = "./assetes/img/6_salsa_bottle/salsa_bottle.png";

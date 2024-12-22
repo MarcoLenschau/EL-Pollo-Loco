@@ -7,11 +7,6 @@ function init() {
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
     world.level.enemies[3].moveAnimation();
-    setInterval(() => {
-        world.character.howMuchLive();
-    }, 1000 / 60);
-    
- 
 }
 
 function playTheGame() {

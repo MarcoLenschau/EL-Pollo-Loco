@@ -1,4 +1,4 @@
-class MovableObject extends DrawablObject{
+class MovableObject extends DrawablObject {
     currentImage = 0;
     speed = 0.15;
     otherDirection = false;
@@ -13,11 +13,15 @@ class MovableObject extends DrawablObject{
                 this.y -= this.speedY;
                 this.speedY -= this.acceleration;
             } 
-        },1000 / 25)
+        },1000 / 25);
     }
 
     isAboveGroud() {
-        return this.y < 220;
+        if (this instanceof ThrowableObject) {
+            return true;
+        } else {
+            return this.y < 220;            
+        }   
     }
 
     playAnimation(images) {
@@ -55,7 +59,7 @@ class MovableObject extends DrawablObject{
     hit() {
         if (this.energy > 0) {
             this.lastHit = new Date().getTime();
-            this.energy -= 5; 
+            this.energy -= 5;
         } 
     }
 }

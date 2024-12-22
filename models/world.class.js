@@ -6,12 +6,18 @@ class World {
         new Statusbar(statusbarImages[1], 60),
         new Statusbar(statusbarImages[2], 130)        
     ];
-    coin = [
-        new Coin(coinImage),
-        new Coin(coinImage),
-        new Coin(coinImage),
-        new Coin(coinImage)
+    collectObjects = [
+        new CollectObject (coinImage),
+        new CollectObject (coinImage),
+        new CollectObject (coinImage),
+        new CollectObject (coinImage),
+        new CollectObject (bootleImage),
+        new CollectObject (bootleImage),
+        new CollectObject (bootleImage),
+        new CollectObject (bootleImage),
+        new CollectObject (bootleImage)
     ];
+    throwableObjects = [];
     canvas;
     ctx;
     keyboard;
@@ -24,7 +30,7 @@ class World {
         this.level.enemies[3].world = this;
         this.draw();
         this.setWorld();
-        this.checkCollisions();
+        this.runInterval();
     }
 
     setWorld() {
@@ -35,9 +41,10 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawBackground();
         this.drawCharacterAndAnemies();
+        this.addObjToMap(this.collectObjects);
+        this.addObjToMap(this.throwableObjects);
         this.ctx.translate(-this.camera_x - 30, 0);
         const self = this;
-        this.addObjToMap(this.coin);
         requestAnimationFrame(() => self.draw());
     }
 
@@ -49,7 +56,9 @@ class World {
 
     drawCharacterAndAnemies() {
         this.addToMap(this.character);
+        this.ctx.translate(-this.camera_x, 0);
         this.addObjToMap(this.statusbars);
+        this.ctx.translate(this.camera_x, 0);
         this.addObjToMap(this.level.enemies);
     }
 
@@ -83,13 +92,50 @@ class World {
     }
 
     checkCollisions() {
+        this.checkEnemiesCollisions();
+        this.checkCollectObjectsCollisions();
+    }
+    
+    checkEnemiesCollisions() {
+        this.level.enemies.forEach(enemie => {
+            if (this.character.isColliding(enemie)) {
+                this.character.hit();
+                this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages); 
+            } 
+        });
+    }
+
+    checkCollectObjectsCollisions() {
+        this.collectObjects.forEach(collectObject => { 
+            if (this.character.isColliding(collectObject) && this.character.isAboveGroud()) {
+                this.isObjectACoinOrBootle(collectObject);
+                collectObject.hidden();
+            }
+        });
+    }
+
+    isObjectACoinOrBootle(collectObject) {
+        if (collectObject.imgPath === coinImage) {
+            this.character.coins += 20;
+            this.statusbars[2].analysePercentage(this.character.coins, statusbarCoinImages);
+        } else {
+            this.character.bootles += 1;
+            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);   
+        }
+    }
+
+    checkThrowObject() {
+        if (this.keyboard.D && !this.character.otherDirection && this.character.bootles > 0) {
+            const bootle = new ThrowableObject(this.character.x, 250);
+            this.throwableObjects.push(bootle);
+            this.character.bootles -= 1;
+        }   
+    }
+
+    runInterval() {
         setInterval(() => {
-            this.level.enemies.forEach(enemie => {
-                if (this.character.isColliding(enemie)) {
-                    this.character.hit();
-                    console.log("Energy: " + this.character.energy);  
-                } 
-            });
-        }, 500);
+            this.checkCollisions();
+            this.checkThrowObject();
+        }, 250);
     }
 }

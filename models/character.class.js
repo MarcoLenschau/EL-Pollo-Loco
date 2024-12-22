@@ -5,7 +5,8 @@ class Character extends MovableObject{
     speed = 5;
     walking_sound = new Audio("./audio/walk.mp3");
     jump_sound = new Audio("./audio/jump.mp3");
-
+    coins = 0;
+    bootles = 0;
 
     constructor() {
         super().loadImage(characterImages[0]);
@@ -28,14 +29,14 @@ class Character extends MovableObject{
             return true;
         }
         if (this.world.keyboard.RIGHT && this.isCharacterNotTheFarRight()) {
-            this.moveCharacterLeft(false)
+            this.moveCharacterLeft(false);
         } 
         if (this.world.keyboard.LEFT && this.x > 0) {
-            this.moveCharacterLeft(true)
+            this.moveCharacterLeft(true);
         } 
         if (this.isJumpKeyClicked() && !this.isAboveGroud()) {
             this.jump();
-        }   
+        }
         this.reduceCameraX();
     }
 
@@ -47,7 +48,6 @@ class Character extends MovableObject{
         }
         this.walking_sound.play();
         this.otherDirection = direction;
-        this.moveCloudsAndStatusbars(!direction);
     }
 
     isJumpKeyClicked() {
@@ -60,9 +60,7 @@ class Character extends MovableObject{
 
     moveAnimation() {
         if (this.isDead()) {
-            this.otherDirection = false;
-            this.playAnimation(characterDeadImages);
-            return false;
+            this.characterIsDead();
         } 
         if (this.isHurt()) {
             this.playAnimation(characterHurtImages);
@@ -74,26 +72,19 @@ class Character extends MovableObject{
             this.playAnimation(characterImages);
         }   
     }
- 
+    
+    characterIsDead() {
+        this.otherDirection = false;
+        this.playAnimation(characterDeadImages);
+        setTimeout(() => {
+            document.getElementsByClassName("overlay-start-screen")[0].classList.remove("hidden");
+        },1000);
+        return false;
+    }
+
     clickKeyLeftOrRight() {
         return this.world.keyboard.RIGHT || this.world.keyboard.LEFT;
     }
-
-    moveCloudsAndStatusbars(state) {
-        this.moveElementsRight(this.world.statusbars, state);
-        this.moveElementsRight(this.world.level.clouds, state);
-    }
-    
-
-    moveElementsRight(element, state) {
-        element.forEach(statusbar => {
-            if (state) {
-                statusbar.x += this.speed;
-            } else {
-                statusbar.x -= this.speed;
-            }
-        });
-    } 
 
     reduceCameraX() {
         this.world.camera_x = -this.x + 100;
@@ -104,28 +95,4 @@ class Character extends MovableObject{
         this.jump_sound.play();
         this.speedY = 20;     
     }
-
-    howMuchLive() {
-        let imageNumber = 0;
-        if(this.energy === 100) {
-            imageNumber = 100;
-        } else if(this.energy < 100 && this.energy >= 80) {
-            imageNumber = 80;
-        } else if(this.energy <= 80 && this.energy >= 60) {
-            imageNumber = 60;
-        } else if(this.energy <= 60 && this.energy >= 40) {
-            imageNumber = 40;
-        } else if(this.energy <= 40 && this.energy > 0) {
-            imageNumber = 20;
-        } else if(this.energy === 0) {
-            imageNumber = 0;
-        }
-        this.showLiveInStatusbar(imageNumber);
-    }
-
-    showLiveInStatusbar(imageNumber) {
-        const imagePath = `./assetes/img/7_statusbars/1_statusbar/2_statusbar_health/green/${imageNumber}.png`;
-        this.world.statusbars[1].loadImage(imagePath);
-    }
-    
 }

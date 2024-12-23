@@ -1,7 +1,8 @@
 class Endboss extends MovableObject {
-    heigth = 150;
-    width = 150;
-    x = 2650;
+    heigth = 350;
+    width = 250;
+    x = 2550;
+    y = 100;
 
     constructor() {
         super().loadImage(endbossImages[0]);

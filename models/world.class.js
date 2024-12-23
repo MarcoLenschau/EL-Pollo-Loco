@@ -129,13 +129,16 @@ class World {
             const bootle = new ThrowableObject(this.character.x, 250);
             this.throwableObjects.push(bootle);
             this.character.bootles -= 1;
-        }   
-    }
+            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);  
+        };
+            
+    }   
 
     runInterval() {
         setInterval(() => {
             this.checkCollisions();
             this.checkThrowObject();
+            this.character.jumpOfEnemies();
         }, 250);
     }
 }

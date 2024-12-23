@@ -93,6 +93,18 @@ class Character extends MovableObject{
     jump() {
         this.jump_sound.pause();
         this.jump_sound.play();
-        this.speedY = 20;     
+        this.speedY = 20;
+    }
+
+    jumpOfEnemies() {
+        let enemies = world.level.enemies;
+        for (let index = 0; index < enemies.length; index++) {
+            if (enemies[index].width === 100) {
+                if (this.isColliding(enemies[index]) && !this.isAboveGroud()) {
+                    enemies.splice(index, 1);
+                };    
+            }
+
+        }
     }
 }

@@ -12,7 +12,7 @@ class Endboss extends MovableObject {
 
     moveAnimation() {
         setInterval(() => {
-            if (world.character.x >= 2000) {
+            if (world.character.x >= 2000 && this.energy > 0) {
                 world.statusbars[3].show();
                 this.x -= 20;
                 this.playAnimation(endbossImages);      

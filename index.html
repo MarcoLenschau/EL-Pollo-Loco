@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>El pollo loco</title>
     <script src="./scripts/db.js"></script>
     <script src="./models/drawabl-object.class.js"></script>
     <script src="./models/statusbar.class.js"></script>
@@ -23,35 +23,53 @@
     <script src="./models/throwable-object.class.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/flexbox.css">
+    <link rel="shortcut icon" href="./assetes/img/2_character_pepe/1_idle/idle/I-1.png" type="image/x-icon">
 </head>
 <body onload="init();">
-    <h1>El pollo loco</h1>
-    <canvas width="720" height="480" id="canvas"></canvas>    
-    <div class="overlay-start-screen">
-            <div >
-                <div class="d_flex" style="margin-bottom: 48px;">
-                    <div onclick="fullscreen();" class="overlay-start-screen-button refresh-button"></div>
-                    <div onclick="playTheGame();" class="overlay-start-screen-button play-button"></div>    
+    <div class="background-div">
+        <canvas width="1080" height="480" id="canvas"></canvas>    
+        <div class="overlay-start-screen">
+                <div >
+                    <div class="d_flex" style="margin-bottom: 48px;">
+                        <div onclick="fullscreen();" class="overlay-start-screen-button refresh-button"></div>
+                        <div onclick="playTheGame();" class="overlay-start-screen-button play-button"></div>    
+                    </div>
                 </div>
-            </div>
-    </div>
-    <div class="d_flex" style="width: 720px; background-color: rgba(0, 0, 0, 0.35); align-items: center; flex-direction: column;">
-        <h1>Gameplay</h1>
-        <div class="d_flex" style="flex-direction: column; gap: 24px;">
-            <div class="d_flex" style="align-items: center;">
-                <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">
-                <span>SPACE</span>
-            </div>
-            <div class="d_flex" style="align-items: center;">
-                <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left">
-                <span>LEFT</span>
-            </div>
-            <div class="d_flex" style="align-items: center;">
-                <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
-                <span>RIGHT</span>
-            </div>
         </div>
-        
-    </div> 
+        <div class="d_flex" style="width: 1080px; background-color: rgba(0, 0, 0, 0.35); align-items: center; flex-direction: column;">
+            <h1>Gameplay</h1>
+   
+            <div class="d_flex" style="flex-direction: column; gap: 24px;">
+                <div class="d_flex_c g_12" style="justify-content: space-around;">
+                    <div class="d_flex_c g_12">
+                        <span class="bold">F</span>
+                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="arrow-up">
+                    </div>
+                    <div class="d_flex_c g_12" style="flex-direction: column;">
+                        <span class="bold">SPACE</span>
+                        <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">  
+                    </div>
+                    <div class="d_flex_c g_12">
+                        <span class="bold">D</span>
+                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="arrow-up">
+                    </div>
+                </div>          
+                
+                <div class="d_flex" style="gap: 200px;">
+                    <div class="d_flex_c g_12">
+                        <span class="bold">LEFT</span>
+                        <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left">
+                        
+                    </div>
+                    <div class="d_flex_c g_12">
+                        <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
+                        <span class="bold">RIGHT</span>
+                    </div>
+                </div>
+
+            </div>
+        </div> 
+    </div>
+    
 </body>
 </html>

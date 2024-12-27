@@ -161,7 +161,7 @@ class World {
         };    
     }   
 
-    showfullscreen() {
+    showFullscreen() {
         if (this.keyboard.F) {
             fullscreen();
         }
@@ -172,7 +172,7 @@ class World {
             this.checkCollisions();
             this.checkThrowObject();
             this.character.jumpOfEnemies();
-            this.showfullscreen();
+            this.showFullscreen();
         }, 250);
     }
 

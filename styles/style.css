@@ -4,15 +4,31 @@ body {
     align-items: center;
 }
 
+* {
+    box-sizing: border-box;
+    color: white;
+}
+
 canvas { 
    background-color: black;
 }
 
+.background-div {
+    background-image: url("../assetes/icon/background.jpg"); 
+    height: 100vh; 
+    width: 100vw; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+    margin: -8px;
+}
+
 .overlay-start-screen {
     position: absolute;
-    top: 97px;
+    top: 130px;
     height: 480px;
-    width: 720px;
+    width: 1080px;
     background-image: url("../assetes/img/9_intro_outro_screens/start/startscreen_1.png");
     background-position: center;
     background-size: cover;
@@ -54,4 +70,9 @@ canvas {
 
 .hidden {
     width: 0;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 32px;
 }

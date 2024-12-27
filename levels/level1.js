@@ -32,5 +32,10 @@ const level1 = new Level(
         new Background(backgroundImages[3], 719*3),
         new Background(backgroundImages[4], 719*3),
         new Background(backgroundImages[5], 719*3), 
+        new Background(airImage, 719*4),
+        new Background(backgroundImages[0], 719*4),
+        new Background(backgroundImages[1], 719*4),
+        new Background(backgroundImages[2], 719*4), 
+
     ]
 )

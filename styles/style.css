@@ -43,6 +43,11 @@ canvas {
     background-color: #e75a4d;
 }
 
+.arrow-keys {
+    height: 64px;
+    width: 64px;
+}
+
 .overlay-start-screen-button:hover {
     cursor: pointer;
 }

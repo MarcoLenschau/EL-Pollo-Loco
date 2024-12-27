@@ -13,6 +13,11 @@ function playTheGame() {
     document.getElementsByClassName("overlay-start-screen")[0].classList.add("hidden");
 }
 
+function fullscreen() {
+    world.canvas.requestFullscreen();
+    playTheGame();
+}
+
 document.addEventListener("keydown", (event) => { 
     keyboard.searchKeyEvent(event, true);
 });

@@ -62,4 +62,11 @@ class MovableObject extends DrawablObject {
             this.energy -= 5;
         } 
     }
+    
+    hidden() {
+        this.x = null;
+        this.y = null;
+        this.width = null;
+        this.heigth = null;
+    }
 }

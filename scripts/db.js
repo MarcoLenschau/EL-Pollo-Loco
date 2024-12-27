@@ -95,6 +95,15 @@ const endbossImages = [
     "./assetes/img/4_enemie_boss_chicken/2_alert/G12.png"
 ];
 
+const endbossStatusbarImages = [
+    "./assetes/img/7_statusbars/2_statusbar_endboss/green/green0.png",
+    "./assetes/img/7_statusbars/2_statusbar_endboss/green/green20.png",
+    "./assetes/img/7_statusbars/2_statusbar_endboss/green/green40.png",
+    "./assetes/img/7_statusbars/2_statusbar_endboss/green/green60.png",
+    "./assetes/img/7_statusbars/2_statusbar_endboss/green/green80.png",
+    "./assetes/img/7_statusbars/2_statusbar_endboss/green/green100.png"
+]
+
 const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";
 const coinImage = "./assetes/img/8_coin/coin_1.png";

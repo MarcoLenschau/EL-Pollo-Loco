@@ -7,13 +7,33 @@ class Endboss extends MovableObject {
     constructor() {
         super().loadImage(endbossImages[0]);
         this.loadImages(endbossImages);
+        this.moveAnimation();     
     }
 
     moveAnimation() {
         setInterval(() => {
             if (world.character.x >= 2000) {
+                world.statusbars[3].show();
                 this.x -= 20;
-                this.playAnimation(endbossImages);
+                this.playAnimation(endbossImages);      
+            } else {
+                world.statusbars[3].hidden();
             }},1000);
     }
-}
+
+    hit() {
+        if (this.energy > 0) {
+            this.lastHit = new Date().getTime();
+            this.energy -= 20;
+            this.showLive();
+        } else {
+            this.hidden();
+        }
+    }
+
+    showLive() {
+        setInterval(() => {
+            world.statusbars[3].analysePercentage(this.energy, endbossStatusbarImages);            
+        },1000 / 60);
+    }
+}  

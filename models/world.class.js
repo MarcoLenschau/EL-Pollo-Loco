@@ -4,7 +4,8 @@ class World {
     statusbars = [
         new Statusbar(statusbarImages[0], 0),
         new Statusbar(statusbarImages[1], 60),
-        new Statusbar(statusbarImages[2], 130)        
+        new Statusbar(statusbarImages[2], 130),
+        new Statusbar (endbossStatusbarImages[5], 20, 480, false)
     ];
     collectObjects = [
         new CollectObject (coinImage),
@@ -94,15 +95,42 @@ class World {
     checkCollisions() {
         this.checkEnemiesCollisions();
         this.checkCollectObjectsCollisions();
+        this.checkThrowCollisions();
     }
-    
+
+    checkThrowCollisions() {
+        this.level.enemies.forEach((enemie, index) => {
+            this.throwableObjects.forEach (bootle => {
+                if (enemie.isColliding(bootle)) {
+                    if (enemie.width == 100) {
+                        this.level.enemies.splice(index, 1);
+                    } else {
+                        enemie.hit();
+                    }
+                }
+       
+            });
+        });
+    }
+
+
     checkEnemiesCollisions() {
         this.level.enemies.forEach(enemie => {
             if (this.character.isColliding(enemie)) {
-                this.character.hit();
-                this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages); 
-            } 
-        });
+                if (enemie.width != 100) {
+                    this.characterHit();
+                } else {
+                    if (!this.character.isAboveGroud()) {
+                        this.characterHit();                   
+                    }
+                }
+              }
+          });
+    }
+
+    characterHit() {
+        this.character.hit();
+        this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages); 
     }
 
     checkCollectObjectsCollisions() {
@@ -129,16 +157,24 @@ class World {
             const bootle = new ThrowableObject(this.character.x, 250);
             this.throwableObjects.push(bootle);
             this.character.bootles -= 1;
-            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);  
-        };
-            
+            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);         
+        };    
     }   
+
+    showfullscreen() {
+        if (this.keyboard.F) {
+            fullscreen();
+        }
+    }
 
     runInterval() {
         setInterval(() => {
             this.checkCollisions();
             this.checkThrowObject();
             this.character.jumpOfEnemies();
+            this.showfullscreen();
         }, 250);
     }
+
+
 }

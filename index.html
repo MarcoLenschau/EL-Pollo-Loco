@@ -27,11 +27,31 @@
 <body onload="init();">
     <h1>El pollo loco</h1>
     <canvas width="720" height="480" id="canvas"></canvas>    
-    <div class="overlay-start-screen hidden">
-            <div class="d_flex" style="margin-bottom: 48px;">
-                <div class="overlay-start-screen-button refresh-button"></div>
-                <div onclick="playTheGame();" class="overlay-start-screen-button play-button"></div>
+    <div class="overlay-start-screen">
+            <div >
+                <div class="d_flex" style="margin-bottom: 48px;">
+                    <div onclick="fullscreen();" class="overlay-start-screen-button refresh-button"></div>
+                    <div onclick="playTheGame();" class="overlay-start-screen-button play-button"></div>    
+                </div>
             </div>
+    </div>
+    <div class="d_flex" style="width: 720px; background-color: rgba(0, 0, 0, 0.35); align-items: center; flex-direction: column;">
+        <h1>Gameplay</h1>
+        <div class="d_flex" style="flex-direction: column; gap: 24px;">
+            <div class="d_flex" style="align-items: center;">
+                <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">
+                <span>SPACE</span>
+            </div>
+            <div class="d_flex" style="align-items: center;">
+                <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left">
+                <span>LEFT</span>
+            </div>
+            <div class="d_flex" style="align-items: center;">
+                <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
+                <span>RIGHT</span>
+            </div>
+        </div>
+        
     </div> 
 </body>
 </html>

@@ -61,6 +61,7 @@ class Character extends MovableObject{
     moveAnimation() {
         if (this.isDead()) {
             this.characterIsDead();
+            return false;
         } 
         if (this.isHurt()) {
             this.playAnimation(characterHurtImages);
@@ -76,8 +77,12 @@ class Character extends MovableObject{
     characterIsDead() {
         this.otherDirection = false;
         this.playAnimation(characterDeadImages);
+        world.level.enemies.forEach((enemie) => {
+            enemie.hidden();
+        });
+        this.hidden();
         setTimeout(() => {
-            document.getElementsByClassName("overlay-start-screen")[0].classList.remove("hidden");
+            document.getElementsByClassName("end-overlay")[0].classList.remove("hidden");
         },1000);
         return false;
     }

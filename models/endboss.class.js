@@ -23,7 +23,6 @@ class Endboss extends MovableObject {
 
     hit() {
         if (this.energy > 0) {
-            this.lastHit = new Date().getTime();
             this.energy -= 20;
             this.showLive();
         } else {

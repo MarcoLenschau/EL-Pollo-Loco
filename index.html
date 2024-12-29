@@ -25,51 +25,49 @@
     <link rel="stylesheet" href="./styles/flexbox.css">
     <link rel="shortcut icon" href="./assetes/img/2_character_pepe/1_idle/idle/I-1.png" type="image/x-icon">
 </head>
-<body onload="init();">
-    <div class="background-div">
-        <canvas width="1080" height="480" id="canvas"></canvas>    
-        <div class="overlay-start-screen">
-                <div >
-                    <div class="d_flex" style="margin-bottom: 48px;">
-                        <div onclick="fullscreen();" class="overlay-start-screen-button refresh-button"></div>
-                        <div onclick="playTheGame();" class="overlay-start-screen-button play-button"></div>    
-                    </div>
-                </div>
-        </div>
-        <div class="d_flex" style="width: 1080px; background-color: rgba(0, 0, 0, 0.35); align-items: center; flex-direction: column;">
-            <h1>Gameplay</h1>
-   
-            <div class="d_flex" style="flex-direction: column; gap: 24px;">
-                <div class="d_flex_c g_12" style="justify-content: space-around;">
-                    <div class="d_flex_c g_12">
-                        <span class="bold">F</span>
-                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="arrow-up">
-                    </div>
-                    <div class="d_flex_c g_12" style="flex-direction: column;">
-                        <span class="bold">SPACE</span>
-                        <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">  
-                    </div>
-                    <div class="d_flex_c g_12">
-                        <span class="bold">D</span>
-                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="arrow-up">
-                    </div>
-                </div>          
-                
-                <div class="d_flex" style="gap: 200px;">
-                    <div class="d_flex_c g_12">
-                        <span class="bold">LEFT</span>
-                        <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left">
-                        
-                    </div>
-                    <div class="d_flex_c g_12">
-                        <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
-                        <span class="bold">RIGHT</span>
-                    </div>
-                </div>
-
+<body>
+    <h1>El Pollo Loco</h1>
+    <canvas width="1080" height="480" id="canvas"></canvas>    
+    <div class="end-overlay hidden"></div>
+    <div class="overlay-start-screen">
+        <div>
+            <div class="d_flex" style="margin-bottom: 48px;">
+                <div onclick="fullscreen();" class="overlay-start-screen-button refresh-button"></div>
+                <div onclick="playTheGame();" class="overlay-start-screen-button play-button"></div>    
             </div>
-        </div> 
+        </div>
     </div>
+    <div class="d_flex_c d_flex_column" style="width: 1080px; background-color: rgba(0, 0, 0, 0.35);">
+        <h1>Gameplay</h1>
+        <div class="d_flex_column g_24">
+            <div class="d_flex_c d_flex_s_a g_12">
+                <div class="d_flex_c g_12">
+                    <span class="bold">F</span>
+                    <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="fullscreen">
+                </div>
+                <div class="d_flex_c d_flex_column g_12">
+                    <span class="bold">SPACE</span>
+                    <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">  
+                </div>
+                <div class="d_flex_c g_12">
+                    <span class="bold">D</span>
+                    <img class="bootle-image" src="./assetes/img/6_salsa_bottle/salsa_bottle.png" alt="throw">
+                </div>
+            </div>          
+            <div class="d_flex g_200">
+                <div class="d_flex_c g_12">
+                    <span class="bold">LEFT</span>
+                    <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left">
+                    
+                </div>
+                <div class="d_flex_c g_12 m_36">
+                    <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
+                    <span class="bold">RIGHT</span>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
     
 </body>
 </html>

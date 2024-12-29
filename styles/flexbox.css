@@ -7,6 +7,24 @@
     align-items: center;
 }
 
+.d_flex_s_a {
+    display: flex;
+    justify-content: space-around;
+}
+
+.d_flex_column {
+    display: flex;
+    flex-direction: column;
+}
+
 .g_12 {
     gap: 12px;
+}
+
+.g_24 {
+    gap: 24px;
+}
+
+.g_200 {
+    gap: 200px;
 }

@@ -3,19 +3,18 @@ let world;
 let ctx;
 const keyboard = new Keyboard();
 
-function init() {
+
+function playTheGame() {
+    document.getElementsByClassName("overlay-start-screen")[0].classList.add("hidden");
+    initLevel();
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
     world.level.enemies[3].moveAnimation();
 }
 
-function playTheGame() {
-    document.getElementsByClassName("overlay-start-screen")[0].classList.add("hidden");
-}
-
 function fullscreen() {
-    world.canvas.requestFullscreen();
     playTheGame();
+    world.canvas.requestFullscreen();
 }
 
 document.addEventListener("keydown", (event) => { 

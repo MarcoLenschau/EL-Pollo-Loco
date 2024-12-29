@@ -23,6 +23,7 @@ class World {
     ctx;
     keyboard;
     camera_x = 0;
+    lastThrow = 0;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
@@ -153,13 +154,22 @@ class World {
     }
 
     checkThrowObject() {
-        if (this.keyboard.D && !this.character.otherDirection && this.character.bootles > 0) {
-            const bootle = new ThrowableObject(this.character.x, 250);
-            this.throwableObjects.push(bootle);
-            this.character.bootles -= 1;
-            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);         
-        };    
+        if (this.isThrow()) {
+            if (this.keyboard.D && !this.character.otherDirection && this.character.bootles > 0) {
+                const bootle = new ThrowableObject(this.character.x, 250);
+                this.throwableObjects.push(bootle);
+                this.character.bootles -= 1;
+                this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);
+                this.lastThrow = new Date().getTime();                
+            }
+        };
     }   
+
+    isThrow() {
+        let currentTime = new Date().getTime();
+        currentTime -= this.lastThrow;
+        return currentTime > 1000;
+    }
 
     showFullscreen() {
         if (this.keyboard.F) {
@@ -170,11 +180,11 @@ class World {
     runInterval() {
         setInterval(() => {
             this.checkCollisions();
+        }, 500);
+        setInterval(() => {
             this.checkThrowObject();
             this.character.jumpOfEnemies();
             this.showFullscreen();
-        }, 250);
+        }, 50);
     }
-
-
 }

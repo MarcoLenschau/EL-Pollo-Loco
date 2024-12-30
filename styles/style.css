@@ -96,6 +96,22 @@ body > h1 {
     width: 0;
 }
 
+.hidden-menu {
+    width: 0;
+    transition: ease 1s;
+    overflow: hidden;
+}
+
+.gameplay-menu {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 0;
+    position: absolute;
+    top: 219px;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+}
+
 .bold {
     font-weight: bold;
     font-size: 32px;

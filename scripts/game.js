@@ -1,6 +1,7 @@
 let canvas;
 let world;
 let ctx;
+let endbossFight = false;
 const keyboard = new Keyboard();
 
 
@@ -15,6 +16,15 @@ function playTheGame() {
 function fullscreen() {
     playTheGame();
     world.canvas.requestFullscreen();
+}
+
+function showGameplay() {
+    let width = document.getElementsByClassName("gameplay-menu")[0].style.width
+    if (width != "") {
+        document.getElementsByClassName("gameplay-menu")[0].style.width = "";
+    } else {
+        document.getElementsByClassName("gameplay-menu")[0].style.width = "1080px";
+    }
 }
 
 document.addEventListener("keydown", (event) => { 

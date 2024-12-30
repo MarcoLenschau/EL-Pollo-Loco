@@ -95,6 +95,19 @@ const endbossImages = [
     "./assetes/img/4_enemie_boss_chicken/2_alert/G12.png"
 ];
 
+const endbossWalkImages = [
+    "./assetes/img/4_enemie_boss_chicken/1_walk/G1.png",
+    "./assetes/img/4_enemie_boss_chicken/1_walk/G2.png",
+    "./assetes/img/4_enemie_boss_chicken/1_walk/G3.png",
+    "./assetes/img/4_enemie_boss_chicken/1_walk/G4.png"
+]
+
+const endbossHurtImages = [
+    "./assetes/img/4_enemie_boss_chicken/4_hurt/G21.png",
+    "./assetes/img/4_enemie_boss_chicken/4_hurt/G22.png",
+    "./assetes/img/4_enemie_boss_chicken/4_hurt/G23.png"
+];
+
 const endbossStatusbarImages = [
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green0.png",
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green20.png",
@@ -102,7 +115,7 @@ const endbossStatusbarImages = [
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green60.png",
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green80.png",
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green100.png"
-]
+];
 
 const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";

@@ -12,37 +12,45 @@ class Endboss extends MovableObject {
     }
 
     moveAnimation() {
-        let i = 0;
-        setInterval(() => {
-            if ((world.character.x >= 2000 || endbossFight) && this.energy > 0) {
-                world.statusbars[3].show();
-                this.x -= 20;
-                endbossFight = true;
-                if (i = 10 && !endbossFight) {
-                    this.playAnimation(endbossWalkImages);
-                } else {
-                    this.playAnimation(endbossImages);      
-                }
-                i++;
+        setStoppableInterval((interval = 0) => {
+            if ((world.character.x >= 2000 || endbossFight) && this.energy >= 20) {
+                this.characterMourning();
+                this.isBossFight(interval);
             } else {
                 world.statusbars[3].hidden();
             }},1000);
     }
 
-    
+    characterMourning() {
+        world.statusbars[3].show();
+        this.x -= 20;
+        endbossFight = true;
+    }
+
+    isBossFight(interval) {
+        if (interval < 10 && !endbossFight) {
+            this.playAnimation(endbossWalkImages);
+        } else {
+            this.playAnimation(endbossImages);      
+        }
+        interval++;
+    }
 
     hit() {
-        if (this.energy > 0) {
+        if (this.energy >= 20) {
             this.energy -= 20;
             this.playAnimation(endbossHurtImages);
             this.showLive();
         } else {
             this.hidden();
+            setTimeout(() => {
+                document.getElementsByClassName("win-overlay")[0].classList.remove("hidden");
+            },1000);
         }
     }
 
     showLive() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             world.statusbars[3].analysePercentage(this.energy, endbossStatusbarImages);            
         },1000 / 60);
     }

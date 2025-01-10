@@ -55,9 +55,10 @@ body > h1 {
 }
 
 .win-overlay {
-    background-image: url("../assetes/img/9_intro_outro_screens/win/win_1.png");
-    background-position: center;
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     height: 480px;
     width: 1080px;
     position: absolute;
@@ -203,6 +204,10 @@ body > h1 {
 .bold {
     font-weight: bold;
     font-size: 32px;
+}
+
+.f_s_50 {
+    font-size: 50px;
 }
 
 .m_36 {

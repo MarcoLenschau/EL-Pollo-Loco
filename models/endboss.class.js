@@ -13,7 +13,7 @@ class Endboss extends MovableObject {
 
     moveAnimation() {
         setStoppableInterval((interval = 0) => {
-            if ((world.character.x >= 2000 || endbossFight) && this.energy >= 20) {
+            if ((world.character.x >= 2000 || endbossFight) && this.energy > 0) {
                 this.characterMourning();
                 this.isBossFight(interval);
             } else {
@@ -37,15 +37,13 @@ class Endboss extends MovableObject {
     }
 
     hit() {
-        if (this.energy >= 20) {
+        if (this.energy > 0) {
             this.energy -= 20;
             this.playAnimation(endbossHurtImages);
             this.showLive();
         } else {
             this.hidden();
-            setTimeout(() => {
-                document.getElementsByClassName("win-overlay")[0].classList.remove("hidden");
-            },1000);
+            winTheGame();
         }
     }
 

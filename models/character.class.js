@@ -19,8 +19,8 @@ class Character extends MovableObject{
     }
 
     showMoveAnimation() {
-        setInterval(() => this.moveCharacter(), 1000 / 60);
-        setInterval(() => this.moveAnimation(), 50);
+        setStoppableInterval(() => this.moveCharacter(), 1000 / 60);
+        setStoppableInterval(() => this.moveAnimation(), 50);
     }
 
     moveCharacter() {
@@ -46,7 +46,9 @@ class Character extends MovableObject{
         } else {
             this.moveRight(); 
         }
-        this.walking_sound.play();
+        if (!mute) {
+            this.walking_sound.play();
+        }
         this.otherDirection = direction;
     }
 
@@ -65,9 +67,11 @@ class Character extends MovableObject{
         } 
         if (this.isHurt()) {
             this.playAnimation(characterHurtImages);
+            this.loadImages(characterImages);
         }
         if (this.isAboveGroud()) {
             this.playAnimation(characterJumpImages);
+            this.loadImages(characterImages);
         } 
         if (this.clickKeyLeftOrRight()) {
             this.playAnimation(characterImages);
@@ -97,7 +101,9 @@ class Character extends MovableObject{
 
     jump() {
         this.jump_sound.pause();
-        this.jump_sound.play();
+        if (!mute) {
+            this.jump_sound.play();
+        }
         this.speedY = 20;
     }
 

@@ -16,6 +16,9 @@ class World {
         new CollectObject (bootleImage),
         new CollectObject (bootleImage),
         new CollectObject (bootleImage),
+        new CollectObject (bootleImage),
+        new CollectObject (bootleImage),
+        new CollectObject (bootleImage),
         new CollectObject (bootleImage)
     ];
     throwableObjects = [];
@@ -109,7 +112,6 @@ class World {
                         enemie.hit();
                     }
                 }
-       
             });
         });
     }
@@ -177,14 +179,21 @@ class World {
         }
     }
 
+    checkMute() {
+        if (this.keyboard.M) {
+            muteTheGame();
+        }
+    }
+
     runInterval() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.checkCollisions();
         }, 500);
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.checkThrowObject();
             this.character.jumpOfEnemies();
             this.showFullscreen();
+            this.checkMute(); 
         }, 50);
     }
 }

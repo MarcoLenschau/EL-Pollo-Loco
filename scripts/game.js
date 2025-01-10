@@ -9,6 +9,9 @@ let mute = false;
 
 function playTheGame() {
     document.getElementsByClassName("overlay-start-screen")[0].classList.add("hidden");
+    let startOverlay = document.getElementById("start-overlay");
+    startOverlay.style.width = "0";
+    startOverlay.style.height = "0";
     initLevel();
     initWorld();
 }
@@ -38,9 +41,9 @@ function openFullscreen() {
     let element = document.getElementById("fullscreen");
     if (element.requestFullscreen) {
         element.requestFullscreen();
-    } else if (element.webkitRequestFullscreen) { /* Safari */
+    } else if (element.webkitRequestFullscreen) {
         element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) { /* IE11 */
+    } else if (element.msRequestFullscreen) { 
         element.msRequestFullscreen();
     }
 }
@@ -48,9 +51,9 @@ function openFullscreen() {
 function closeFullscreen() {
     if (document.exitFullscreen) {
         document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
+    } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
+    } else if (document.msExitFullscreen) { 
         document.msExitFullscreen();
     }
 }
@@ -71,6 +74,13 @@ function muteTheGame() {
     
 }
 
+function winTheGame() {
+    setTimeout(() => {
+        document.getElementsByClassName("win-overlay")[0].classList.remove("hidden");
+        stopTheGame();
+    },1000);
+}
+
 function showGameplay() {
     let width = document.getElementsByClassName("gameplay-menu")[0].style.width
     if (width != "") {
@@ -79,8 +89,6 @@ function showGameplay() {
         document.getElementsByClassName("gameplay-menu")[0].style.width = "1080px";
     }
 }
-
-
 
 document.addEventListener("keydown", (event) => { 
     keyboard.searchKeyEvent(event, true);

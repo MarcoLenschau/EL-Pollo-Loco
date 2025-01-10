@@ -173,7 +173,7 @@ class World {
         return currentTime > 1000;
     }
 
-    showFullscreen() {
+    checkFullscreen() {
         if (this.keyboard.F) {
             fullscreen();
         }
@@ -185,6 +185,17 @@ class World {
         }
     }
 
+    IsCharacterBeforeEndboss() {
+        let endbossNumber = this.level.enemies.length - 1;
+        return this.character.x > this.level.enemies[endbossNumber].x;
+    }
+
+    checkIsCharacterBeforeEndboss() {
+        if (this.IsCharacterBeforeEndboss()) {
+            this.character.characterIsDead();
+        }
+    }
+
     runInterval() {
         setStoppableInterval(() => {
             this.checkCollisions();
@@ -192,8 +203,9 @@ class World {
         setStoppableInterval(() => {
             this.checkThrowObject();
             this.character.jumpOfEnemies();
-            this.showFullscreen();
-            this.checkMute(); 
+            this.checkFullscreen();
+            this.checkMute();
+            this.checkIsCharacterBeforeEndboss();
         }, 50);
     }
 }

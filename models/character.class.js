@@ -26,7 +26,7 @@ class Character extends MovableObject{
     moveCharacter() {
         this.walking_sound.pause();
         if (this.isDead()) { 
-            return true;
+            this.characterIsDead();
         }
         if (this.world.keyboard.RIGHT && this.isCharacterNotTheFarRight()) {
             this.moveCharacterLeft(false);
@@ -62,25 +62,25 @@ class Character extends MovableObject{
 
     moveAnimation() {
         if (this.isDead()) {
-            this.characterIsDead();
-            return false;
-        } 
-        if (this.isHurt()) {
+            this.playAnimation(characterDeadImages);
+        } else if (this.isHurt()) {
             this.playAnimation(characterHurtImages);
-            this.loadImages(characterImages);
-        }
-        if (this.isAboveGroud()) {
+            this.showDefaultPicture(10);           
+        } else if (this.isAboveGroud()) {
             this.playAnimation(characterJumpImages);
-            this.loadImages(characterImages);
-        } 
-        if (this.clickKeyLeftOrRight()) {
+            this.showDefaultPicture(100);
+
+        } else if (this.clickKeyLeftOrRight()) {
             this.playAnimation(characterImages);
         }   
     }
     
+    showDefaultPicture(ms) {
+        setTimeout(() => this.loadImage(characterImages[0]),ms);
+    }
+
     characterIsDead() {
         this.otherDirection = false;
-        this.playAnimation(characterDeadImages);
         world.level.enemies.forEach((enemie) => {
             enemie.hidden();
         });

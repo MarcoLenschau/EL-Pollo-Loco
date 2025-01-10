@@ -10,15 +10,6 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../assetes/icon/background.jpg");
-    background-position: center;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
     margin: 0;
 }
 
@@ -39,8 +30,6 @@ body > h1 {
     height: 480px;
     width: 1080px;
     background-image: url("../assetes/img/9_intro_outro_screens/start/startscreen_1.png");
-    background-position: center;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -49,8 +38,8 @@ body > h1 {
 }
 
 .overlay-start-screen-button {
-    height: 48px;
-    width: 58px;
+    height: 56px;
+    width: 56px;
     border-radius: 24px;
     margin-left: 32px;
 }
@@ -65,17 +54,40 @@ body > h1 {
     top: 219px;
 }
 
-.play-button {
-    background-image: url("../assetes/icon/play.png");
+.win-overlay {
+    background-image: url("../assetes/img/9_intro_outro_screens/win/win_1.png");
     background-position: center;
     background-size: cover;
+    height: 480px;
+    width: 1080px;
+    position: absolute;
+    top: 219px;
+}
+
+.play-button {
+    background-image: url("../assetes/icon/play.png");
 }
 
 .refresh-button {
     background-image: url("../assetes/icon/refresh.png");
+    background-color: #e75a4d;
+}
+
+.settings-button {
+    background-image: url("../assetes/icon/settings.png");
+    background-color: #e75a4d;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url("../assetes/icon/exit.png");
+    background-repeat: initial;
     background-position: center;
     background-size: cover;
-    background-color: #e75a4d;
+    height: 72px;
+    width: 72px;
 }
 
 .arrow-keys {
@@ -102,6 +114,10 @@ body > h1 {
     overflow: hidden;
 }
 
+.mobile-hidden {
+    display: none !important;
+}
+
 .gameplay-menu {
     background-color: rgba(0, 0, 0, 0.7);
     width: 0;
@@ -110,6 +126,78 @@ body > h1 {
     height: 480px;
     display: flex;
     justify-content: center;
+}
+
+.mobile-gameplay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 1080px;
+    height: 100px;
+    background-color: brown;
+    top: 699px;
+    padding: 48px;
+}
+
+.mobile-btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 24px;
+}
+
+.mobile-btn:hover {
+    cursor: pointer;
+}
+
+.mobile-right-btn {
+    background-image: url("../assetes/icon/arrow-right.png");
+}
+
+.mobile-left-btn {
+    background-image: url("../assetes/icon/arrow-left.png");
+}
+
+.mobile-space-btn {
+    background-image: url("../assetes/icon/arrow-up.png");
+}
+
+.mobile-throw-btn {
+    background-image: url("../assetes/icon/arrow-throw.png");
+}
+
+.mute-button {
+    background-image: url('../assetes/icon/note.png');
+}
+
+.background-picture {
+    background-position: center;
+    background-size: cover;
+}
+
+.overlay-buttons {
+    position: absolute;
+    top: 220px;
+    width: 1080px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 32px;
+}
+
+.overlay-buttons > .mobile-btn {
+    background-color: orange;
+}
+
+.fullscreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../assetes/icon/background.jpg");
+    width: 100vw;
+    height: 100vh;
 }
 
 .bold {
@@ -124,6 +212,15 @@ body > h1 {
 @media (max-width: 1080px){
     canvas {
         width: 100%;
+    }
+}
+
+@media (max-height: 800px){
+    .mobile-hidden {
+        display: flex !important;
+    }
+    .mobile-hide {
+        display: none !important;
     }
 }
 

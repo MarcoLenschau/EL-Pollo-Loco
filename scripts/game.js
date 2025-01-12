@@ -75,6 +75,7 @@ function checkDevicesFormat() {
         document.getElementsByClassName("end-overlay")[0].classList.remove("d_none");
         document.getElementById("canvas").style.width = "0";
         createDevicesOverlay();
+        setInterval(rotateSmartphone, 3000);
         removeItem("mobile-gameplay");
         removeItem("play-button");
         intervaleNumber = 1;

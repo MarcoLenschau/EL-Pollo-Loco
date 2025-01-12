@@ -215,6 +215,10 @@ body > h1 {
     color: black;
 }
 
+.rotate {
+    rotate: 90deg;
+}
+
 @media (max-width: 1080px){
     canvas {
         width: 100%;

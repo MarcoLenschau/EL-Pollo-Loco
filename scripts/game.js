@@ -75,7 +75,6 @@ function checkDevicesFormat() {
         document.getElementsByClassName("end-overlay")[0].classList.remove("d_none");
         document.getElementById("canvas").style.width = "0";
         createDevicesOverlay();
-        setInterval(rotateSmartphone, 3000);
         removeItem("mobile-gameplay");
         removeItem("play-button");
         intervaleNumber = 1;
@@ -99,8 +98,9 @@ function createDevicesOverlay() {
     endOverlay.style = "width: 100vw; margin: 24vh;";
     endOverlayImage.src = "./assetes/img/9_intro_outro_screens/start/startscreen_1.png";
     endOverlay.innerHTML += "<img id='smartphone' src='./assetes/icon/smartphone.png' style='position: absolute; height: 210px; transition: all 2s;'></img>"
+    rotateSmartphone()
     endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>"       
-    setInterval(rotateSmartphone,5000);
+    
 }
 
 /**

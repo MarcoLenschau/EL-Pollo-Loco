@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.d_none {
+    display: none !important;
+}
+
 .d_flex_c {
     display: flex;
     align-items: center;

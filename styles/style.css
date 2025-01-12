@@ -45,19 +45,10 @@ body > h1 {
 }
 
 .end-overlay {
-    background-image: url("../assetes/img/9_intro_outro_screens/game_over/game over.png");
-    background-position: center;
-    background-size: cover;
-    height: 480px;
-    width: 1080px;
-    position: absolute;
-    top: 219px;
-}
-
-.win-overlay {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     overflow: hidden;
     height: 480px;
     width: 1080px;
@@ -136,7 +127,7 @@ body > h1 {
     position: absolute;
     width: 1080px;
     height: 100px;
-    background-color: brown;
+    background-color: #ff9600;
     top: 699px;
     padding: 48px;
 }
@@ -176,29 +167,32 @@ body > h1 {
     background-size: cover;
 }
 
+.mobile-overlay {
+    background-image: url('../assetes/icon/settings.png');
+}
+
 .overlay-buttons {
     position: absolute;
     top: 220px;
     width: 1080px;
     height: 100px;
-    background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 32px;
+    gap: 12px;
 }
 
 .overlay-buttons > .mobile-btn {
     background-color: orange;
+    margin-right: 12px;
 }
 
 .fullscreen {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url("../assetes/icon/background.jpg");
+    background-image: url(../assetes/icon/background.jpg);
     width: 100vw;
     height: 100vh;
+    justify-content: center;
 }
 
 .bold {
@@ -214,9 +208,43 @@ body > h1 {
     margin: 0px 36px;
 }
 
+.devices-overlay {
+    position: absolute;
+    bottom: 25px;
+    font-size: 80px;
+    color: black;
+}
+
 @media (max-width: 1080px){
     canvas {
         width: 100%;
+        height: 86vh;
+        top: 0 !important;
+    }
+    .overlay-buttons {
+        width: 100%;
+        top: unset;
+    }
+    .overlay-start-screen {
+        width: 100vw !important;
+        height: 100vh !important;
+        position: absolute;
+        top: 0 !important;
+    }
+    .end-overlay {
+        top: unset;
+    }
+    .mobile-gameplay {
+        width: 100%;
+        top: unset !important;
+        bottom: 0 !important;
+        position: absolute;
+    }
+}
+
+@media (max-width: 900px){
+    canvas {
+        height: 76vh;
     }
 }
 
@@ -227,10 +255,23 @@ body > h1 {
     .mobile-hide {
         display: none !important;
     }
+    .overlay-start-screen {
+        height: 88% !important;
+    }
+    #end-overlay-image {
+        position: absolute;
+        top: 95px;
+    }
 }
 
-@media (max-height: 480px){
-    canvas {
-        height: 100vh;
+@media (max-height: 600px) {
+    .overlay-start-screen {
+        height: 76% !important;
+    }
+}
+
+@media (max-height: 900px) {
+    .devices-overlay {
+        font-size: 58px;
     }
 }

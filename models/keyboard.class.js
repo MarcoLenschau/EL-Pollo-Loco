@@ -8,7 +8,7 @@ class Keyboard {
     F = false;
     M = false;
 
-    mobileArrowKey() {
+    mobileLeftKey() {
         document.getElementById("btn-left").addEventListener("touchstart", (e) => {
             e.preventDefault();
             this.LEFT = true;
@@ -17,6 +17,9 @@ class Keyboard {
             e.preventDefault();
             this.LEFT = false;
         });
+    }
+    
+    mobileRightKey() {
         document.getElementById("btn-right").addEventListener("touchstart", (e) => {
             e.preventDefault();
             this.RIGHT = true;
@@ -25,6 +28,9 @@ class Keyboard {
             e.preventDefault();
             this.RIGHT = false;
         });
+    }
+    
+    mobileSpaceKey() {
         document.getElementById("btn-space").addEventListener("touchstart", (e) => {
             e.preventDefault();
             this.SPACE = true;
@@ -33,6 +39,9 @@ class Keyboard {
             e.preventDefault();
             this.SPACE = false;
         });
+    }
+    
+    mobileThrowKey() {
         document.getElementById("btn-throw").addEventListener("touchstart", (e) => {
             e.preventDefault();
             this.D = true;
@@ -41,6 +50,13 @@ class Keyboard {
             e.preventDefault();
             this.D = false;
         });
+    }
+    
+    mobileArrowKey() {
+        this.mobileLeftKey();
+        this.mobileRightKey();
+        this.mobileSpaceKey();
+        this.mobileThrowKey();
     }
 
     searchKeyEvent(event, state) {

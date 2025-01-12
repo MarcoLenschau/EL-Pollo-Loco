@@ -53,13 +53,13 @@ class MovableObject extends DrawablObject {
     isHurt() {
         let currentTime = new Date().getTime();
         currentTime -= this.lastHit;
-        return currentTime < 5000;
+        return currentTime < 100;
     }
 
     hit() {
         if (this.energy > 0) {
             this.lastHit = new Date().getTime();
-            this.energy -= 5;
+            this.energy -= 2;
         } 
     }
     

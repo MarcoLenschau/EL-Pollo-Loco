@@ -96,10 +96,10 @@ function createDevicesOverlay() {
     removeItem("mobile-hide");
     endOverlay.classList.remove("hidden");
     endOverlay.style = "width: 100vw; margin: 24vh;";
-    endOverlayImage.src = "../assetes/img/9_intro_outro_screens/start/startscreen_1.png";
-    endOverlay.innerHTML += "<img id='smartphone' src='../assetes/icon/smartphone.png' style='position: absolute; height: 210px; transition: all 2s;'></img>";
-    endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>";
-    setInterval(rotateSmartphone, 5000);
+    endOverlayImage.src = "./assetes/img/9_intro_outro_screens/start/startscreen_1.png";
+    endOverlay.innerHTML += "<img id='smartphone' src='./assetes/icon/smartphone.png' style='position: absolute; height: 210px; transition: all 2s;'></img>"
+    endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>"       
+    setInterval(rotateSmartphone,5000);
 }
 
 /**

@@ -34,8 +34,8 @@ class Statusbar extends DrawablObject {
     }
 
     show () {
-        this.x = 780;
-        this.y = 20;
+        this.x = 830;
+        this.y = 80;
         this.width = 200;
         this.heigth = 100;
     }

@@ -64,12 +64,10 @@ class Character extends MovableObject{
         if (this.isDead()) {
             this.playAnimation(characterDeadImages);
         } else if (this.isHurt()) {
-            this.playAnimation(characterHurtImages);
-            this.showDefaultPicture(10);           
+            this.playAnimation(characterHurtImages);          
         } else if (this.isAboveGroud()) {
             this.playAnimation(characterJumpImages);
             this.showDefaultPicture(100);
-
         } else if (this.clickKeyLeftOrRight()) {
             this.playAnimation(characterImages);
         }   

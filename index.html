@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
+<head translate="no">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El pollo loco</title>
@@ -24,18 +24,18 @@
     <link rel="stylesheet" href="./styles/flexbox.css">
     <link rel="shortcut icon" href="./assetes/img/2_character_pepe/1_idle/idle/I-1.png" type="image/x-icon">
 </head>
-<body class="background-picture">
+<body onload="init();" class="background-picture">
     <div id="fullscreen" class="fullscreen">
         <h1 class="mobile-hide">El Pollo Loco</h1>
         <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
         <div class="overlay-buttons">
             <div id="mute" onclick="muteTheGame();" class="mobile-btn background-picture mute-button"></div>
             <div onclick="fullscreen();" class="mobile-btn background-picture refresh-button"></div>
-            <div onclick="stopTheGame();" class="mobile-btn background-picture" style="background-image: url('./assetes/icon/pause.png');"></div>
+            <div onclick="stopTheGame(); showStartOverlay();" class="mobile-btn background-picture" style="background-image: url('./assetes/icon/pause.png');"></div>
         </div>
-        <div class="end-overlay hidden"></div>
-        <div class="win-overlay hidden">
-            <img src="../assetes/img/9_intro_outro_screens/win/win_1.png" height="160px" width="900px" alt="win">
+        <div class="end-overlay hidden d_none">
+            <div onclick="playTheGame();" class="overlay-start-screen-button play-button background-picture" style="position: absolute; top: 22px; right: 12px;"></div>    
+            <img id="end-overlay-image" src="../assetes/img/9_intro_outro_screens/game_over/you lost.png" style="width: 100vw; height: 480px;" height="160px" width="900px" alt="end">
         </div>
         <div id="start-overlay" class="overlay-start-screen background-picture">
             <div>

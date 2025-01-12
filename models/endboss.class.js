@@ -42,8 +42,7 @@ class Endboss extends MovableObject {
             this.playAnimation(endbossHurtImages);
             this.showLive();
         } else {
-            this.hidden();
-            winTheGame();
+            winTheGame()
         }
     }
 

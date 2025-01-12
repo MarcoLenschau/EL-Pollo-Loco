@@ -5,7 +5,7 @@ class World {
         new Statusbar(statusbarImages[0], 0),
         new Statusbar(statusbarImages[1], 60),
         new Statusbar(statusbarImages[2], 130),
-        new Statusbar (endbossStatusbarImages[5], 20, 480, false)
+        new Statusbar (endbossStatusbarImages[5], 80, 460, false)
     ];
     collectObjects = [
         new CollectObject (coinImage),
@@ -185,13 +185,14 @@ class World {
         }
     }
 
-    IsCharacterBeforeEndboss() {
-        let endbossNumber = this.level.enemies.length - 1;
-        return this.character.x > this.level.enemies[endbossNumber].x;
+    IsCharacterBeforeEndboss(endboss) {
+        return this.character.x > endboss.x;
     }
 
     checkIsCharacterBeforeEndboss() {
-        if (this.IsCharacterBeforeEndboss()) {
+        let endbossNumber = this.level.enemies.length - 1;
+        let endbosss = this.level.enemies[endbossNumber];
+        if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead()) {
             this.character.characterIsDead();
         }
     }

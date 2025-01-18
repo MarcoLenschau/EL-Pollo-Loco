@@ -1,13 +1,67 @@
-class Character extends MovableObject{
+/**
+ * Represents a character in the game, managing animations, movements, interactions, 
+ * and inventory (coins and bottles). Handles gravity, jumping, and collisions with other entities.
+ * Extends the `MovableObject` class.
+ */
+class Character extends MovableObject {
+    /**
+     * The width of the character.
+     * @type {number}
+     */
     width = 150;
+
+    /**
+     * The height of the character.
+     * @type {number}
+     */
     heigth = 200;
+
+    /**
+     * The vertical position of the character on the canvas.
+     * @type {number}
+     */
     y = 230;
+
+    /**
+     * The horizontal movement speed of the character.
+     * @type {number}
+     */
     speed = 5;
+
+    /**
+     * The sound effect played when the character walks.
+     * @type {HTMLAudioElement}
+     */
     walking_sound = new Audio("./audio/walk.mp3");
+
+    /**
+     * The sound effect played when the character jumps.
+     * @type {HTMLAudioElement}
+     */
     jump_sound = new Audio("./audio/jump.mp3");
+
+    /**
+     * The sound effect played when the character is dead.
+     * @type {HTMLAudioElement}
+     */
+    game_over_sound = new Audio("./audio/game_over.mp3");
+
+    /**
+     * The number of coins the character has collected.
+     * @type {number}
+     */
     coins = 0;
+
+    /**
+     * The number of bottles the character has collected.
+     * @type {number}
+     */
     bootles = 0;
 
+    /**
+     * Initializes the character by loading necessary images, applying gravity, 
+     * and starting movement and animation loops.
+     */
     constructor() {
         super().loadImage(characterImages[0]);
         this.loadImages(characterImages);
@@ -18,33 +72,45 @@ class Character extends MovableObject{
         this.showMoveAnimation();
     }
 
+    /**
+     * Starts the intervals for character movement and animation updates.
+     */
     showMoveAnimation() {
         setStoppableInterval(() => this.moveCharacter(), 1000 / 60);
         setStoppableInterval(() => this.moveAnimation(), 50);
     }
 
+    /**
+     * Handles character movement based on user input and game state.
+     */
     moveCharacter() {
         this.walking_sound.pause();
-        if (this.isDead()) { 
+
+        if (this.isDead()) {
             this.characterIsDead();
         }
         if (this.world.keyboard.RIGHT && this.isCharacterNotTheFarRight()) {
             this.moveCharacterLeft(false);
-        } 
+        }
         if (this.world.keyboard.LEFT && this.x > 0) {
             this.moveCharacterLeft(true);
-        } 
+        }
         if (this.isJumpKeyClicked() && !this.isAboveGroud()) {
             this.jump();
         }
+
         this.reduceCameraX();
     }
 
+    /**
+     * Moves the character in the specified direction.
+     * @param {boolean} direction - `true` to move left, `false` to move right.
+     */
     moveCharacterLeft(direction) {
         if (direction) {
-            this.moveLeft();     
+            this.moveLeft();
         } else {
-            this.moveRight(); 
+            this.moveRight();
         }
         if (!mute) {
             this.walking_sound.play();
@@ -52,51 +118,78 @@ class Character extends MovableObject{
         this.otherDirection = direction;
     }
 
+    /**
+     * Checks if a jump key (SPACE or UP) is pressed.
+     * @returns {boolean} `true` if the jump key is pressed, otherwise `false`.
+     */
     isJumpKeyClicked() {
         return this.world.keyboard.SPACE || this.world.keyboard.UP;
     }
 
+    /**
+     * Determines if the character has not reached the far-right boundary of the level.
+     * @returns {boolean} `true` if the character can move further right, otherwise `false`.
+     */
     isCharacterNotTheFarRight() {
         return this.x <= world.level.level_end_x;
     }
 
+    /**
+     * Updates the character's animations based on its state (e.g., dead, hurt, jumping).
+     */
     moveAnimation() {
         if (this.isDead()) {
             this.playAnimation(characterDeadImages);
         } else if (this.isHurt()) {
-            this.playAnimation(characterHurtImages);          
+            this.playAnimation(characterHurtImages);
         } else if (this.isAboveGroud()) {
             this.playAnimation(characterJumpImages);
             this.showDefaultPicture(100);
         } else if (this.clickKeyLeftOrRight()) {
             this.playAnimation(characterImages);
-        }   
-    }
-    
-    showDefaultPicture(ms) {
-        setTimeout(() => this.loadImage(characterImages[0]),ms);
+        }
     }
 
+    /**
+     * Displays the default character image after a specified delay.
+     * @param {number} ms - Delay in milliseconds before showing the default image.
+     */
+    showDefaultPicture(ms) {
+        setTimeout(() => this.loadImage(characterImages[0]), ms);
+    }
+
+    /**
+     * Handles the actions and consequences when the character dies.
+     */
     characterIsDead() {
         this.otherDirection = false;
         world.level.enemies.forEach((enemie) => {
             enemie.hidden();
         });
         this.hidden();
-        setTimeout(() => {
-            document.getElementsByClassName("end-overlay")[0].classList.remove("hidden");
-        },1000);
+        this.game_over_sound.play();
+        loseTheGame();
         return false;
     }
 
+    /**
+     * Checks if either the LEFT or RIGHT key is pressed.
+     * @returns {boolean} `true` if either key is pressed, otherwise `false`.
+     */
     clickKeyLeftOrRight() {
         return this.world.keyboard.RIGHT || this.world.keyboard.LEFT;
     }
 
+    /**
+     * Adjusts the camera position to follow the character's movements.
+     */
     reduceCameraX() {
         this.world.camera_x = -this.x + 100;
     }
 
+    /**
+     * Makes the character jump, playing the jump sound and setting the vertical speed.
+     */
     jump() {
         this.jump_sound.pause();
         if (!mute) {
@@ -105,13 +198,17 @@ class Character extends MovableObject{
         this.speedY = 20;
     }
 
+    /**
+     * Handles collisions with enemies. Removes an enemy if the character jumps on it.
+     */
     jumpOfEnemies() {
         let enemies = world.level.enemies;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
-                if (this.isColliding(enemie) && this.isAboveGroud()) {
+        
+                if (this.isColliding(enemie) && this.speedY > 0) {
                     enemies.splice(index, 1);
-                };   
+                }
             }
         });
     }

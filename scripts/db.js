@@ -84,6 +84,12 @@ const chickenImages = [
     "./assetes/img/3_enemies_chicken/chicken_normal/1_walk/3_w.png"
 ];
 
+const chickenSmallImages = [
+    "./assetes/img/3_enemies_chicken/chicken_small/1_walk/1_w.png",
+    "./assetes/img/3_enemies_chicken/chicken_small/1_walk/2_w.png",
+    "./assetes/img/3_enemies_chicken/chicken_small/1_walk/3_w.png"
+]
+
 const endbossImages = [
     "./assetes/img/4_enemie_boss_chicken/2_alert/G5.png",
     "./assetes/img/4_enemie_boss_chicken/2_alert/G6.png",
@@ -107,6 +113,12 @@ const endbossHurtImages = [
     "./assetes/img/4_enemie_boss_chicken/4_hurt/G22.png",
     "./assetes/img/4_enemie_boss_chicken/4_hurt/G23.png"
 ];
+
+const endbossDeadImages = [
+    "./assetes/img/4_enemie_boss_chicken/5_dead/G24.png",
+    "./assetes/img/4_enemie_boss_chicken/5_dead/G25.png",
+    "./assetes/img/4_enemie_boss_chicken/5_dead/G26.png"
+]
 
 const endbossStatusbarImages = [
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green0.png",

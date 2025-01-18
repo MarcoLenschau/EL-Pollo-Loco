@@ -5,7 +5,7 @@ class CollectObject extends MovableObject {
 
     constructor(imgPath) {
         super().loadImage(imgPath);
-        this.x = 100 + Math.random() * 2200;
+        this.x = 150 + Math.random() * 2200;
         this.y = Math.random() * 150; 
         this.imgPath = imgPath;
     }

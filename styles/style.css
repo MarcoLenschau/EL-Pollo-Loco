@@ -5,7 +5,7 @@
 
 * {
     box-sizing: border-box;
-    color: white;
+    color: black;
     font-family: "zabars", Arial, Helvetica, sans-serif;
 }
 
@@ -58,16 +58,25 @@ body > h1 {
 
 .play-button {
     background-image: url("../assetes/icon/play.png");
+    background-color: #e75a4d;
+    padding: 38px;
 }
+
 
 .refresh-button {
     background-image: url("../assetes/icon/refresh.png");
     background-color: #e75a4d;
+    padding: 38px;
+}
+
+.refresh-button-image {
+    background-image: url("../assetes/icon/refresh.png");
 }
 
 .settings-button {
     background-image: url("../assetes/icon/settings.png");
     background-color: #e75a4d;
+    padding: 38px;
 }
 
 .close-button {
@@ -200,6 +209,10 @@ body > h1 {
     font-size: 32px;
 }
 
+.f_s_44 {
+    font-size: 44px;
+}
+
 .f_s_50 {
     font-size: 50px;
 }
@@ -219,6 +232,11 @@ body > h1 {
     rotate: 90deg;
 }
 
+.fullscreen-mode {
+    height: 72vh !important;
+    width: 100vw !important;
+}
+
 @media (max-width: 1080px){
     canvas {
         width: 100%;
@@ -231,7 +249,7 @@ body > h1 {
     }
     .overlay-start-screen {
         width: 100vw !important;
-        height: 100vh !important;
+        height: 80vh !important;
         position: absolute;
         top: 0 !important;
     }

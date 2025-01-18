@@ -9,7 +9,7 @@ let mute = false;
 let homeScreen = true;
 let intervaleNumber = 0;
 let devicesInterval = 0;
-
+let rotateInterval = 0;
 
 /**
  * Starts the game by initializing the level and world and hiding overlays.
@@ -28,7 +28,6 @@ function playTheGame() {
 function initWorld() {
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
-    world.level.enemies[3].moveAnimation();
     world.keyboard.mobileArrowKey();
 }
 
@@ -70,20 +69,42 @@ function init() {
  * Checks the device orientation and adjusts overlays and canvas visibility accordingly.
  */
 function checkDevicesFormat() {
-    if (window.innerWidth < window.innerHeight && intervaleNumber == 0) {
-        hiddenOverlays();
-        document.getElementsByClassName("end-overlay")[0].classList.remove("d_none");
-        document.getElementById("canvas").style.width = "0";
-        createDevicesOverlay();
-        removeItem("mobile-gameplay");
-        removeItem("play-button");
-        intervaleNumber = 1;
-    } else if (window.innerHeight < window.innerWidth) {
-        document.getElementsByClassName("end-overlay")[0].classList.add("d_none");
-        document.getElementById("start-overlay").classList.remove("hidden");
-        document.getElementById("start-overlay").style = "";
-        intervaleNumber = 0;
+    const mediaQuery = window.matchMedia("(orientation: portrait)");
+    if (mediaQuery.matches && window.innerWidth <= 800 && intervaleNumber == 0) {
+        showDevicesOverlay();
+    } else if (!mediaQuery.matches) {
+        showLandscape();
     }
+}
+
+/**
+ * Show the game in the landscape format.
+ */
+function showLandscape() {
+    let startOverlay = document.getElementById("start-overlay");
+    document.getElementById("end-overlay-image").classList.add("d_none");
+    // document.getElementById("canvas").style.width = "100vw";
+    // document.getElementById("canvas").style.height = "100vh";
+    startOverlay.classList.remove("d_none");
+    startOverlay.style = "";
+    clearInterval(rotateInterval);
+    intervaleNumber = 0;
+}
+
+/**
+ * Show the turn mobile devices overlay.
+ */
+function showDevicesOverlay() {
+    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    hiddenOverlays();
+    endOverlay.classList.remove("d_none");
+    document.getElementById("canvas").style.width = "0";
+    createDevicesOverlay();
+    removeItem("mobile-gameplay");
+    removeItem("play-button");
+    removeItem("overlay-buttons");
+    removeItem("mobile-hide");
+    intervaleNumber = 1;
 }
 
 /**
@@ -92,14 +113,11 @@ function checkDevicesFormat() {
 function createDevicesOverlay() {
     let endOverlay = document.getElementsByClassName("end-overlay")[0];
     let endOverlayImage = document.getElementById("end-overlay-image");
-    removeItem("overlay-buttons");
-    removeItem("mobile-hide");
     endOverlay.classList.remove("hidden");
     endOverlay.style = "width: 100vw; margin: 24vh;";
-    endOverlayImage.src = "./assetes/img/9_intro_outro_screens/start/startscreen_1.png";
-    endOverlay.innerHTML += "<img id='smartphone' src='./assetes/icon/smartphone.png' style='position: absolute; height: 210px; transition: all 2s;'></img>"
+    endOverlayImage.classList.add("d_none");
     endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>"       
-    setInterval(rotateSmartphone, 4000);
+    rotateInterval = setInterval(rotateSmartphone, 4000);
 }
 
 /**
@@ -115,6 +133,10 @@ function rotateSmartphone() {
  */
 function removeItem(objectClass) {
     document.getElementsByClassName(objectClass)[0].classList.add("d_none");
+}
+
+function fullscreenStartScreen() {
+    document.getElementById("start-overlay").classList.toggle("fullscreen-mode");
 }
 
 /**
@@ -135,9 +157,7 @@ function fullscreenOnShow() {
     openFullscreen();
     fullscreenOn = true;
     document.getElementById("canvas").style = "position: absolute; top: 220px; width: 100vw;";
-    if (homeScreen) {
-        document.getElementById("start-overlay").style = "width: 100vw; height: 852px !important;";
-    }
+    fullscreenStartScreen();
 }
 
 /**
@@ -147,9 +167,7 @@ function fullscreenOff() {
     closeFullscreen();
     fullscreenOn = false;
     document.getElementById("canvas").style = "position: absolute; top: 220px;";
-    if (homeScreen) {
-        document.getElementById("start-overlay").style = "height: 480px !important;";
-    }
+    fullscreenStartScreen();    
 }
 
 /**
@@ -207,12 +225,36 @@ function muteTheGame() {
  */
 function winTheGame() {
     let endOverlayImage = document.getElementById("end-overlay-image");
-    setTimeout(() => {
-        document.getElementsByClassName("end-overlay")[0].classList.remove("hidden");
+    document.getElementById("smartphone").classList.add("d_none");
+    setTimeout(() => {  
+        showEndOverlay();
+        endOverlayImage.classList.remove("d_none")
         endOverlayImage.src = "../assetes/img/9_intro_outro_screens/win/win_1.png";
         endOverlayImage.style = "";
         stopTheGame();
     }, 1000);
+}
+
+/**
+ * You lose the Game.
+ */
+function loseTheGame() {
+    let endOverlayImage = document.getElementById("end-overlay-image");
+    document.getElementById("smartphone").classList.add("d_none");
+    setTimeout(() => {
+        showEndOverlay();
+        endOverlayImage.classList.remove("d_none")
+        stopTheGame();
+    },1000);
+}
+
+/**
+ * Show the end overlay.
+ */
+function showEndOverlay() {
+    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    endOverlay.classList.remove("hidden");
+    endOverlay.classList.remove("d_none")
 }
 
 /**
@@ -221,12 +263,15 @@ function winTheGame() {
 function showGameplay() {
     let gameplayMenu = document.getElementsByClassName("gameplay-menu")[0];
     let width = gameplayMenu.style.width;
-    if (width != "") {
+    if (fullscreenOn) {
+        gameplayMenu.classList.toggle("fullscreen-mode");
+    } else if (width != "") {
         gameplayMenu.style.width = "";
     } else {
         gameplayMenu.style.width = "1080px";
     }
 }
+
 document.addEventListener("keydown", (event) => { 
     keyboard.searchKeyEvent(event, true);
 });

@@ -45,8 +45,8 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawBackground();
-        this.drawCharacterAndAnemies();
         this.addObjToMap(this.collectObjects);
+        this.drawCharacterAndAnemies();
         this.addObjToMap(this.throwableObjects);
         this.ctx.translate(-this.camera_x - 30, 0);
         const self = this;
@@ -140,7 +140,6 @@ class World {
         this.collectObjects.forEach(collectObject => { 
             if (this.character.isColliding(collectObject) && this.character.isAboveGroud()) {
                 this.isObjectACoinOrBootle(collectObject);
-                collectObject.hidden();
             }
         });
     }
@@ -149,10 +148,12 @@ class World {
         if (collectObject.imgPath === coinImage) {
             this.character.coins += 20;
             this.statusbars[2].analysePercentage(this.character.coins, statusbarCoinImages);
-        } else {
+            collectObject.hidden();
+        } else if (this.character.bootles <= 4) {
             this.character.bootles += 1;
-            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);   
-        }
+            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);  
+            collectObject.hidden();
+        } 
     }
 
     checkThrowObject() {

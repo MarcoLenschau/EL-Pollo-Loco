@@ -6,12 +6,12 @@ class MovableObject extends DrawablObject {
     acceleration = 1;
     energy = 100;
     lastHit = 0;
-
+    
     offset = {
-        top: 0,
-        bottom: 30,
-        left: 40,
-        right: 30
+        top: 50,
+        bottom: 0,
+        left: 50,
+        right: 50
     }
     hurt_sound = new Audio("./audio/hurt.mp3");
 
@@ -28,7 +28,7 @@ class MovableObject extends DrawablObject {
         if (this instanceof ThrowableObject) {
             return true;
         } else {
-            return this.y < 220;            
+            return this.y < 220;   
         }   
     }
 
@@ -48,10 +48,12 @@ class MovableObject extends DrawablObject {
     }
 
     isColliding(object) {
-        return this.x + this.width - this.offset.right > object.x + object.offset.left && 
+        return (
+            this.x + this.width - this.offset.right > object.x + object.offset.left && 
             this.y + this.heigth - this.offset.bottom > object.y + object.offset.top &&
             this.x + this.offset.left < object.x + object.width - object.offset.right && 
-            this.y + this.offset.top < object.y + object.heigth - object.offset.bottom; 
+            this.y + this.offset.top < object.y + object.heigth - object.offset.bottom
+        );
     }
 
     isDead() {

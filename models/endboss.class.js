@@ -30,7 +30,7 @@ class Endboss extends MovableObject {
 
     characterMourning() {
         world.statusbars[3].show();
-        this.x -= 100;
+        this.x -= 150;
         endbossFight = true;
     }
 
@@ -51,11 +51,13 @@ class Endboss extends MovableObject {
     }
 
     hit() {
-        if (this.energy > 0) {
+        const currentTime = new Date().getTime();        
+        if (this.energy > 0 && currentTime - this.lastHit > 1000) {
+            this.lastHit = new Date().getTime();
             this.energy -= 20;
             this.playAnimation(endbossHurtImages);
             this.showLive();
-        } else {
+        } else if (this.energy <= 0) {
             winTheGame()
         }
     }

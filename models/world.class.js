@@ -1,33 +1,90 @@
+/**
+ * Represents the main game world, managing all game objects, interactions, rendering, and logic.
+ */
 class World {
+    /**
+     * The main character in the game.
+     * @type {Character}
+     */
     character = new Character();
+
+    /**
+     * The current level being played.
+     * @type {Level}
+     */
     level = level1;
+
+    /**
+     * The status bars displayed on the screen (e.g., health, coins, bottles).
+     * @type {Statusbar[]}
+     */
     statusbars = [
         new Statusbar(statusbarImages[0], 0),
         new Statusbar(statusbarImages[1], 60),
         new Statusbar(statusbarImages[2], 130),
-        new Statusbar (endbossStatusbarImages[5], 80, 460, false)
+        new Statusbar(endbossStatusbarImages[5], 80, 460, false)
     ];
+
+    /**
+     * The collectible objects in the world (e.g., coins and bottles).
+     * @type {CollectObject[]}
+     */
     collectObjects = [
-        new CollectObject (coinImage),
-        new CollectObject (coinImage),
-        new CollectObject (coinImage),
-        new CollectObject (coinImage),
-        new CollectObject (bootleImage),
-        new CollectObject (bootleImage),
-        new CollectObject (bootleImage),
-        new CollectObject (bootleImage),
-        new CollectObject (bootleImage),
-        new CollectObject (bootleImage),
-        new CollectObject (bootleImage),
-        new CollectObject (bootleImage)
+        new CollectObject(coinImage),
+        new CollectObject(coinImage),
+        new CollectObject(coinImage),
+        new CollectObject(coinImage),
+        new CollectObject(bootleImage),
+        new CollectObject(bootleImage),
+        new CollectObject(bootleImage),
+        new CollectObject(bootleImage),
+        new CollectObject(bootleImage),
+        new CollectObject(bootleImage),
+        new CollectObject(bootleImage),
+        new CollectObject(bootleImage)
     ];
+
+    /**
+     * The throwable objects (e.g., bottles) available in the game.
+     * @type {ThrowableObject[]}
+     */
     throwableObjects = [];
+
+    /**
+     * The canvas element for rendering the game.
+     * @type {HTMLCanvasElement}
+     */
     canvas;
+
+    /**
+     * The 2D rendering context for the canvas.
+     * @type {CanvasRenderingContext2D}
+     */
     ctx;
+
+    /**
+     * The keyboard input for controlling the game.
+     * @type {Keyboard}
+     */
     keyboard;
+
+    /**
+     * The camera's horizontal position offset.
+     * @type {number}
+     */
     camera_x = 0;
+
+    /**
+     * The timestamp of the last throwable object action.
+     * @type {number}
+     */
     lastThrow = 0;
 
+    /**
+     * Initializes the game world, setting up the canvas, character, level, and input controls.
+     * @param {HTMLCanvasElement} canvas - The canvas element for rendering.
+     * @param {Keyboard} keyboard - The keyboard input handler.
+     */
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
@@ -38,10 +95,16 @@ class World {
         this.runInterval();
     }
 
+    /**
+     * Links the character to the world for interaction with other objects.
+     */
     setWorld() {
         this.character.world = this;
     }
 
+    /**
+     * Clears the canvas and redraws all game objects, including background, characters, and enemies.
+     */
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawBackground();
@@ -53,12 +116,18 @@ class World {
         requestAnimationFrame(() => self.draw());
     }
 
+    /**
+     * Draws the background and clouds of the level.
+     */
     drawBackground() {
         this.ctx.translate(this.camera_x + 30, 0);
         this.addObjToMap(this.level.backgroundObject);
         this.addObjToMap(this.level.clouds);
     }
 
+    /**
+     * Draws the character, enemies, and status bars on the canvas.
+     */
     drawCharacterAndAnemies() {
         this.addToMap(this.character);
         this.ctx.translate(-this.camera_x, 0);
@@ -67,12 +136,20 @@ class World {
         this.addObjToMap(this.level.enemies);
     }
 
+    /**
+     * Adds an array of objects to the canvas map.
+     * @param {MovableObject[]} objects - The objects to be added.
+     */
     addObjToMap(objects) {
-        objects.forEach(obj => {    
-            this.addToMap(obj);    
+        objects.forEach(obj => {
+            this.addToMap(obj);
         });
     }
-    
+
+    /**
+     * Adds a single object to the canvas map, handling direction flipping if necessary.
+     * @param {MovableObject} object - The object to be added.
+     */
     addToMap(object) {
         if (object.otherDirection) {
             this.flipImage(object);
@@ -84,27 +161,43 @@ class World {
         }
     }
 
+    /**
+     * Flips the object's image horizontally.
+     * @param {MovableObject} object - The object whose image is flipped.
+     */
     flipImage(object) {
         this.ctx.save();
         this.ctx.translate(object.width, 0);
         this.ctx.scale(-1, 1);
-        object.x = object.x * - 1;
+        object.x = object.x * -1;
     }
 
+    /**
+     * Restores the original image orientation after flipping.
+     * @param {MovableObject} object - The object to restore.
+     */
     flipImageBack(object) {
         this.ctx.restore();
-        object.x = object.x * - 1;
+        object.x = object.x * -1;
     }
 
+    /**
+     * Checks for collisions between the character and other objects in the game.
+     * Includes enemy collisions, collectible object collisions, and throwable object interactions.
+     */
     checkCollisions() {
         this.checkEnemiesCollisions();
         this.checkCollectObjectsCollisions();
         this.checkThrowCollisions();
     }
 
+    /**
+     * Checks for collisions between throwable objects and enemies.
+     * Removes enemies or reduces their health when hit by a throwable object.
+     */
     checkThrowCollisions() {
         this.level.enemies.forEach((enemie, index) => {
-            this.throwableObjects.forEach (bootle => {
+            this.throwableObjects.forEach(bootle => {
                 if (enemie.isColliding(bootle)) {
                     if (enemie.width == 100) {
                         this.level.enemies.splice(index, 1);
@@ -116,34 +209,48 @@ class World {
         });
     }
 
-
+    /**
+     * Checks for collisions between the character and enemies.
+     * Handles the appropriate response (e.g., losing health or game over).
+     */
     checkEnemiesCollisions() {
         this.level.enemies.forEach(enemie => {
             if (this.character.isColliding(enemie)) {
-                if (enemie.width != 100) {
+                if (enemie.width !== 100) {
                     this.characterHit();
                 } else {
                     if (!this.character.isAboveGroud()) {
-                        this.characterHit();                   
+                        this.characterHit();
                     }
                 }
-              }
-          });
+            }
+        });
     }
 
+    /**
+     * Reduces the character's health and updates the health status bar.
+     */
     characterHit() {
         this.character.hit();
-        this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages); 
+        this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages);
     }
 
+    /**
+     * Checks for collisions between the character and collectible objects (coins or bottles).
+     * Updates the character's inventory and status bars accordingly.
+     */
     checkCollectObjectsCollisions() {
-        this.collectObjects.forEach(collectObject => { 
+        this.collectObjects.forEach(collectObject => {
             if (this.character.isColliding(collectObject) && this.character.isAboveGroud()) {
                 this.isObjectACoinOrBootle(collectObject);
             }
         });
     }
 
+    /**
+     * Determines if a collected object is a coin or a bottle and updates the game state.
+     * @param {CollectObject} collectObject - The object being collected.
+     */
     isObjectACoinOrBootle(collectObject) {
         if (collectObject.imgPath === coinImage) {
             this.character.coins += 20;
@@ -151,11 +258,15 @@ class World {
             collectObject.hidden();
         } else if (this.character.bootles <= 4) {
             this.character.bootles += 1;
-            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);  
+            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);
             collectObject.hidden();
-        } 
+        }
     }
 
+    /**
+     * Checks if the player is attempting to throw an object (e.g., a bottle).
+     * Throws the object if conditions are met (e.g., enough bottles, direction, and cooldown).
+     */
     checkThrowObject() {
         if (this.isThrow()) {
             if (this.keyboard.D && !this.character.otherDirection && this.character.bootles > 0) {
@@ -163,33 +274,51 @@ class World {
                 this.throwableObjects.push(bootle);
                 this.character.bootles -= 1;
                 this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);
-                this.lastThrow = new Date().getTime();                
+                this.lastThrow = new Date().getTime();
             }
-        };
-    }   
+        }
+    }
 
+    /**
+     * Determines if enough time has passed since the last throw to allow another throw.
+     * @returns {boolean} `true` if the character can throw again, otherwise `false`.
+     */
     isThrow() {
         let currentTime = new Date().getTime();
         currentTime -= this.lastThrow;
         return currentTime > 1000;
     }
 
+    /**
+     * Toggles fullscreen mode when the corresponding keyboard key is pressed.
+     */
     checkFullscreen() {
         if (this.keyboard.F) {
             fullscreen();
         }
     }
 
+    /**
+     * Toggles the game's mute state when the corresponding keyboard key is pressed.
+     */
     checkMute() {
         if (this.keyboard.M) {
             muteTheGame();
         }
     }
 
+    /**
+     * Determines if the character has reached the position before the end boss.
+     * @param {MovableObject} endboss - The end boss object.
+     * @returns {boolean} `true` if the character is past the end boss, otherwise `false`.
+     */
     IsCharacterBeforeEndboss(endboss) {
         return this.character.x > endboss.x;
     }
 
+    /**
+     * Checks if the character has reached the end boss and triggers the appropriate game logic.
+     */
     checkIsCharacterBeforeEndboss() {
         let endbossNumber = this.level.enemies.length - 1;
         let endbosss = this.level.enemies[endbossNumber];
@@ -198,6 +327,9 @@ class World {
         }
     }
 
+    /**
+     * Starts the main game intervals, including collision checks, input handling, and status updates.
+     */
     runInterval() {
         setStoppableInterval(() => {
             this.checkCollisions();

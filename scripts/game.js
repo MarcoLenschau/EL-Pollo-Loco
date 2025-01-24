@@ -32,30 +32,11 @@ function initWorld() {
 }
 
 /**
- * Hides the start and end overlays.
- */
-function hiddenOverlays() {
-    let startOverlay = document.getElementById("start-overlay");
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
-    startOverlay.style = "height: 0 !important;";
-    startOverlay.classList.add("hidden");
-    endOverlay.classList.add("hidden");
-}
-
-/**
  * Stops all running intervals in the game.
  */
 function stopTheGame() {
     intervale.forEach(clearInterval);
-}
-
-/**
- * Displays the start overlay.
- */
-function showStartOverlay() {
-    let startOverlay = document.getElementById("start-overlay");
-    startOverlay.classList.remove("hidden");
-    startOverlay.style = "";
+    stopAllSounds();
 }
 
 /**
@@ -78,49 +59,6 @@ function checkDevicesFormat() {
 }
 
 /**
- * Show the game in the landscape format.
- */
-function showLandscape() {
-    let startOverlay = document.getElementById("start-overlay");
-    document.getElementById("end-overlay-image").classList.add("d_none");
-    // document.getElementById("canvas").style.width = "100vw";
-    // document.getElementById("canvas").style.height = "100vh";
-    startOverlay.classList.remove("d_none");
-    startOverlay.style = "";
-    clearInterval(rotateInterval);
-    intervaleNumber = 0;
-}
-
-/**
- * Show the turn mobile devices overlay.
- */
-function showDevicesOverlay() {
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
-    hiddenOverlays();
-    endOverlay.classList.remove("d_none");
-    document.getElementById("canvas").style.width = "0";
-    createDevicesOverlay();
-    removeItem("mobile-gameplay");
-    removeItem("play-button");
-    removeItem("overlay-buttons");
-    removeItem("mobile-hide");
-    intervaleNumber = 1;
-}
-
-/**
- * Creates an overlay prompting users to rotate their devices.
- */
-function createDevicesOverlay() {
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
-    let endOverlayImage = document.getElementById("end-overlay-image");
-    endOverlay.classList.remove("hidden");
-    endOverlay.style = "width: 100vw; margin: 24vh;";
-    endOverlayImage.classList.add("d_none");
-    endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>"       
-    rotateInterval = setInterval(rotateSmartphone, 4000);
-}
-
-/**
  * Toggles the rotation animation for the smartphone image.
  */
 function rotateSmartphone() {
@@ -133,68 +71,6 @@ function rotateSmartphone() {
  */
 function removeItem(objectClass) {
     document.getElementsByClassName(objectClass)[0].classList.add("d_none");
-}
-
-function fullscreenStartScreen() {
-    document.getElementById("start-overlay").classList.toggle("fullscreen-mode");
-}
-
-/**
- * Toggles fullscreen mode for the game.
- */
-function fullscreen() {
-    if (!fullscreenOn) {
-        fullscreenOnShow();
-    } else {
-        fullscreenOff();
-    }
-}
-
-/**
- * Enables fullscreen mode and adjusts styles accordingly.
- */
-function fullscreenOnShow() {
-    openFullscreen();
-    fullscreenOn = true;
-    document.getElementById("canvas").style = "position: absolute; top: 220px; width: 100vw;";
-    fullscreenStartScreen();
-}
-
-/**
- * Disables fullscreen mode and restores styles.
- */
-function fullscreenOff() {
-    closeFullscreen();
-    fullscreenOn = false;
-    document.getElementById("canvas").style = "position: absolute; top: 220px;";
-    fullscreenStartScreen();    
-}
-
-/**
- * Requests fullscreen mode for the specified element.
- */
-function openFullscreen() {
-    let element = document.getElementById("fullscreen");
-    if (element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-    }
-}
-
-/**
- * Exits fullscreen mode.
- */
-function closeFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-    }
 }
 
 /**
@@ -212,12 +88,24 @@ function setStoppableInterval(fn, time) {
  */
 function muteTheGame() {
     if (mute) {
-        document.getElementById("mute").style = "background-image: url('../assetes/icon/note.png');";
+        document.getElementById("mute").style = "background-image: url('./assetes/icon/note.png');";
         mute = false;
     } else {
-        document.getElementById("mute").style = "background-image: url('../assetes/icon/mute.png');";
+        document.getElementById("mute").style = "background-image: url('./assetes/icon/mute.png');";
         mute = true;
+        stopAllSounds();
     }
+}
+
+
+/**
+ * Stop all sounds in the game.
+ */
+function stopAllSounds() {
+    world.character.walking_sound.pause();
+    world.character.jump_sound.pause();
+    world.character.game_over_sound.pause();
+    world.level.enemies[world.level.enemies.length - 1].boss_sound.pause();
 }
 
 /**
@@ -243,18 +131,10 @@ function loseTheGame() {
     document.getElementById("smartphone").classList.add("d_none");
     setTimeout(() => {
         showEndOverlay();
-        endOverlayImage.classList.remove("d_none")
+        endOverlayImage.innerHTML = "";
+        endOverlayImage.classList.remove("d_none");
         stopTheGame();
     },1000);
-}
-
-/**
- * Show the end overlay.
- */
-function showEndOverlay() {
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
-    endOverlay.classList.remove("hidden");
-    endOverlay.classList.remove("d_none")
 }
 
 /**

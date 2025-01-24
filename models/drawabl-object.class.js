@@ -17,7 +17,7 @@ class DrawablObject {
             img.src = path;
             this.imageCache[path] = img;
         });
-    }
+    } 
 
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y ,this.width, this.heigth);
@@ -27,9 +27,13 @@ class DrawablObject {
         if (this instanceof Character || this instanceof Chicken) {
             ctx.beginPath();
             ctx.strokeStyle = 'blue';
-    
-            ctx.rect(this.x + this.offset.top, this.y  + this.offset.left ,this.width - this.offset.bottom, this.heigth - this.offset.right);
-            ctx.stroke(); 
+            ctx.rect(
+                this.x + this.offset.left, 
+                this.y + this.offset.top,
+                this.width - this.offset.left - this.offset.right, 
+                this.heigth - this.offset.top - this.offset.bottom
+                );
+            ctx.stroke();
         }
     }
 }

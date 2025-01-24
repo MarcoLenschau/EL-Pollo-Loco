@@ -27,7 +27,7 @@ body > h1 {
 .overlay-start-screen {
     position: absolute;
     top: 219px;
-    height: 480px;
+    height: 485px;
     width: 1080px;
     background-image: url("../assetes/img/9_intro_outro_screens/start/startscreen_1.png");
     display: flex;
@@ -58,25 +58,32 @@ body > h1 {
 
 .play-button {
     background-image: url("../assetes/icon/play.png");
-    background-color: #e75a4d;
-    padding: 38px;
+    background-color: #ff9600;
+    padding: 24px;
 }
 
+.play-button-end {
+    background-image: url("../assetes/icon/play.png");
+    background-color: #ff9600;
+    padding: 24px;
+}
 
 .refresh-button {
     background-image: url("../assetes/icon/refresh.png");
-    background-color: #e75a4d;
-    padding: 38px;
+    background-color: #ff9600;
+    padding: 24px;
 }
 
 .refresh-button-image {
     background-image: url("../assetes/icon/refresh.png");
+    background-color: #ff9600;
+    padding: 24px;
 }
 
 .settings-button {
     background-image: url("../assetes/icon/settings.png");
-    background-color: #e75a4d;
-    padding: 38px;
+    background-color: #ff9600;
+    padding: 24px;
 }
 
 .close-button {
@@ -106,7 +113,7 @@ body > h1 {
 }
 
 .hidden {
-    width: 0;
+    width: 0 !important;
 }
 
 .hidden-menu {
@@ -127,6 +134,10 @@ body > h1 {
     height: 480px;
     display: flex;
     justify-content: center;
+}
+
+.gameplay-menu * {
+    color: white;
 }
 
 .mobile-gameplay {
@@ -237,21 +248,20 @@ body > h1 {
     width: 100vw !important;
 }
 
-@media (max-width: 1080px){
-    canvas {
-        width: 100%;
-        height: 86vh;
-        top: 0 !important;
+
+@media (max-width: 1080px) and (orientation: landscape) {
+    .overlay-start-screen {
+        top: 0;
     }
-    .overlay-buttons {
-        width: 100%;
-        top: unset;
+}
+
+
+@media (max-width: 1080px) {
+    canvas {
+        width: 100vw !important;
     }
     .overlay-start-screen {
         width: 100vw !important;
-        height: 80vh !important;
-        position: absolute;
-        top: 0 !important;
     }
     .end-overlay {
         top: unset;
@@ -262,11 +272,8 @@ body > h1 {
         bottom: 0 !important;
         position: absolute;
     }
-}
-
-@media (max-width: 900px){
-    canvas {
-        height: 76vh;
+    .overlay-buttons {
+        width: unset !important;
     }
 }
 

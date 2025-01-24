@@ -22,10 +22,10 @@ class Chicken extends MovableObject {
     y = 380;
 
     offset = {
-        top: 0,
-        bottom: 0,
-        left: -50,
-        right: -50
+        top: 20,
+        bottom: 20,
+        left: 20,
+        right: 20
     }
 
     /**
@@ -46,7 +46,6 @@ class Chicken extends MovableObject {
          * @type {number}
          */
         this.speed = 0.15 + Math.random() * 0.25;
-
         this.loadImages(chickenImagesVar);
         this.move();
         this.showAnimation(chickenImagesVar);

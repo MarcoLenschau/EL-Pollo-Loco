@@ -85,7 +85,6 @@ class Character extends MovableObject {
      */
     moveCharacter() {
         this.walking_sound.pause();
-
         if (this.isDead()) {
             this.characterIsDead();
         }
@@ -167,7 +166,9 @@ class Character extends MovableObject {
             enemie.hidden();
         });
         this.hidden();
-        this.game_over_sound.play();
+        if (!mute) {
+            this.game_over_sound.play();
+        }
         loseTheGame();
         return false;
     }
@@ -205,7 +206,6 @@ class Character extends MovableObject {
         let enemies = world.level.enemies;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
-        
                 if (this.isColliding(enemie) && this.speedY > 0) {
                     enemies.splice(index, 1);
                 }

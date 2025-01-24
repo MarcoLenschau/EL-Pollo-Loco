@@ -31,7 +31,6 @@ const statusbarCoinImages = [
     "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/100.png"
 ];
 
-
 const statusbarBootleImages = [
     "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/0.png",
     "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/20.png",
@@ -88,7 +87,7 @@ const chickenSmallImages = [
     "./assetes/img/3_enemies_chicken/chicken_small/1_walk/1_w.png",
     "./assetes/img/3_enemies_chicken/chicken_small/1_walk/2_w.png",
     "./assetes/img/3_enemies_chicken/chicken_small/1_walk/3_w.png"
-]
+];
 
 const endbossImages = [
     "./assetes/img/4_enemie_boss_chicken/2_alert/G5.png",
@@ -106,7 +105,7 @@ const endbossWalkImages = [
     "./assetes/img/4_enemie_boss_chicken/1_walk/G2.png",
     "./assetes/img/4_enemie_boss_chicken/1_walk/G3.png",
     "./assetes/img/4_enemie_boss_chicken/1_walk/G4.png"
-]
+];
 
 const endbossHurtImages = [
     "./assetes/img/4_enemie_boss_chicken/4_hurt/G21.png",
@@ -118,7 +117,7 @@ const endbossDeadImages = [
     "./assetes/img/4_enemie_boss_chicken/5_dead/G24.png",
     "./assetes/img/4_enemie_boss_chicken/5_dead/G25.png",
     "./assetes/img/4_enemie_boss_chicken/5_dead/G26.png"
-]
+];
 
 const endbossStatusbarImages = [
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green0.png",

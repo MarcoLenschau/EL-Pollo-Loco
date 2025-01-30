@@ -40,32 +40,6 @@ function stopTheGame() {
 }
 
 /**
- * Initializes the game by setting up a device check interval.
- */
-function init() {
-    devicesInterval = setInterval(checkDevicesFormat, 100);
-}
-
-/**
- * Checks the device orientation and adjusts overlays and canvas visibility accordingly.
- */
-function checkDevicesFormat() {
-    const mediaQuery = window.matchMedia("(orientation: portrait)");
-    if (mediaQuery.matches && window.innerWidth <= 800 && intervaleNumber == 0) {
-        showDevicesOverlay();
-    } else if (!mediaQuery.matches) {
-        showLandscape();
-    }
-}
-
-/**
- * Toggles the rotation animation for the smartphone image.
- */
-function rotateSmartphone() {
-    document.getElementById("smartphone").classList.toggle("rotate");
-}
-
-/**
  * Removes an element by adding the "d_none" class to its first occurrence.
  * @param {string} objectClass - The class of the element to hide.
  */
@@ -128,9 +102,12 @@ function winTheGame() {
  */
 function loseTheGame() {
     let endOverlayImage = document.getElementById("end-overlay-image");
-    document.getElementById("smartphone").classList.add("d_none");
+    let smartphone = document.getElementById("smartphone");
     setTimeout(() => {
         showEndOverlay();
+        let endOverlay = document.getElementsByClassName("end-overlay")[0];
+        endOverlay.classList.add("end-overlay-lose");
+        smartphone.style = "display: none;";
         endOverlayImage.innerHTML = "";
         endOverlayImage.classList.remove("d_none");
         stopTheGame();

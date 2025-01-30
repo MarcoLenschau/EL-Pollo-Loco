@@ -339,7 +339,7 @@ class World {
             this.character.jumpOfEnemies();
             this.checkFullscreen();
             this.checkMute();
-            this.checkIsCharacterBeforeEndboss();
+            // this.checkIsCharacterBeforeEndboss();
         }, 50);
     }
 }

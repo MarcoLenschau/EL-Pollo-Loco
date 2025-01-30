@@ -12,36 +12,39 @@ class Endboss extends MovableObject {
         this.loadImages(endbossWalkImages);
         this.loadImages(endbossHurtImages);
         this.loadImages(endbossDeadImages);
-        this.moveAnimation();     
+        this.moveAnimation();  
     }
 
     moveAnimation() {
-        setStoppableInterval((interval = 0) => {
+        setStoppableInterval(() => {
             if ((world.character.x >= 2000 || endbossFight)) {
                 if (this.isDead()) {
                     this.playAnimation(endbossDeadImages);    
                     world.statusbars[3].hidden();
                 } else {
                     this.characterMourning();
-                    this.isBossFight(interval);
+                    this.isBossFight();
                 }
             }},1000);
     }
 
     characterMourning() {
         world.statusbars[3].show();
-        this.x -= 150;
+        this.x -= 150; 
+        this.applyGravity();
+        if (this.y > 200) {
+            this.y = 10;
+        }
         endbossFight = true;
     }
 
-    isBossFight(interval) {
-        if (interval < 10 && !endbossFight) {
+    isBossFight() {
+        if (!endbossFight) {
             this.playAnimation(endbossImages);
         } else {
             this.playAnimation(endbossWalkImages);
             this.playBossSound();
         }
-        interval++;
     }
 
     playBossSound() {

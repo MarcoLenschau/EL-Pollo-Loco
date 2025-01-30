@@ -26,14 +26,13 @@ class DrawablObject {
     drawFrame(ctx) {
         if (this instanceof Character || this instanceof Chicken) {
             ctx.beginPath();
-            ctx.strokeStyle = 'blue';
             ctx.rect(
                 this.x + this.offset.left, 
-                this.y + this.offset.top,
+                this.y + this.offset.top, 
                 this.width - this.offset.left - this.offset.right, 
                 this.heigth - this.offset.top - this.offset.bottom
-                );
-            ctx.stroke();
+            );
+            
         }
     }
 }

@@ -77,7 +77,7 @@ class Character extends MovableObject {
      */
     showMoveAnimation() {
         setStoppableInterval(() => this.moveCharacter(), 1000 / 60);
-        setStoppableInterval(() => this.moveAnimation(), 50);
+        setStoppableInterval(() => this.moveAnimation(), 100);
     }
 
     /**
@@ -97,7 +97,6 @@ class Character extends MovableObject {
         if (this.isJumpKeyClicked() && !this.isAboveGroud()) {
             this.jump();
         }
-
         this.reduceCameraX();
     }
 
@@ -143,7 +142,7 @@ class Character extends MovableObject {
             this.playAnimation(characterHurtImages);
         } else if (this.isAboveGroud()) {
             this.playAnimation(characterJumpImages);
-            this.showDefaultPicture(100);
+            this.showDefaultPicture(1000);
         } else if (this.clickKeyLeftOrRight()) {
             this.playAnimation(characterImages);
         }
@@ -196,7 +195,7 @@ class Character extends MovableObject {
         if (!mute) {
             this.jump_sound.play();
         }
-        this.speedY = 20;
+        this.speedY = 15;
     }
 
     /**

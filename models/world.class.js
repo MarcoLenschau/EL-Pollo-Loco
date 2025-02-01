@@ -234,7 +234,7 @@ class World {
         this.character.hit();
         this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages);
     }
-
+    
     /**
      * Checks for collisions between the character and collectible objects (coins or bottles).
      * Updates the character's inventory and status bars accordingly.
@@ -249,7 +249,7 @@ class World {
                         this.isObjectACoinOrBootle(collectObject);
                     }
                 }
-            };
+            }
         });
     }
 

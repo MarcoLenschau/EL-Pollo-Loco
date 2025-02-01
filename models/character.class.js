@@ -214,7 +214,7 @@ class Character extends MovableObject {
         let enemies = world.level.enemies;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
-                if (this.isColliding(enemie) && this.speedY > 0 && this.isAboveGroud()) {  
+                if (this.isColliding(enemie) && this.speedY <= 0 && this.isAboveGroud()) {  
                     enemies.splice(index, 1);
                 }
             }

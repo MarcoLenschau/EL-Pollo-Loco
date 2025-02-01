@@ -30,6 +30,12 @@
     }
 }
 
+@media (max-width: 715px) {
+    .settings-button {
+        display: none;
+    }
+}
+
 @media (max-width: 600px) {
     .overlay-start-screen {
         width: 80vw !important;
@@ -51,9 +57,6 @@
         padding: 12px;
     }
     .refresh-button-image {
-        padding: 12px;
-    }
-    .settings-button {
         padding: 12px;
     }
 }

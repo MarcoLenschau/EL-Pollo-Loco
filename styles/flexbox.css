@@ -11,6 +11,11 @@
     align-items: center;
 }
 
+.d_flex_j_c {
+    display: flex;
+    justify-content: center;
+}
+
 .d_flex_s_a {
     display: flex;
     justify-content: space-around;

@@ -78,3 +78,8 @@ function hiddenOverlays() {
     startOverlay.classList.add("hidden");
     endOverlay.classList.add("hidden");
 }
+
+function defineEndOverlaySize() {
+    let endOverlay = document.querySelector(".end-overlay-lose")
+    endOverlay.style.height = window.innerWidth / 2.8 + "px";
+}

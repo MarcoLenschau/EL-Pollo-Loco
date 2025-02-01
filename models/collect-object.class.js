@@ -23,6 +23,22 @@ class CollectObject extends MovableObject {
      */
     imgPath;
 
+
+    /**
+     * The offset values for collision detection.
+     * @type {Object}
+     * @property {number} top - The top offset for collision.
+     * @property {number} bottom - The bottom offset for collision.
+     * @property {number} left - The left offset for collision.
+     * @property {number} right - The right offset for collision.
+     */
+    offset = {
+        top: 20,
+        bottom: 20,
+        left: 40,
+        right: 40
+    }
+
     /**
      * Creates an instance of the CollectObject class, loading an image from the provided path and setting a random position.
      * The object will be placed at a random x position between 150 and 2350, and a random y position between 0 and 150.
@@ -38,7 +54,6 @@ class CollectObject extends MovableObject {
         } else {
             this.y = 350;
         }
-        
         this.imgPath = imgPath;
     }
 }

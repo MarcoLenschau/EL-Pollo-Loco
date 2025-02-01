@@ -4,9 +4,29 @@
 
 .main-content { 
     height: 100vh; 
-    width: 950px;
     display: flex;
-    align-items: space-between;
     flex-direction: column;
     padding: 95px 0px;
+}
+
+.impressum-width {
+    width: 950px;
+}
+
+@media (max-width: 970px) {
+    .impressum-width {
+        width: 600px;
+    }
+}
+
+@media (max-width: 650px) {
+    .impressum-width {
+        width: 400px;
+    }
+}
+
+@media (max-width: 450px) {
+    .impressum-width {
+        width: 300px;
+    }
 }

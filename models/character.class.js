@@ -58,6 +58,8 @@ class Character extends MovableObject {
      */
     bootles = 0;
 
+    lastActionTime = 0;
+
     /**
      * Initializes the character by loading necessary images, applying gravity, 
      * and starting movement and animation loops.
@@ -65,11 +67,15 @@ class Character extends MovableObject {
     constructor() {
         super().loadImage(characterImages[0]);
         this.loadImages(characterImages);
+        this.loadImages(characterWalkImages);
+        this.loadImages(characterSleepImages);
         this.loadImages(characterJumpImages);
         this.loadImages(characterDeadImages);
         this.loadImages(characterHurtImages);
         this.applyGravity();
         this.showMoveAnimation();
+        this.showLive(1);
+        this.lastActionTime = new Date().getTime();
     }
 
     /**
@@ -87,14 +93,17 @@ class Character extends MovableObject {
         this.walking_sound.pause();
         if (this.isDead()) {
             this.characterIsDead();
-        }
+        } 
         if (this.world.keyboard.RIGHT && this.isCharacterNotTheFarRight()) {
+            this.lastActionTime = new Date().getTime();
             this.moveCharacterLeft(false);
         }
         if (this.world.keyboard.LEFT && this.x > 0) {
+            this.lastActionTime = new Date().getTime();
             this.moveCharacterLeft(true);
         }
         if (this.isJumpKeyClicked() && !this.isAboveGroud()) {
+            this.lastActionTime = new Date().getTime();
             this.jump();
         }
         this.reduceCameraX();
@@ -142,18 +151,18 @@ class Character extends MovableObject {
             this.playAnimation(characterHurtImages);
         } else if (this.isAboveGroud()) {
             this.playAnimation(characterJumpImages);
-            this.showDefaultPicture(1000);
         } else if (this.clickKeyLeftOrRight()) {
+            this.playAnimation(characterWalkImages);
+        } else if (this.isSleep()) { 
+            this.playAnimation(characterSleepImages);            
+        } else {
             this.playAnimation(characterImages);
         }
     }
 
-    /**
-     * Displays the default character image after a specified delay.
-     * @param {number} ms - Delay in milliseconds before showing the default image.
-     */
-    showDefaultPicture(ms) {
-        setTimeout(() => this.loadImage(characterImages[0]), ms);
+    isSleep() {
+        let currentTime = new Date().getTime();
+        return currentTime - this.lastActionTime > 5000;
     }
 
     /**
@@ -205,7 +214,7 @@ class Character extends MovableObject {
         let enemies = world.level.enemies;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
-                if (this.isColliding(enemie) && this.speedY > 0) {
+                if (this.isColliding(enemie) && this.speedY > 0 && this.isAboveGroud()) {  
                     enemies.splice(index, 1);
                 }
             }

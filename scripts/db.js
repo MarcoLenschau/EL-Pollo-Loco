@@ -41,13 +41,39 @@ const statusbarBootleImages = [
 ];
 
 const characterImages = [
+    "./assetes/img/2_character_pepe/1_idle/idle/I-1.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-2.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-3.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-4.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-5.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-6.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-7.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-8.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-9.png",
+    "./assetes/img/2_character_pepe/1_idle/idle/I-10.png"
+];
+
+const characterWalkImages = [
     "./assetes/img/2_character_pepe/2_walk/W-21.png",
     "./assetes/img/2_character_pepe/2_walk/W-22.png",
     "./assetes/img/2_character_pepe/2_walk/W-23.png",
     "./assetes/img/2_character_pepe/2_walk/W-24.png",
     "./assetes/img/2_character_pepe/2_walk/W-25.png",
-    "./assetes/img/2_character_pepe/2_walk/W-26.png",
+    "./assetes/img/2_character_pepe/2_walk/W-26.png"
 ];
+
+const characterSleepImages = [
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-11.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-12.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-13.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-14.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-15.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-16.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-17.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-18.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-19.png",
+    "./assetes/img/2_character_pepe/1_idle/long_idle/I-20.png"
+]
 
 const characterJumpImages = [
     "./assetes/img/2_character_pepe/3_jump/J-31.png",
@@ -119,6 +145,17 @@ const endbossDeadImages = [
     "./assetes/img/4_enemie_boss_chicken/5_dead/G26.png"
 ];
 
+const endbossAttackImages = [
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G13.png",
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G14.png",
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G15.png",
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G16.png",
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G17.png",
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G18.png",
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G19.png",
+    "./assetes/img/4_enemie_boss_chicken/3_attack/G20.png"
+]
+
 const endbossStatusbarImages = [
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green0.png",
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green20.png",
@@ -131,4 +168,10 @@ const endbossStatusbarImages = [
 const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";
 const coinImage = "./assetes/img/8_coin/coin_1.png";
-const bootleImage = "./assetes/img/6_salsa_bottle/salsa_bottle.png";
+
+const bootleImages = [
+    "./assetes/img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/2_bottle_rotation.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png"
+];

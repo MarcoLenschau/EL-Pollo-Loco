@@ -34,14 +34,14 @@ class World {
         new CollectObject(coinImage),
         new CollectObject(coinImage),
         new CollectObject(coinImage),
-        new CollectObject(bootleImage),
-        new CollectObject(bootleImage),
-        new CollectObject(bootleImage),
-        new CollectObject(bootleImage),
-        new CollectObject(bootleImage),
-        new CollectObject(bootleImage),
-        new CollectObject(bootleImage),
-        new CollectObject(bootleImage)
+        new CollectObject(bootleImages[0]),
+        new CollectObject(bootleImages[0]),
+        new CollectObject(bootleImages[0]),
+        new CollectObject(bootleImages[0]),
+        new CollectObject(bootleImages[0]),
+        new CollectObject(bootleImages[0]),
+        new CollectObject(bootleImages[0]),
+        new CollectObject(bootleImages[0])
     ];
 
     /**
@@ -290,20 +290,15 @@ class World {
     }
 
     /**
-     * Toggles fullscreen mode when the corresponding keyboard key is pressed.
+     * Check if key tap and then if key tap analastic which key tap. 
      */
-    checkFullscreen() {
+    checkKeys() {
         if (this.keyboard.F) {
             fullscreen();
-        }
-    }
-
-    /**
-     * Toggles the game's mute state when the corresponding keyboard key is pressed.
-     */
-    checkMute() {
-        if (this.keyboard.M) {
+            this.keyboard.F = false;
+        } else if (this.keyboard.M) {
             muteTheGame();
+            this.keyboard.M = false;
         }
     }
 
@@ -323,10 +318,12 @@ class World {
         let endbossNumber = this.level.enemies.length - 1;
         let endbosss = this.level.enemies[endbossNumber];
         if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead()) {
-            this.character.characterIsDead();
+            this.character.energy -= 50;
+            this.character.hit();
+            this.character.x -= 300;
         }
     }
-
+    
     /**
      * Starts the main game intervals, including collision checks, input handling, and status updates.
      */
@@ -337,9 +334,8 @@ class World {
         setStoppableInterval(() => {
             this.checkThrowObject();
             this.character.jumpOfEnemies();
-            this.checkFullscreen();
-            this.checkMute();
-            // this.checkIsCharacterBeforeEndboss();
+            this.checkKeys();
+            this.checkIsCharacterBeforeEndboss();
         }, 50);
     }
 }

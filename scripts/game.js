@@ -20,6 +20,7 @@ function playTheGame() {
     initLevel();
     initWorld();
     hiddenOverlays();
+    muteTheGame();
 }
 
 /**
@@ -69,8 +70,9 @@ function muteTheGame() {
         mute = true;
         stopAllSounds();
     }
-}
+    localStorage.setItem("Mute", mute)
 
+}
 
 /**
  * Stop all sounds in the game.
@@ -124,15 +126,27 @@ function showGameplay() {
         gameplayMenu.classList.toggle("fullscreen-mode");
     } else if (width != "") {
         gameplayMenu.style.width = "";
+    } else if (window.innerWidth <= 1301){
+        gameplayMenu.style.width = "80vw";
     } else {
-        gameplayMenu.style.width = "1080px";
+        gameplayMenu.style.width = "1080px"
     }
 }
 
+/**
+ * Listens for the "keydown" event on the document and processes the event when a key is pressed.
+ * It calls the `searchKeyEvent` method of the `keyboard` object with the `true` state,
+ * indicating that a key has been pressed.
+ */
 document.addEventListener("keydown", (event) => { 
     keyboard.searchKeyEvent(event, true);
 });
 
+/**
+ * Listens for the "keyup" event on the document and processes the event when a key is released.
+ * It calls the `searchKeyEvent` method of the `keyboard` object with the `false` state,
+ * indicating that a key has been released.
+ */
 document.addEventListener("keyup", (event) => { 
     keyboard.searchKeyEvent(event, false);
 });

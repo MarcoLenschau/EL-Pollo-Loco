@@ -1,3 +1,6 @@
+/**
+ * Toggles the fullscreen mode for the start screen overlay.
+ */
 function fullscreenStartScreen() {
     document.getElementById("start-overlay").classList.toggle("fullscreen-mode");
 }

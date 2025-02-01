@@ -33,7 +33,12 @@ class CollectObject extends MovableObject {
     constructor(imgPath) {
         super().loadImage(imgPath);
         this.x = 150 + Math.random() * 2200;
-        this.y = 80 + Math.random() * 150;
+        if (imgPath === coinImage) {
+            this.y = 80 + Math.random() * 150;
+        } else {
+            this.y = 350;
+        }
+        
         this.imgPath = imgPath;
     }
 }

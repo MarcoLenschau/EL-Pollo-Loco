@@ -241,9 +241,15 @@ class World {
      */
     checkCollectObjectsCollisions() {
         this.collectObjects.forEach(collectObject => {
-            if (this.character.isColliding(collectObject) && this.character.isAboveGroud()) {
-                this.isObjectACoinOrBootle(collectObject);
-            }
+            if (this.character.isColliding(collectObject)) {
+                if (collectObject.imgPath != coinImage) {
+                    this.isObjectACoinOrBootle(collectObject);
+                } else {
+                    if (this.character.isAboveGroud()) {
+                        this.isObjectACoinOrBootle(collectObject);
+                    }
+                }
+            };
         });
     }
 
@@ -320,7 +326,6 @@ class World {
         if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead()) {
             this.character.energy -= 50;
             this.character.hit();
-            this.character.x -= 300;
         }
     }
     

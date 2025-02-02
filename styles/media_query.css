@@ -1,4 +1,4 @@
-@media (max-width: 1300px) {
+@media (max-width: 1360px) {
     canvas {
         width: 80vw !important;
     }
@@ -6,9 +6,9 @@
         width: 80vw !important;
     }
     .end-overlay {
-        top: unset;
+        width: 80vw;
     }
-    .end-overlay-lose {
+    #end-overlay-image {
         width: 80vw;
     }
     .mobile-gameplay {
@@ -71,9 +71,10 @@
     }
 }
 
-@media(min-width: 1302px) {
-    .end-overlay-lose {
-        height: 46vh;
+@media (min-width: 1301px) {
+    .end-overlay {
+        width: 1080px;
+        height: 480px;
     }
 }
 
@@ -111,10 +112,6 @@
     }
     .mobile-hide {
         display: none;
-    }
-    #end-overlay-image {
-        position: absolute;
-        top: 95px;
     }
     .mobile-gameplay {
         display: none !important;

@@ -80,6 +80,8 @@ function hiddenOverlays() {
 }
 
 function defineEndOverlaySize() {
-    let endOverlay = document.querySelector(".end-overlay-lose")
-    endOverlay.style.height = window.innerWidth / 2.8 + "px";
+    let endOverlay = document.querySelector(".end-overlay");
+    if (window.innerWidth < 1300) {
+        endOverlay.style.height = window.innerWidth / 2.8 + "px";
+    }
 }

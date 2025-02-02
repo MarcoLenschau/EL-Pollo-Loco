@@ -1,3 +1,10 @@
+@media (min-width: 1361px) {
+    .gameplay-menu {
+        width: 1080px;
+        height: 485px;
+    }
+}
+
 @media (max-width: 1360px) {
     canvas {
         width: 80vw !important;
@@ -21,11 +28,19 @@
         width: unset !important;
         right: 10vw;
     }
+    .gameplay-menu {
+        width: 80vw;
+        height: 485px;
+    }
 }
 
 @media (max-width: 900px) {
     .overlay-start-screen {
         width: 80vw !important;
+        height: 400px;
+    }
+    .gameplay-menu {
+        width: 80vw;
         height: 400px;
     }
 }

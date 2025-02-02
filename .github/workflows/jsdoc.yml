@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:                
       contents: write           
-      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -23,6 +22,7 @@ jobs:
         run: |
             git config --global user.email "contact@marco-lenschau.de"
             git config --global user.name "SnowCoder404"
-            git add .
+            git checkout -b documentary
+            git add docs/
             git commit -m "Add JSDoc documentary"
             git push https://github.com/SnowCoder404/EL-Pollo-Loco.git

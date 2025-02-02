@@ -187,7 +187,6 @@ class World {
      */
     checkCollisions() {
         this.checkEnemiesCollisions();
-        this.checkCollectObjectsCollisions();
         this.checkThrowCollisions();
     }
 
@@ -241,14 +240,8 @@ class World {
      */
     checkCollectObjectsCollisions() {
         this.collectObjects.forEach(collectObject => {
-            if (this.character.isColliding(collectObject)) {
-                if (collectObject.imgPath != coinImage) {
-                    this.isObjectACoinOrBootle(collectObject);
-                } else {
-                    if (this.character.isAboveGroud()) {
-                        this.isObjectACoinOrBootle(collectObject);
-                    }
-                }
+            if (this.character.isColliding(collectObject)) {            
+                this.isObjectACoinOrBootle(collectObject);
             }
         });
     }
@@ -258,7 +251,7 @@ class World {
      * @param {CollectObject} collectObject - The object being collected.
      */
     isObjectACoinOrBootle(collectObject) {
-        if (collectObject.imgPath === coinImage) {
+        if (collectObject.imgPath === coinImage && this.character.isAboveGroud()) {
             this.character.coins += 20;
             this.statusbars[2].analysePercentage(this.character.coins, statusbarCoinImages);
             collectObject.hidden();
@@ -294,7 +287,7 @@ class World {
         currentTime -= this.lastThrow;
         return currentTime > 1000;
     }
-
+    
     /**
      * Check if key tap and then if key tap analastic which key tap. 
      */
@@ -341,6 +334,7 @@ class World {
             this.character.jumpOfEnemies();
             this.checkKeys();
             this.checkIsCharacterBeforeEndboss();
+            this.checkCollectObjectsCollisions();
         }, 50);
     }
 }

@@ -126,17 +126,12 @@ function loseTheGame() {
  * Toggles the display of the gameplay menu.
  */
 function showGameplay() {
-    let gameplayMenu = document.getElementsByClassName("gameplay-menu")[0];
-    let width = gameplayMenu.style.width;
+    let gameplayMenu = document.querySelector(".gameplay-menu");
     if (fullscreenOn) {
         gameplayMenu.classList.toggle("fullscreen-mode");
-    } else if (width != "") {
-        gameplayMenu.style.width = "";
-    } else if (window.innerWidth <= 1301){
-        gameplayMenu.style.width = "80vw";
     } else {
-        gameplayMenu.style.width = "1080px"
-    }
+        gameplayMenu.classList.toggle("d_none");
+    } 
 }
 
 /**

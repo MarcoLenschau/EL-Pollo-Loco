@@ -1,0 +1,26 @@
+name: JSDoc documentation
+on:
+  push:
+    branches:
+      - devloper
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./scripts
+          output_dir: ./out
+          config_file: conf.json
+          template: minami
+          front_page: README.md
+          
+      - name: Add to repository
+        run: |
+            git add .
+            git commit -m "Add JSDoc documentary"
+            git push

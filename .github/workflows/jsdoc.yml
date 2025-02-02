@@ -19,6 +19,8 @@ jobs:
                     
       - name: Add to repository
         run: |
+            git config --global user.email "contact@marco-lenschau.de"
+            git config --global user.name "SnowCoder404"
             git add .
             git commit -m "Add JSDoc documentary"
             git push

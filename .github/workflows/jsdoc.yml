@@ -23,4 +23,6 @@ jobs:
             git config --global user.name "SnowCoder404"
             git add .
             git commit -m "Add JSDoc documentary"
-            git push
+            git push https://${{ secrets.secret_key }}@github.com/SnowCoder404/EL-Pollo-Loco.git
+        env:
+            GITHUB_TOKEN: ${{ secrets.secret_key }}

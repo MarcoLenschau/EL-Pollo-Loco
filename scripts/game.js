@@ -96,6 +96,9 @@ function winTheGame() {
         endOverlayImage.src = "../assetes/img/9_intro_outro_screens/win/win_1.png";
         endOverlayImage.style = "";
         stopTheGame();
+        setInterval(() => {
+            defineEndOverlaySize()
+        },10);
     }, 1000);
 }
 
@@ -113,6 +116,9 @@ function loseTheGame() {
         endOverlayImage.innerHTML = "";
         endOverlayImage.classList.remove("d_none");
         stopTheGame();
+        setInterval(() => {
+            defineEndOverlaySize()
+        },10);
     },1000);
 }
 

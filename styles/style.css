@@ -49,8 +49,7 @@ body > h1 {
     align-items: center;
     flex-direction: column;
     overflow: hidden;
-    height: 480px;
-    width: 1080px;
+    height: 320px;
     position: absolute;
     top: 219px;
 }
@@ -248,9 +247,4 @@ body > h1 {
 .fullscreen-mode {
     height: 72vh !important;
     width: 100vw !important;
-}
-
-.end-overlay-lose {
-    height: 30vh;
-    top: 21vh !important;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>scripts/fullscreen.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,25 +29,82 @@
 
 <div id="main">
     
+    <h1 class="page-title">scripts/fullscreen.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Toggles the fullscreen mode for the start screen overlay.
+ */
+function fullscreenStartScreen() {
+    document.getElementById("start-overlay").classList.toggle("fullscreen-mode");
+}
 
+/**
+ * Toggles fullscreen mode for the game.
+ */
+function fullscreen() {
+    if (!fullscreenOn) {
+        fullscreenOnShow();
+    } else {
+        fullscreenOff();
+    }
+}
 
+/**
+ * Enables fullscreen mode and adjusts styles accordingly.
+ */
+function fullscreenOnShow() {
+    openFullscreen();
+    fullscreenOn = true;
+    document.getElementById("canvas").style = "position: absolute; top: 220px; width: 100vw;";
+    fullscreenStartScreen();
+}
 
+/**
+ * Disables fullscreen mode and restores styles.
+ */
+function fullscreenOff() {
+    closeFullscreen();
+    fullscreenOn = false;
+    document.getElementById("canvas").style = "position: absolute; top: 220px;";
+    fullscreenStartScreen();    
+}
 
+/**
+ * Requests fullscreen mode for the specified element.
+ */
+function openFullscreen() {
+    let element = document.getElementById("fullscreen");
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+    }
+}
 
-
-
-
-
-    
-
-
-
+/**
+ * Exits fullscreen mode.
+ */
+function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+}</code></pre>
+        </article>
+    </section>
 
 
 

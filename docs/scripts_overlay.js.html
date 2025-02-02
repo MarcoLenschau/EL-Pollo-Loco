@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>scripts/overlay.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,25 +29,105 @@
 
 <div id="main">
     
+    <h1 class="page-title">scripts/overlay.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Displays the start overlay.
+ */
+function showStartOverlay() {
+    let startOverlay = document.getElementById("start-overlay");
+    startOverlay.classList.remove("hidden");
+    startOverlay.style = "";
+}
 
+/**
+ * Show the game in the landscape format.
+ */
+function showLandscape() {
+    document.getElementsByClassName("end-overlay")[0].classList.add("d_none");
+    document.getElementById("end-overlay-image").classList.add("d_none");
+    document.getElementById("canvas").style.width = "1080px";
+    document.getElementsByClassName("play-button")[0].classList.remove("d_none")
+    document.getElementsByClassName("mobile-gameplay")[0].classList.remove("d_none")
+    showStartOverlay();
+    clearInterval(rotateInterval);
+    intervaleNumber = 0;
+}
 
+/**
+ * Show the turn mobile devices overlay.
+ */
+function showDevicesOverlay() {
+    let canvas = document.getElementById("canvas");
+    hiddenOverlays();
+    createDevicesOverlay();
+    canvas.style = " width: 0 !important; position: absolute; top: 230px;";  
+    document.getElementsByClassName("play-button-end")[0].classList.add("d_none")
+    removeItem("mobile-gameplay");
+    removeItem("play-button");
+    removeItem("overlay-buttons");
+    removeItem("mobile-hide");
+    intervaleNumber = 1;
+}
 
+/**
+ * Creates an overlay prompting users to rotate their devices.
+ */
+function createDevicesOverlay() {
+    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    disableEndOverlay();
+    endOverlay.style = "width: 100vw; margin: 24vh;";
+    endOverlay.innerHTML += "&lt;h1 style='position: absolute; bottom: 0px;'>Turn your Devices&lt;/h1>"       
+    rotateInterval = setInterval(rotateSmartphone, 4000);
+}
 
+/**
+ * Hidden the end overlay.
+ */
+function disableEndOverlay() {
+    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    let endOverlayImage = document.getElementById("end-overlay-image");
+    endOverlay.classList.remove("d_none");
+    endOverlay.classList.remove("hidden");
+    endOverlayImage.src = "";
+}
 
+/**
+ * Show the end overlay.
+ */
+function showEndOverlay() {
+    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    endOverlay.classList.remove("hidden");
+    endOverlay.classList.remove("d_none");
+}
 
+/**
+ * Hides the start and end overlays.
+ */
+function hiddenOverlays() {
+    let startOverlay = document.getElementById("start-overlay");
+    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    startOverlay.style = "height: 0 !important;";
+    startOverlay.classList.add("hidden");
+    endOverlay.classList.add("hidden");
+}
 
-
-
-    
-
-
-
+function defineEndOverlaySize() {
+    let endOverlay = document.querySelector(".end-overlay");
+    if (window.innerWidth &lt; 1300) {
+        endOverlay.style.height = window.innerWidth / 2.8 + "px";
+    }
+}</code></pre>
+        </article>
+    </section>
 
 
 

@@ -14,11 +14,9 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./scripts
-          output_dir: ./out
-          config_file: conf.json
+          output_dir: ./docs
           template: minami
-          front_page: README.md
-          
+                    
       - name: Add to repository
         run: |
             git add .

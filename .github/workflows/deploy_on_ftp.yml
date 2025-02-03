@@ -1,10 +1,13 @@
 name: Deploy website on push
 on:
   pull_request:
-    branches:
+    types:
+      - closed
+    branches: 
       - main
 jobs:
   web-deploy:
+    if: github.event.pull_request.merged == true
     name: Deploy
     runs-on: ubuntu-latest
     steps:
@@ -15,5 +18,5 @@ jobs:
       with:
         server: ${{ secrets.ftp_server }}
         username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
+        password: ${{ secrets.ftp_password }}git
         server-dir: /el-pollo-loco/ 

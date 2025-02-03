@@ -207,7 +207,7 @@ class World {
             });
         });
     }
-    
+
     /**
      * Checks for collisions between the character and enemies.
      * Handles the appropriate response (e.g., losing health or game over).
@@ -317,7 +317,7 @@ class World {
         let endbossNumber = this.level.enemies.length - 1;
         let endbosss = this.level.enemies[endbossNumber];
         if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead()) {
-            this.character.energy -= 10;
+            this.character.energy -= 30;
             this.character.hit();
         }
     }

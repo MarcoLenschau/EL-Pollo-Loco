@@ -3,6 +3,12 @@
         width: 1080px;
         height: 485px;
     }
+    #end-overlay-image {
+        width: 80vw;
+    }
+    .end-overlay {
+        height: 480px !important;
+    }    
 }
 
 @media (max-width: 1360px) {

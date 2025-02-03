@@ -125,6 +125,7 @@ function loseTheGame() {
     smartphone.style = "display: none;";
     endOverlayImage.innerHTML = "";
     endOverlayImage.classList.remove("d_none");
+    endOverlayImage.src = "../assetes/img/9_intro_outro_screens/game_over/you lost.png";
     stopTheGame();
     setInterval(() => {
         defineEndOverlaySize()

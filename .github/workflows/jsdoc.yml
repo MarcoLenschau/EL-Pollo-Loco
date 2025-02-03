@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - devloper
+      - feature-1
 jobs:
   documentary:
     runs-on: ubuntu-latest

@@ -22,7 +22,6 @@ jobs:
         run: |
             git config --global user.email "contact@marco-lenschau.de"
             git config --global user.name "SnowCoder404"
-            git checkout -b documentary
-            git add docs/
+            git add .
             git commit -m "Add JSDoc documentary"
             git push https://github.com/SnowCoder404/EL-Pollo-Loco.git

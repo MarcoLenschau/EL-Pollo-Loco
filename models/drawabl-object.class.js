@@ -72,7 +72,7 @@ class DrawablObject {
      * @param {CanvasRenderingContext2D} ctx - The canvas rendering context.
      */
     drawFrame(ctx) {
-        if (this instanceof Character || this instanceof Chicken) {
+        if (this instanceof Character || this instanceof Chicken || this instanceof Endboss) {
             ctx.beginPath();
             ctx.rect(
                 this.x + this.offset.left, 

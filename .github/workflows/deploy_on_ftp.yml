@@ -5,6 +5,9 @@ on:
       - closed
     branches: 
       - main
+  push:
+    branches:
+      - main
 jobs:
   web-deploy:
     if: github.event.pull_request.merged == true

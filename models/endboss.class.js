@@ -115,7 +115,8 @@ class Endboss extends MovableObject {
             this.energy -= 20;
             this.showLive(3);
         } else if (this.energy <= 0) {
-            winTheGame();
+            this.playAnimation(endbossDeadImages);
+            setTimeout(winTheGame, 4000);
         }
     }
 }

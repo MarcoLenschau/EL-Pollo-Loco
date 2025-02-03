@@ -177,7 +177,7 @@ class Character extends MovableObject {
         if (!mute) {
             this.game_over_sound.play();
         }
-        loseTheGame();
+        setTimeout(loseTheGame, 1000);
         return false;
     }
 

@@ -18,5 +18,5 @@ jobs:
       with:
         server: ${{ secrets.ftp_server }}
         username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}git
+        password: ${{ secrets.ftp_password }}
         server-dir: /el-pollo-loco/

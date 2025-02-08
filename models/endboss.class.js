@@ -81,7 +81,7 @@ class Endboss extends MovableObject {
         let currentTime = new Date().getTime();
         if (this.isDead()) {
             this.playAnimation(endbossDeadImages);
-        } else if (currentTime - this.lastHit < 3000) {
+        } else if (currentTime - this.lastHit < 2000) {
             this.playAnimation(endbossHurtImages);
         } else if (!endbossFight) {
             this.playAnimation(endbossImages);
@@ -114,7 +114,7 @@ class Endboss extends MovableObject {
             this.lastHit = new Date().getTime();
             this.energy -= 20;
             this.showLive(3);
-        } else if (this.energy <= 0) {
+        } else if (this.isDead()) {
             this.playAnimation(endbossDeadImages);
             setTimeout(winTheGame, 2000);
         }

@@ -175,3 +175,12 @@ const bootleImages = [
     "./assetes/img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png",
     "./assetes/img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png"
 ];
+
+const bootleSplashImages = [
+    "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/3_bottle_splash.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/4_bottle_splash.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png",
+    "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png"
+];

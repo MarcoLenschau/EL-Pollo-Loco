@@ -26,7 +26,8 @@ class ThrowableObject extends MovableObject {
      */
     constructor(x, y) {
         super().loadImage("./assetes/img/6_salsa_bottle/2_salsa_bottle_on_ground.png");   
-        this.loadImages(bootleImages)
+        this.loadImages(bootleImages);
+        this.loadImages(bootleSplashImages)
         this.x = x;
         this.y = y;
         this.throw();
@@ -43,7 +44,11 @@ class ThrowableObject extends MovableObject {
             this.x += 5;
         }, 25);
         setStoppableInterval(() => {
-            this.playAnimation(bootleImages);
+            if (this.isAboveGroud()) {
+                this.playAnimation(bootleImages);
+            } else {
+                this.playAnimation(bootleSplashImages)
+            }
         }, 100);
     }
 }

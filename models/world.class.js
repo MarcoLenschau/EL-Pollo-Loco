@@ -203,6 +203,8 @@ class World {
                     } else {
                         enemie.hit();
                     }
+                } else {
+                    bootle.playAnimation(bootleSplashImages);
                 }
             });
         });

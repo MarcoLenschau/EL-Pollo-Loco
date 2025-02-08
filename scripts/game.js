@@ -104,7 +104,7 @@ function winTheGame() {
     document.getElementById("smartphone").classList.add("d_none");
     showEndOverlay();
     endOverlayImage.classList.remove("d_none")
-    endOverlayImage.src = "../assetes/img/9_intro_outro_screens/win/win_1.png";
+    endOverlayImage.src = "./assetes/img/9_intro_outro_screens/win/win_1.png";
     endOverlayImage.style = "";
     stopTheGame();
     setInterval(() => {
@@ -125,7 +125,7 @@ function loseTheGame() {
     smartphone.style = "display: none;";
     endOverlayImage.innerHTML = "";
     endOverlayImage.classList.remove("d_none");
-    endOverlayImage.src = "../assetes/img/9_intro_outro_screens/game_over/you lost.png";
+    endOverlayImage.src = "./assetes/img/9_intro_outro_screens/game_over/you lost.png";
     stopTheGame();
     setInterval(() => {
         defineEndOverlaySize()

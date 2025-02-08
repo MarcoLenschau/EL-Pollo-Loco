@@ -140,14 +140,14 @@ body > h1 {
 }
 
 .mobile-gameplay {
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     position: absolute;
     width: 1080px;
     height: 100px;
     background-color: #ff9600;
-    top: 699px;
+    bottom: 0;
     padding: 48px;
 }
 

@@ -139,6 +139,7 @@ function showGameplay() {
     let gameplayMenu = document.querySelector(".gameplay-menu");
     if (fullscreenOn) {
         gameplayMenu.classList.toggle("fullscreen-mode");
+        gameplayMenu.classList.toggle("d_none");
     } else {
         gameplayMenu.classList.toggle("d_none");
     } 

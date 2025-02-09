@@ -46,8 +46,6 @@ class ThrowableObject extends MovableObject {
         setStoppableInterval(() => {
             if (this.isAboveGroud()) {
                 this.playAnimation(bootleImages);
-            } else {
-                this.playAnimation(bootleSplashImages)
             }
         }, 100);
     }

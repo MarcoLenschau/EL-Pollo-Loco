@@ -198,17 +198,24 @@ class World {
         this.level.enemies.forEach((enemie, index) => {
             this.throwableObjects.forEach(bootle => {
                 if (enemie.isColliding(bootle)) {
-                    if (enemie.width == 100) {
+                    if (this.isEndboss(enemie)) {
                         this.level.enemies.splice(index, 1);
                     } else {
                         enemie.hit();
                     }
-                } else {
-                        bootle.playAnimation(bootleSplashImages);
-
                 }
             });
         });
+
+        this.throwableObjects.forEach(bootle => {
+            if (!bootle.isAboveGroud() && bootle.y > 200) { 
+                bootle.playAnimation(bootleSplashImages);
+            }
+        });
+    }
+    
+    isEndboss(enemie) {
+        return enemie.width == 100;
     }
 
     /**

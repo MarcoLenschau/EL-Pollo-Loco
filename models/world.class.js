@@ -204,7 +204,8 @@ class World {
                         enemie.hit();
                     }
                 } else {
-                    bootle.playAnimation(bootleSplashImages);
+                        bootle.playAnimation(bootleSplashImages);
+
                 }
             });
         });

@@ -209,6 +209,11 @@ class World {
         this.showSplashAnimation();
     }
 
+    /**
+     * Triggers the splash animation for throwable objects that have fallen below a certain height.
+     * Iterates through each throwable object and checks if its y-coordinate is greater than 240.
+     * If the condition is met, it sets an interval to play the splash animation at a rate of 120 frames per second.
+     */
     showSplashAnimation() {
         this.throwableObjects.forEach(bottle => {
             if (bottle.y > 240) { 
@@ -219,6 +224,13 @@ class World {
         });
     }
     
+    /**
+     * Checks if the given enemy is the end boss.
+     * 
+     * @param {Object} enemie - The enemy object to check.
+     * @param {number} enemie.width - The width of the enemy.
+     * @returns {boolean} True if the enemy is the end boss, otherwise false.
+     */
     isEndboss(enemie) {
         return enemie.width == 100;
     }

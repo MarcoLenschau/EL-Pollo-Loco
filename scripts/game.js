@@ -24,6 +24,7 @@ function playTheGame() {
     lastEnemie = world.level.enemies.length - 1;
     world.level.enemies[lastEnemie].x = 2550;
     endbossFight = false;
+    document.querySelector("#end-overlay-image").src = "";
 }
 
 /**
@@ -76,6 +77,11 @@ function muteTheGame() {
     localStorage.setItem("Mute", mute)
 }
 
+/**
+ * Checks the local storage for the "Mute" setting and updates the mute button's background image accordingly.
+ * If "Mute" is set to "true" in local storage, the mute button will display the mute icon and the `mute` variable will be set to true.
+ * Otherwise, the mute button will display the note icon and the `mute` variable will be set to false.
+ */
 function checkLocalStorageMute() {
     if (localStorage.getItem("Mute") == "true") {
         document.getElementById("mute").style = "background-image: url('./assetes/icon/mute.png');";

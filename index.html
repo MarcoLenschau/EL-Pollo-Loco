@@ -33,9 +33,15 @@
         <h1 class="mobile-hide" style="font-size: 84px; color: black;">El Pollo Loco</h1>
         <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
         <div class="overlay-buttons">
-            <div id="mute" onclick="muteTheGame();" class="mobile-btn background-picture mute-button"></div>
-            <div onclick="fullscreen();" class="mobile-btn background-picture refresh-button-image"></div>
-            <div onclick="stopTheGame(); showStartOverlay();" class="mobile-btn background-picture" style="background-image: url('./assetes/icon/pause.png');"></div>
+            <div id="mute" onclick="muteTheGame();" class="mobile-btn button">
+                <div class="background-picture button-image" style="background-image: url('../assetes/icon/note.png');"></div>
+            </div>
+            <div onclick="fullscreen();" class="mobile-btn button">
+                <div class="background-picture button-image" style="background-image: url('../assetes/icon/refresh.png');"></div>
+            </div>
+            <div onclick="stopTheGame(); showStartOverlay();" class="mobile-btn button">
+                <div class="background-picture button-image" style="background-image: url('./assetes/icon/pause.png');"></div>
+            </div>
         </div>
         <div class="d_flex_column d_flex_c devices-overlay">
             <img id='smartphone' src='./assetes/icon/smartphone.png' height=200 width="125" style="rotate: 90deg;"></img>
@@ -43,14 +49,20 @@
         </div>
         <div class="end-overlay hidden d_none">
             <div onclick="playTheGame();" class="overlay-start-screen-button play-button-end background-picture" style="position: absolute; top: 22px; right: 12px;"></div>    
-            <img id="end-overlay-image" src="./assetes/img/9_intro_outro_screens/game_over/you lost.png" class="lose-end-overlay-image" style="height: 100vh; width: 80vw;" alt="end">
+            <img id="end-overlay-image" src="./assetes/img/9_intro_outro_screens/game_over/you lost.png" class="lose-end-overlay-image" style="height: 100vh; width: 80vw;">
         </div>
         <div id="start-overlay" class="overlay-start-screen background-picture">
             <div class="d_flex_column" style="align-items: center;">
                 <div class="d_flex" style="margin-bottom: 48px; position: absolute; top: 18px; right: 18px;">
-                    <div onclick="showGameplay();" class="overlay-start-screen-button settings-button background-picture"></div>
-                    <div onclick="fullscreen();" class="overlay-start-screen-button refresh-button background-picture"></div>
-                    <div onclick="playTheGame();" class="overlay-start-screen-button play-button background-picture"></div>    
+                    <div onclick="showGameplay();" class="overlay-start-screen-button button">
+                        <div class="background-picture button-image" style="background-image: url('../assetes/icon/settings.png');"></div>
+                    </div>
+                    <div onclick="fullscreen();" class="overlay-start-screen-button button">
+                        <div class="background-picture button-image" style="background-image: url('../assetes/icon/refresh.png');"></div>
+                    </div>
+                    <div onclick="playTheGame();" class="overlay-start-screen-button button">
+                        <div class="background-picture button-image" style="background-image: url('../assetes/icon/play.png');"></div>
+                    </div>    
                 </div>
                 <div style="width: 1080px; display: flex; justify-content: center;">
                     <h1 class="f_s_44"><a href="./impressum.html" style="text-decoration: none;">Impressum</a></h1> 

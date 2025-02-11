@@ -79,6 +79,11 @@ function hiddenOverlays() {
     endOverlay.classList.add("hidden");
 }
 
+/**
+ * Adjusts the height of the end overlay element based on the window's inner width.
+ * If the window's inner width is less than 1300 pixels, the height of the end overlay
+ * is set to a value proportional to the window's width.
+ */
 function defineEndOverlaySize() {
     let endOverlay = document.querySelector(".end-overlay");
     if (window.innerWidth < 1300) {

@@ -1,4 +1,7 @@
 let level1;
+/**
+ * Initializes the level by creating a new Level instance with specified entities.
+ */
 function initLevel() {
     level1 = new Level(
         [
@@ -39,4 +42,4 @@ function initLevel() {
             new Background(backgroundImages[1], 719*4),
             new Background(backgroundImages[2], 719*4), 
         ])
-    }
+}

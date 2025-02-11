@@ -83,6 +83,10 @@
     .refresh-button-image {
         padding: 12px;
     }
+    .button-image {
+        height: 24px;
+        width: 24px;
+    }
 }
 
 @media (max-width: 350px) {

@@ -37,8 +37,8 @@ body > h1 {
 }
 
 .overlay-start-screen-button {
-    height: 56px;
-    width: 56px;
+    height: 62px;
+    width: 62px;
     border-radius: 24px;
     margin-left: 32px;
 }
@@ -54,32 +54,20 @@ body > h1 {
     top: 219px;
 }
 
-.play-button {
-    background-image: url("../assetes/icon/play.png");
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ff9600;
-    padding: 24px;
+}
+
+.button-image {
+    height: 48px;
+    width: 48px;
 }
 
 .play-button-end {
     background-image: url("../assetes/icon/play.png");
-    background-color: #ff9600;
-    padding: 24px;
-}
-
-.refresh-button {
-    background-image: url("../assetes/icon/refresh.png");
-    background-color: #ff9600;
-    padding: 24px;
-}
-
-.refresh-button-image {
-    background-image: url("../assetes/icon/refresh.png");
-    background-color: #ff9600;
-    padding: 24px;
-}
-
-.settings-button {
-    background-image: url("../assetes/icon/settings.png");
     background-color: #ff9600;
     padding: 24px;
 }
@@ -152,8 +140,8 @@ body > h1 {
 }
 
 .mobile-btn {
-    height: 50px;
-    width: 50px;
+    height: 62px;
+    width: 62px;
     border-radius: 24px;
 }
 

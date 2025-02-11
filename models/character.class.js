@@ -74,7 +74,6 @@ class Character extends MovableObject {
         this.loadImages(characterHurtImages);
         this.applyGravity();
         this.showMoveAnimation();
-        this.showLive(1);
         this.lastActionTime = new Date().getTime();
     }
 

@@ -84,6 +84,9 @@
     .overlay-start-screen {
         height: 76vh !important;
     }
+    .lose-end-overlay-image {
+        width: 100vw !important;
+    }
 }
 
 @media (pointer: coarse) and (orientation: landscape) and (max-width: 933px) and (min-width: 932px) {

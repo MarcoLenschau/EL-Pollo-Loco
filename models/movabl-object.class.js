@@ -155,6 +155,7 @@ class MovableObject extends DrawablObject {
         if (this.energy > 0) {
             this.lastHit = new Date().getTime();
             this.energy -= 2;
+            this.showLive(1);
             if (!mute) {
                 this.hurt_sound.play();
             }
@@ -176,12 +177,10 @@ class MovableObject extends DrawablObject {
      * @param {number} numberOfStatusbar - The index of the status bar to update.
      */
     showLive(numberOfStatusbar) {
-        setStoppableInterval(() => {
-            if (world.statusbars.length - 1 === numberOfStatusbar) {
-                world.statusbars[numberOfStatusbar].analysePercentage(this.energy, endbossStatusbarImages);            
-            } else {
-                world.statusbars[numberOfStatusbar].analysePercentage(this.energy, statusbarLiveImages);            
-            }
-        }, 1000 / 60);
+        if (world.statusbars.length - 1 === numberOfStatusbar) {
+            world.statusbars[numberOfStatusbar].analysePercentage(this.energy, endbossStatusbarImages);            
+        } else {
+            world.statusbars[numberOfStatusbar].analysePercentage(this.energy, statusbarLiveImages);            
+        }
     }
 }

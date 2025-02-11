@@ -24,6 +24,7 @@ function playTheGame() {
     lastEnemie = world.level.enemies.length - 1;
     world.level.enemies[lastEnemie].x = 2550;
     endbossFight = false;
+    document.querySelector("#end-overlay-image").src = "";
 }
 
 /**

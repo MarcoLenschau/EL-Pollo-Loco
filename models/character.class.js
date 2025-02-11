@@ -58,6 +58,10 @@ class Character extends MovableObject {
      */
     bottles = 0;
 
+    /**
+     * @type {number}
+     * @description The timestamp of the last action performed by the character.
+     */
     lastActionTime = 0;
 
     /**
@@ -159,6 +163,13 @@ class Character extends MovableObject {
         }
     }
 
+    /**
+     * Checks if the character is in a sleep state.
+     * 
+     * This method determines if the character has been inactive for more than 5 seconds.
+     * 
+     * @returns {boolean} True if the character is sleeping, false otherwise.
+     */
     isSleep() {
         let currentTime = new Date().getTime();
         return currentTime - this.lastActionTime > 5000;

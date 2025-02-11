@@ -34,14 +34,14 @@ class World {
         new CollectObject(coinImage),
         new CollectObject(coinImage),
         new CollectObject(coinImage),
-        new CollectObject(bootleImages[0]),
-        new CollectObject(bootleImages[0]),
-        new CollectObject(bootleImages[0]),
-        new CollectObject(bootleImages[0]),
-        new CollectObject(bootleImages[0]),
-        new CollectObject(bootleImages[0]),
-        new CollectObject(bootleImages[0]),
-        new CollectObject(bootleImages[0])
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0])
     ];
 
     /**
@@ -196,8 +196,8 @@ class World {
      */
     checkThrowCollisions() {
         this.level.enemies.forEach((enemie, index) => {
-            this.throwableObjects.forEach(bootle => {
-                if (enemie.isColliding(bootle)) {
+            this.throwableObjects.forEach(bottle => {
+                if (enemie.isColliding(bottle)) {
                     if (this.isEndboss(enemie)) {
                         this.level.enemies.splice(index, 1);
                     } else {
@@ -206,10 +206,15 @@ class World {
                 }
             });
         });
+        this.showSplashAnimation();
+    }
 
-        this.throwableObjects.forEach(bootle => {
-            if (!bootle.isAboveGroud() && bootle.y > 200) { 
-                bootle.playAnimation(bootleSplashImages);
+    showSplashAnimation() {
+        this.throwableObjects.forEach(bottle => {
+            if (bottle.y > 240) { 
+                setInterval(() => {
+                    bottle.playAnimation(bottleSplashImages);
+                },1000 / 120);
             }
         });
     }
@@ -228,7 +233,7 @@ class World {
                 if (enemie.width !== 100) {
                     this.characterHit();
                 } else {
-                    if (!this.character.isAboveGroud()) {
+                    if (!this.character.isAboveGround()) {
                         this.characterHit();
                     }
                 }
@@ -251,7 +256,7 @@ class World {
     checkCollectObjectsCollisions() {
         this.collectObjects.forEach(collectObject => {
             if (this.character.isColliding(collectObject)) {            
-                this.isObjectACoinOrBootle(collectObject);
+                this.isObjectACoinOrbottle(collectObject);
             }
         });
     }
@@ -260,14 +265,14 @@ class World {
      * Determines if a collected object is a coin or a bottle and updates the game state.
      * @param {CollectObject} collectObject - The object being collected.
      */
-    isObjectACoinOrBootle(collectObject) {
-        if (collectObject.imgPath === coinImage && this.character.isAboveGroud()) {
+    isObjectACoinOrbottle(collectObject) {
+        if (collectObject.imgPath === coinImage && this.character.isAboveGround()) {
             this.character.coins += 20;
             this.statusbars[2].analysePercentage(this.character.coins, statusbarCoinImages);
             collectObject.hidden();
-        } else if (this.character.bootles <= 4) {
-            this.character.bootles += 1;
-            this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);
+        } else if (this.character.bottles <= 4) {
+            this.character.bottles += 1;
+            this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
             collectObject.hidden();
         }
     }
@@ -278,11 +283,11 @@ class World {
      */
     checkThrowObject() {
         if (this.isThrow()) {
-            if (this.keyboard.D && !this.character.otherDirection && this.character.bootles > 0) {
-                const bootle = new ThrowableObject(this.character.x, 250);
-                this.throwableObjects.push(bootle);
-                this.character.bootles -= 1;
-                this.statusbars[0].analysePercentage(this.character.bootles * 20, statusbarBootleImages);
+            if (this.keyboard.D && !this.character.otherDirection && this.character.bottles > 0) {
+                const bottle = new ThrowableObject(this.character.x, 250);
+                this.throwableObjects.push(bottle);
+                this.character.bottles -= 1;
+                this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
                 this.lastThrow = new Date().getTime();
             }
         }

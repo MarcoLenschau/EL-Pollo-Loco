@@ -56,7 +56,7 @@ class Character extends MovableObject {
      * The number of bottles the character has collected.
      * @type {number}
      */
-    bootles = 0;
+    bottles = 0;
 
     lastActionTime = 0;
 
@@ -102,7 +102,7 @@ class Character extends MovableObject {
             this.lastActionTime = new Date().getTime();
             this.moveCharacterLeft(true);
         }
-        if (this.isJumpKeyClicked() && !this.isAboveGroud()) {
+        if (this.isJumpKeyClicked() && !this.isAboveGround()) {
             this.lastActionTime = new Date().getTime();
             this.jump();
         }
@@ -149,7 +149,7 @@ class Character extends MovableObject {
             this.playAnimation(characterDeadImages);
         } else if (this.isHurt()) {
             this.playAnimation(characterHurtImages);
-        } else if (this.isAboveGroud()) {
+        } else if (this.isAboveGround()) {
             this.playAnimation(characterJumpImages);
         } else if (this.clickKeyLeftOrRight()) {
             this.playAnimation(characterWalkImages);
@@ -214,7 +214,7 @@ class Character extends MovableObject {
         let enemies = world.level.enemies;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
-                if (this.isColliding(enemie) && this.speedY <= 0 && this.isAboveGroud()) {  
+                if (this.isColliding(enemie) && this.speedY <= 0 && this.isAboveGround()) {  
                     enemies.splice(index, 1);
                 }
             }

@@ -78,7 +78,7 @@ class MovableObject extends DrawablObject {
      */
     applyGravity() {
         setStoppableInterval(() => {
-            if (this.isAboveGroud() || this.speedY > 0) {
+            if (this.isAboveGround() || this.speedY > 0) {
                 this.y -= this.speedY;
                 this.speedY -= this.acceleration;
             } 
@@ -89,7 +89,7 @@ class MovableObject extends DrawablObject {
      * Checks if the object is above the ground.
      * @returns {boolean} True if the object is above the ground, otherwise false.
      */
-    isAboveGroud() {
+    isAboveGround() {
         return this instanceof ThrowableObject || this.y < 220;
     }
 

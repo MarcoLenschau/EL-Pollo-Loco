@@ -85,7 +85,7 @@ class Endboss extends MovableObject {
             this.playAnimation(endbossHurtImages);
         } else if (!endbossFight) {
             this.playAnimation(endbossImages);
-        } else if (this.isAboveGroud()) {
+        } else if (this.isAboveGround()) {
             this.playBossSound();
             this.playAnimation(endbossAttackImages);
         } else {

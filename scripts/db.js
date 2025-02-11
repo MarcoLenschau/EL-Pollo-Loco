@@ -31,7 +31,7 @@ const statusbarCoinImages = [
     "./assetes/img/7_statusbars/1_statusbar/1_statusbar_coin/green/100.png"
 ];
 
-const statusbarBootleImages = [
+const statusbarbottleImages = [
     "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/0.png",
     "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/20.png",
     "./assetes/img/7_statusbars/1_statusbar/3_statusbar_bottle/green/40.png",
@@ -169,14 +169,14 @@ const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";
 const coinImage = "./assetes/img/8_coin/coin_1.png";
 
-const bootleImages = [
+const bottleImages = [
     "./assetes/img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png",
     "./assetes/img/6_salsa_bottle/bottle_rotation/2_bottle_rotation.png",
     "./assetes/img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png",
     "./assetes/img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png"
 ];
 
-const bootleSplashImages = [
+const bottleSplashImages = [
     "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png",
     "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png",
     "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/3_bottle_splash.png",

@@ -152,6 +152,18 @@ function showGameplay() {
 }
 
 /**
+ * Displays the home screen by showing the start overlay and hiding the end overlay.
+ * It removes the "d_none" and "hidden" classes from the start overlay and resets its style.
+ */
+function showHomeScreen() {
+    let startOverlay = document.querySelector(".overlay-start-screen");
+    document.querySelector(".end-overlay").classList.add("d_none");
+    startOverlay.classList.remove("d_none");
+    startOverlay.classList.remove("hidden");
+    startOverlay.style = "";
+}
+
+/**
  * Listens for the "keydown" event on the document and processes the event when a key is pressed.
  * It calls the `searchKeyEvent` method of the `keyboard` object with the `true` state,
  * indicating that a key has been pressed.

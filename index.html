@@ -30,8 +30,13 @@
 </head>
 <body class="background-picture">
     <div id="fullscreen" class="fullscreen">
-        <h1 class="mobile-hide" style="font-size: 84px; color: black;">El Pollo Loco</h1>
-        <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
+        <div>
+            <h1 class="mobile-hide" style="font-size: 84px; color: black;">El Pollo Loco</h1>
+            <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
+            <div style="position: absolute; bottom: 0;">
+                <h1 class="f_s_44"><a href="./impressum.html" style="text-decoration: none;">Impressum</a></h1> 
+            </div>
+        </div>
         <div class="overlay-buttons">
             <div id="mute" onclick="muteTheGame();" class="mobile-btn button">
                 <div class="background-picture button-image sound-button"></div>
@@ -49,6 +54,7 @@
         </div>
         <div class="end-overlay hidden d_none">
             <div onclick="playTheGame();" class="overlay-start-screen-button play-button-end background-picture" style="position: absolute; top: 22px; right: 12px;"></div>    
+            <div onclick="showHomeScreen();" class="overlay-start-screen-button background-picture" style="position: absolute; top: 22px; right: 100px; background-color: #ff9600; padding: 24px; background-image: url('./assetes/icon/home2.png');"></div>    
             <img id="end-overlay-image" src="./assetes/img/9_intro_outro_screens/game_over/you lost.png" class="lose-end-overlay-image" style="height: 100vh; width: 80vw;">
         </div>
         <div id="start-overlay" class="overlay-start-screen background-picture">
@@ -63,9 +69,6 @@
                     <div onclick="playTheGame();" class="overlay-start-screen-button button">
                         <div class="background-picture button-image play-button"></div>
                     </div>    
-                </div>
-                <div style="width: 1080px; display: flex; justify-content: center;">
-                    <h1 class="f_s_44"><a href="./impressum.html" style="text-decoration: none;">Impressum</a></h1> 
                 </div>
             </div>
         </div>
@@ -108,7 +111,7 @@
                         <span class="gameplay-text">Press M key to switch mute.</span>
                     </div>
                 </div>
-        </div> 
+        </div>     
     </div>
 </body>
 </html>

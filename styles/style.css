@@ -194,6 +194,26 @@ body > h1 {
     margin-right: 12px;
 }
 
+.settings-button {
+    background-image: url('../assetes/icon/settings.png');
+}
+
+.fullscreen-button {
+    background-image: url('../assetes/icon/refresh.png');
+}
+
+.play-button {
+    background-image: url('../assetes/icon/play.png');
+}
+
+.pause-button {
+    background-image: url('../assetes/icon/pause.png');
+}
+
+.sound-button {
+    background-image: url('../assetes/icon/note.png');
+}
+
 .fullscreen {
     display: flex;
     background-image: url(../assetes/icon/background.jpg);

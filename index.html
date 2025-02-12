@@ -34,13 +34,13 @@
         <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
         <div class="overlay-buttons">
             <div id="mute" onclick="muteTheGame();" class="mobile-btn button">
-                <div class="background-picture button-image" style="background-image: url('./assetes/icon/note.png');"></div>
+                <div class="background-picture button-image sound-button"></div>
             </div>
             <div onclick="fullscreen();" class="mobile-btn button">
-                <div class="background-picture button-image" style="background-image: url('./assetes/icon/refresh.png');"></div>
+                <div class="background-picture button-image fullscreen-button"></div>
             </div>
             <div onclick="stopTheGame(); showStartOverlay();" class="mobile-btn button">
-                <div class="background-picture button-image" style="background-image: url('./assetes/icon/pause.png');"></div>
+                <div class="background-picture button-image pause-button"></div>
             </div>
         </div>
         <div class="d_flex_column d_flex_c devices-overlay">
@@ -55,13 +55,13 @@
             <div class="d_flex_column" style="align-items: center;">
                 <div class="d_flex" style="margin-bottom: 48px; position: absolute; top: 18px; right: 18px;">
                     <div onclick="showGameplay();" class="overlay-start-screen-button button">
-                        <div class="background-picture button-image" style="background-image: url('./assetes/icon/settings.png');"></div>
+                        <div class="background-picture button-image settings-button"></div>
                     </div>
                     <div onclick="fullscreen();" class="overlay-start-screen-button button">
-                        <div class="background-picture button-image" style="background-image: url('./assetes/icon/refresh.png');"></div>
+                        <div class="background-picture button-image fullscreen-button"></div>
                     </div>
                     <div onclick="playTheGame();" class="overlay-start-screen-button button">
-                        <div class="background-picture button-image" style="background-image: url('./assetes/icon/play.png');"></div>
+                        <div class="background-picture button-image play-button"></div>
                     </div>    
                 </div>
                 <div style="width: 1080px; display: flex; justify-content: center;">

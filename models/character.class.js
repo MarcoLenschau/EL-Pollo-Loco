@@ -210,12 +210,17 @@ class Character extends MovableObject {
      * Makes the character jump, playing the jump sound and setting the vertical speed.
      */
     jump() {
-        this.jump_sound.pause();
-        this.walking_sound.pause();
+        this.stopAllSounds();
         if (!mute) {
             this.jump_sound.play();
         }
         this.speedY = 15;
+    }
+
+    stopAllSounds() {
+        this.jump_sound.pause();
+        this.walking_sound.pause();
+        this.game_over_sound.pause();
     }
 
     /**

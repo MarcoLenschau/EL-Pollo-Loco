@@ -87,13 +87,13 @@ body > h1 {
 }
 
 .arrow-keys {
-    height: 64px;
-    width: 64px;
+    height: 44px;
+    width: 44px;
 }
 
 .bottle-image {
-    height: 115px;
-    width: 125px;
+    height: 75px;
+    width: 75px;
 }
 
 .overlay-start-screen-button:hover {
@@ -222,6 +222,10 @@ body > h1 {
     width: 100vw;
     height: 100vh;
     justify-content: center;
+}
+
+.gameplay-text {
+    font-size: 30px;
 }
 
 .bold {

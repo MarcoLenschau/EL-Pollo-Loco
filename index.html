@@ -54,7 +54,7 @@
         <div id="start-overlay" class="overlay-start-screen background-picture">
             <div class="d_flex_column" style="align-items: center;">
                 <div class="d_flex" style="margin-bottom: 48px; position: absolute; top: 18px; right: 18px;">
-                    <div onclick="showGameplay();" class="overlay-start-screen-button button">
+                    <div onclick="showGameplay();" class="overlay-start-screen-button button settings-overlay-button">
                         <div class="background-picture button-image settings-button"></div>
                     </div>
                     <div onclick="fullscreen();" class="overlay-start-screen-button button">
@@ -79,42 +79,35 @@
                 <div id="btn-throw" class="mobile-btn mobile-throw-btn background-picture"></div>
             </div>
         </div>
-        <div class="d_none d_flex_c d_flex_column hidden-menu gameplay-menu">
+        <div class="d_none d_flex_c d_flex_column hidden-menu gameplay-menu" style="padding: 20px;">
             <div onclick="showGameplay();" class="close-button"></div>
-            <div class="d_flex_column g_24">
-                <div class="d_flex_c d_flex_s_a g_12">
+                <div class="d_flex_column" style="align-items: flex-start; gap: 16px;">
                     <div class="d_flex_c g_12">
-                        <span class="bold f_s_50">F</span>
-                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="fullscreen">
-                    </div>
-                    <div class="d_flex_c d_flex_column g_12">
-                        <span class="bold">SPACE</span>
                         <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">  
+                        <span class="gameplay-text">Press arrow key above to jump.</span>
                     </div>
                     <div class="d_flex_c g_12">
-                        <span class="bold f_s_50">D</span>
-                        <img class="bottle-image" src="./assetes/img/6_salsa_bottle/salsa_bottle.png" alt="throw">
-                    </div>
-                </div>          
-                <div class="d_flex g_200">
-                    <div class="d_flex_c g_12">
-                        <span class="bold">LEFT</span>
                         <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left"> 
+                        <span class="gameplay-text">Press arrow key left to move left.</span>
                     </div>
-                    <div class="d_flex_c g_12 m_36">
+
+                    <div class="d_flex_c g_12">
                         <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
-                        <span class="bold">RIGHT</span>
+                        <span class="gameplay-text">Press arrow key right to move right.</span>
                     </div>
-                </div>
-                <div class="d_flex_c" style="justify-content: space-between;">
-                    <div></div>
-                    <div></div>
-                    <div class="d_flex" style="justify-content: center; gap: 42px; align-items: center;">
-                        <span class="bold f_s_50">M</span>
+                    <div class="d_flex_c g_12">
+                        <img class="bottle-image" src="./assetes/img/6_salsa_bottle/salsa_bottle.png" alt="throw">
+                        <span class="gameplay-text">Press D key to throw a bottle.</span>
+                    </div>
+                    <div class="d_flex_c g_12">
+                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="fullscreen">
+                        <span class="gameplay-text">Press F key to switch at fullscreen mode.</span>
+                    </div>
+                    <div class="d_flex_c g_12">
                         <img src="./assetes/icon/mute.png" alt="mute" class="arrow-keys" style="background-color: #ff9600; border-radius: 19px;">
+                        <span class="gameplay-text">Press M key to switch mute.</span>
                     </div>
                 </div>
-            </div>
         </div> 
     </div>
 </body>

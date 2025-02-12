@@ -211,6 +211,7 @@ class Character extends MovableObject {
      */
     jump() {
         this.jump_sound.pause();
+        this.walking_sound.pause();
         if (!mute) {
             this.jump_sound.play();
         }

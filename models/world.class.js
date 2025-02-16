@@ -375,6 +375,6 @@ class World {
             this.character.jumpOfEnemies();
             this.checkKeys();
             this.checkCollectObjectsCollisions();
-        }, 50);
+        }, 100);
     }
 }

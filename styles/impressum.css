@@ -6,7 +6,7 @@
     height: 100vh; 
     display: flex;
     flex-direction: column;
-    padding: 95px 0px;
+    overflow-x: scroll;
 }
 
 .impressum-width {

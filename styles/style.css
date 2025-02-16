@@ -210,10 +210,6 @@ body > h1 {
     background-image: url('../assetes/icon/pause.png');
 }
 
-.sound-button {
-    background-image: url('../assetes/icon/note.png');
-}
-
 .fullscreen {
     display: flex;
     background-image: url(../assetes/icon/background.jpg);

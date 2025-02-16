@@ -13,6 +13,10 @@
     width: 950px;
 }
 
+.bg-orange {
+    background-color: #ff9600;
+}
+
 @media (max-width: 970px) {
     .impressum-width {
         width: 600px;

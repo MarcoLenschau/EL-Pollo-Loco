@@ -67,10 +67,10 @@ function setStoppableInterval(fn, time) {
  */
 function muteTheGame() {
     if (mute) {
-        document.getElementById("mute").style = "background-image: url('./assetes/icon/note.png');";
+        document.getElementById("mute-image").style = "background-image: url('./assetes/icon/note.png');";
         mute = false;
     } else {
-        document.getElementById("mute").style = "background-image: url('./assetes/icon/mute.png');";
+        document.getElementById("mute-image").style = "background-image: url('./assetes/icon/mute.png');";
         mute = true;
         stopAllSounds();
     }
@@ -84,10 +84,10 @@ function muteTheGame() {
  */
 function checkLocalStorageMute() {
     if (localStorage.getItem("Mute") == "true") {
-        document.getElementById("mute").style = "background-image: url('./assetes/icon/mute.png');";
+        document.getElementById("mute-image").style = "background-image: url('./assetes/icon/mute.png');";
         mute = true;
     } else {
-        document.getElementById("mute").style = "background-image: url('./assetes/icon/note.png');";
+        document.getElementById("mute-image").style = "background-image: url('./assetes/icon/note.png');";
         mute = false;
     }  
 }

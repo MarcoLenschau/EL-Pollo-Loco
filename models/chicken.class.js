@@ -74,10 +74,12 @@ class Chicken extends MovableObject {
         setStoppableInterval(() => {
             if (this.energy > 0) {
                 this.playAnimation(chickenImagesVar);
-            } else if (chickenImagesVar === chickenSmallImages) {
-                this.loadImage(chickenSmallImageDead);
-            } else if (chickenImagesVar === chickenImages) {
-                this.loadImage(chickenImageDead);
+            } else {
+                if (chickenImagesVar === chickenSmallImages) {
+                    this.loadImage(chickenSmallImageDead);
+                } else {
+                    this.loadImage(chickenImageDead);
+                }
             }
         }, 200);
     }

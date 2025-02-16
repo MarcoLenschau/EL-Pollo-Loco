@@ -30,16 +30,14 @@
 </head>
 <body class="background-picture">
     <div id="fullscreen" class="fullscreen">
-        <div>
-            <h1 class="mobile-hide" style="font-size: 84px; color: black;">El Pollo Loco</h1>
-            <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
-            <div style="position: absolute; bottom: 0;">
-                <h1 class="f_s_44"><a href="./impressum.html" style="text-decoration: none;">Impressum</a></h1> 
-            </div>
+        <h1 class="mobile-hide" style="font-size: 84px; color: black;">El Pollo Loco</h1>
+        <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
+        <div style="position: absolute; bottom: 0px;">
+            <h1 class="f_s_44"><a href="./impressum.html" style="text-decoration: none;">Impressum</a></h1> 
         </div>
         <div class="overlay-buttons">
             <div id="mute" onclick="muteTheGame();" class="mobile-btn button">
-                <div class="background-picture button-image sound-button"></div>
+                <div id="mute-image" class="background-picture button-image sound-button"></div>
             </div>
             <div onclick="fullscreen();" class="mobile-btn button">
                 <div class="background-picture button-image fullscreen-button"></div>
@@ -87,19 +85,18 @@
                 <div class="d_flex_column" style="align-items: flex-start; gap: 16px;">
                     <div class="d_flex_c g_12">
                         <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">  
-                        <span class="gameplay-text">Press arrow key above to jump.</span>
+                        <span class="gameplay-text">Press arrow above or space key to jump.</span>
                     </div>
                     <div class="d_flex_c g_12">
                         <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left"> 
                         <span class="gameplay-text">Press arrow key left to move left.</span>
                     </div>
-
                     <div class="d_flex_c g_12">
                         <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
                         <span class="gameplay-text">Press arrow key right to move right.</span>
                     </div>
                     <div class="d_flex_c g_12">
-                        <img class="bottle-image" src="./assetes/img/6_salsa_bottle/salsa_bottle.png" alt="throw">
+                        <img class="bottle-image" src="./assetes/img/6_salsa_bottle/salsa_bottle.png" style="margin: 0 -15px;" alt="throw">
                         <span class="gameplay-text">Press D key to throw a bottle.</span>
                     </div>
                     <div class="d_flex_c g_12">
@@ -111,6 +108,7 @@
                         <span class="gameplay-text">Press M key to switch mute.</span>
                     </div>
                 </div>
+            </div>
         </div>     
     </div>
 </body>

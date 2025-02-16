@@ -283,13 +283,22 @@ class World {
         if (collectObject.imgPath === coinImage && this.character.isAboveGround()) {
             this.character.coins += 20;
             this.statusbars[2].analysePercentage(this.character.coins, statusbarCoinImages);
-            this.character.collect_item_sound.play();
+            this.playCollectItemSound();
             collectObject.hidden();
         } else if (this.character.bottles <= 4) {
             this.character.bottles += 1;
             this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
-            this.character.collect_item_sound.play();
+            this.playCollectItemSound();
             collectObject.hidden();
+        }
+    }
+    
+    /**
+     * Plays the sound effect for collecting an item if the sound is not muted.
+     */
+    playCollectItemSound() {
+        if (!mute) {
+            this.character.collect_item_sound.play();
         }
     }
 

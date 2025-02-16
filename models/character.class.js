@@ -226,7 +226,7 @@ class Character extends MovableObject {
     stopAllSounds() {
         this.jump_sound.pause();
         this.walking_sound.pause();
-        this.collect_item.pause();
+        this.collect_item_sound.pause();
         this.game_over_sound.pause();
     }
 
@@ -240,6 +240,7 @@ class Character extends MovableObject {
                 if (this.isColliding(enemie) && this.speedY <= 0 && this.isAboveGround()) {  
                     enemie.energy = 0;
                     setTimeout(() => {
+                        console.log(index);
                         enemies.splice(index, 1);
                     },1000)
                 }

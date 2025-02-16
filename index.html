@@ -32,15 +32,18 @@
     <div id="fullscreen" class="fullscreen">
         <h1 class="mobile-hide" style="font-size: 84px; color: black;">El Pollo Loco</h1>
         <canvas width="1080" height="480" id="canvas" style="position: absolute; top: 220px;"></canvas>    
+        <div style="position: absolute; bottom: 0px;">
+            <h1 class="f_s_44"><a href="./impressum.html" style="text-decoration: none;">Impressum</a></h1> 
+        </div>
         <div class="overlay-buttons">
             <div id="mute" onclick="muteTheGame();" class="mobile-btn button">
-                <div class="background-picture button-image" style="background-image: url('../assetes/icon/note.png');"></div>
+                <div id="mute-image" class="background-picture button-image sound-button"></div>
             </div>
             <div onclick="fullscreen();" class="mobile-btn button">
-                <div class="background-picture button-image" style="background-image: url('../assetes/icon/refresh.png');"></div>
+                <div class="background-picture button-image fullscreen-button"></div>
             </div>
             <div onclick="stopTheGame(); showStartOverlay();" class="mobile-btn button">
-                <div class="background-picture button-image" style="background-image: url('./assetes/icon/pause.png');"></div>
+                <div class="background-picture button-image pause-button"></div>
             </div>
         </div>
         <div class="d_flex_column d_flex_c devices-overlay">
@@ -49,23 +52,21 @@
         </div>
         <div class="end-overlay hidden d_none">
             <div onclick="playTheGame();" class="overlay-start-screen-button play-button-end background-picture" style="position: absolute; top: 22px; right: 12px;"></div>    
+            <div onclick="showHomeScreen();" class="overlay-start-screen-button background-picture" style="position: absolute; top: 22px; right: 100px; background-color: #ff9600; padding: 24px; background-image: url('./assetes/icon/home2.png');"></div>    
             <img id="end-overlay-image" src="./assetes/img/9_intro_outro_screens/game_over/you lost.png" class="lose-end-overlay-image" style="height: 100vh; width: 80vw;">
         </div>
         <div id="start-overlay" class="overlay-start-screen background-picture">
             <div class="d_flex_column" style="align-items: center;">
                 <div class="d_flex" style="margin-bottom: 48px; position: absolute; top: 18px; right: 18px;">
-                    <div onclick="showGameplay();" class="overlay-start-screen-button button">
-                        <div class="background-picture button-image" style="background-image: url('../assetes/icon/settings.png');"></div>
+                    <div onclick="showGameplay();" class="overlay-start-screen-button button settings-overlay-button">
+                        <div class="background-picture button-image settings-button"></div>
                     </div>
                     <div onclick="fullscreen();" class="overlay-start-screen-button button">
-                        <div class="background-picture button-image" style="background-image: url('../assetes/icon/refresh.png');"></div>
+                        <div class="background-picture button-image fullscreen-button"></div>
                     </div>
                     <div onclick="playTheGame();" class="overlay-start-screen-button button">
-                        <div class="background-picture button-image" style="background-image: url('../assetes/icon/play.png');"></div>
+                        <div class="background-picture button-image play-button"></div>
                     </div>    
-                </div>
-                <div style="width: 1080px; display: flex; justify-content: center;">
-                    <h1 class="f_s_44"><a href="./impressum.html" style="text-decoration: none;">Impressum</a></h1> 
                 </div>
             </div>
         </div>
@@ -79,43 +80,36 @@
                 <div id="btn-throw" class="mobile-btn mobile-throw-btn background-picture"></div>
             </div>
         </div>
-        <div class="d_none d_flex_c d_flex_column hidden-menu gameplay-menu">
+        <div class="d_none d_flex_c d_flex_column hidden-menu gameplay-menu" style="padding: 20px;">
             <div onclick="showGameplay();" class="close-button"></div>
-            <div class="d_flex_column g_24">
-                <div class="d_flex_c d_flex_s_a g_12">
+                <div class="d_flex_column" style="align-items: flex-start; gap: 16px;">
                     <div class="d_flex_c g_12">
-                        <span class="bold f_s_50">F</span>
-                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="fullscreen">
-                    </div>
-                    <div class="d_flex_c d_flex_column g_12">
-                        <span class="bold">SPACE</span>
                         <img class="arrow-keys" src="./assetes/icon/arrow-up.png" alt="arrow-up">  
+                        <span class="gameplay-text">Press arrow above or space key to jump.</span>
                     </div>
                     <div class="d_flex_c g_12">
-                        <span class="bold f_s_50">D</span>
-                        <img class="bottle-image" src="./assetes/img/6_salsa_bottle/salsa_bottle.png" alt="throw">
-                    </div>
-                </div>          
-                <div class="d_flex g_200">
-                    <div class="d_flex_c g_12">
-                        <span class="bold">LEFT</span>
                         <img class="arrow-keys" src="./assetes/icon/arrow-left.png" alt="arrow-left"> 
+                        <span class="gameplay-text">Press arrow key left to move left.</span>
                     </div>
-                    <div class="d_flex_c g_12 m_36">
+                    <div class="d_flex_c g_12">
                         <img class="arrow-keys" src="./assetes/icon/arrow-right.png" alt="arrow-right">
-                        <span class="bold">RIGHT</span>
+                        <span class="gameplay-text">Press arrow key right to move right.</span>
                     </div>
-                </div>
-                <div class="d_flex_c" style="justify-content: space-between;">
-                    <div></div>
-                    <div></div>
-                    <div class="d_flex" style="justify-content: center; gap: 42px; align-items: center;">
-                        <span class="bold f_s_50">M</span>
+                    <div class="d_flex_c g_12">
+                        <img class="bottle-image" src="./assetes/img/6_salsa_bottle/salsa_bottle.png" style="margin: 0 -15px;" alt="throw">
+                        <span class="gameplay-text">Press D key to throw a bottle.</span>
+                    </div>
+                    <div class="d_flex_c g_12">
+                        <img class="arrow-keys" src="./assetes/icon/refresh.png" alt="fullscreen">
+                        <span class="gameplay-text">Press F key to switch at fullscreen mode.</span>
+                    </div>
+                    <div class="d_flex_c g_12">
                         <img src="./assetes/icon/mute.png" alt="mute" class="arrow-keys" style="background-color: #ff9600; border-radius: 19px;">
+                        <span class="gameplay-text">Press M key to switch mute.</span>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>     
     </div>
 </body>
 </html>

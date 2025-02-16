@@ -11,7 +11,21 @@ class Endboss extends MovableObject {
     boss_sound = new Audio("../audio/boss.mp3");
     speedY = 0;
     lastJump = 0;
-
+    /**
+     * The offset values for collision detection.
+     * @type {Object}
+     * @property {number} top - The top offset for collision.
+     * @property {number} bottom - The bottom offset for collision.
+     * @property {number} left - The left offset for collision.
+     * @property {number} right - The right offset for collision.
+     */
+    offset = {
+        top: 20,
+        bottom: 20,
+        left: 20,
+        right: 20
+    }
+    
     /**
      * Initializes the Endboss by loading images and starting animations.
      */

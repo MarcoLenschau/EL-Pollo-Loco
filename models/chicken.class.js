@@ -35,6 +35,7 @@ class Chicken extends MovableObject {
         left: 20,
         right: 20
     }
+    energy = 100;
 
     /**
      * Creates a new chicken instance with a random horizontal position and speed.
@@ -57,6 +58,8 @@ class Chicken extends MovableObject {
          */
         this.speed = 0.15 + Math.random() * 0.25;
         this.loadImages(chickenImagesVar);
+        this.loadImage(chickenImageDead);
+        this.loadImage(chickenSmallImageDead);
         this.move();
         this.showAnimation(chickenImagesVar);
     }
@@ -69,7 +72,15 @@ class Chicken extends MovableObject {
      */
     showAnimation(chickenImagesVar) {
         setStoppableInterval(() => {
-            this.playAnimation(chickenImagesVar);
+            if (this.energy > 0) {
+                this.playAnimation(chickenImagesVar);
+            } else {
+                if (chickenImagesVar === chickenSmallImages) {
+                    this.loadImage(chickenSmallImageDead);
+                } else {
+                    this.loadImage(chickenImageDead);
+                }
+            }
         }, 200);
     }
 

@@ -55,9 +55,9 @@
 }
 
 @media (max-width: 715px) {
-    .settings-button {
+    .settings-overlay-button {
         display: none;
-    }
+    }    
 }
 
 @media (max-width: 600px) {

@@ -199,14 +199,16 @@ class World {
             this.throwableObjects.forEach(bottle => {
                 if (enemie.isColliding(bottle)) {
                     if (this.isEndboss(enemie)) {
+                        enemie.energy = 0;
                         this.level.enemies.splice(index, 1);
                     } else {
                         enemie.hit();
                     }
+                this.showSplashAnimation(true);
                 }
             });
         });
-        this.showSplashAnimation();
+        this.showSplashAnimation(false);
     }
 
     /**
@@ -214,9 +216,9 @@ class World {
      * Iterates through each throwable object and checks if its y-coordinate is greater than 240.
      * If the condition is met, it sets an interval to play the splash animation at a rate of 120 frames per second.
      */
-    showSplashAnimation() {
+    showSplashAnimation(colliding = false) {
         this.throwableObjects.forEach(bottle => {
-            if (bottle.y > 240) { 
+            if (bottle.y > 240 || colliding) { 
                 setInterval(() => {
                     bottle.playAnimation(bottleSplashImages);
                 },1000 / 120);
@@ -281,10 +283,12 @@ class World {
         if (collectObject.imgPath === coinImage && this.character.isAboveGround()) {
             this.character.coins += 20;
             this.statusbars[2].analysePercentage(this.character.coins, statusbarCoinImages);
+            this.character.collect_item_sound.play();
             collectObject.hidden();
         } else if (this.character.bottles <= 4) {
             this.character.bottles += 1;
             this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
+            this.character.collect_item_sound.play();
             collectObject.hidden();
         }
     }

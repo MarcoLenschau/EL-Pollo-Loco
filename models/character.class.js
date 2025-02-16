@@ -40,6 +40,8 @@ class Character extends MovableObject {
      */
     jump_sound = new Audio("./audio/jump.mp3");
 
+    collect_item_sound = new Audio("./audio/collect_item.mp3")
+
     /**
      * The sound effect played when the character is dead.
      * @type {HTMLAudioElement}
@@ -210,11 +212,22 @@ class Character extends MovableObject {
      * Makes the character jump, playing the jump sound and setting the vertical speed.
      */
     jump() {
-        this.jump_sound.pause();
+        this.stopAllSounds();
         if (!mute) {
             this.jump_sound.play();
         }
         this.speedY = 15;
+    }
+
+    /**
+     * Stops all currently playing sounds for the character.
+     * This includes jump sound, walking sound, item collection sound, and game over sound.
+     */
+    stopAllSounds() {
+        this.jump_sound.pause();
+        this.walking_sound.pause();
+        this.collect_item.pause();
+        this.game_over_sound.pause();
     }
 
     /**
@@ -225,7 +238,10 @@ class Character extends MovableObject {
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
                 if (this.isColliding(enemie) && this.speedY <= 0 && this.isAboveGround()) {  
-                    enemies.splice(index, 1);
+                    enemie.energy = 0;
+                    setTimeout(() => {
+                        enemies.splice(index, 1);
+                    },1000)
                 }
             }
         });

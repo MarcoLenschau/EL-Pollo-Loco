@@ -180,7 +180,8 @@ const bottleSplashImages = [
     "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png",
     "./assetes/img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png"
 ];
-
+const chickenImageDead = "./assetes/img/3_enemies_chicken/chicken_normal/2_dead/dead.png";
+const chickenSmallImageDead = "./assetes/img/3_enemies_chicken/chicken_small/2_dead/dead.png";
 const airImage = "./assetes/img/5_background/layers/air.png";
 const cloudImage = "./assetes/img/5_background/layers/4_clouds/1.png";
 const coinImage = "./assetes/img/8_coin/coin_1.png";

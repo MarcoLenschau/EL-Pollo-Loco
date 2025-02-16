@@ -87,13 +87,13 @@ body > h1 {
 }
 
 .arrow-keys {
-    height: 64px;
-    width: 64px;
+    height: 44px;
+    width: 44px;
 }
 
 .bottle-image {
-    height: 115px;
-    width: 125px;
+    height: 75px;
+    width: 75px;
 }
 
 .overlay-start-screen-button:hover {
@@ -194,6 +194,22 @@ body > h1 {
     margin-right: 12px;
 }
 
+.settings-button {
+    background-image: url('../assetes/icon/settings.png');
+}
+
+.fullscreen-button {
+    background-image: url('../assetes/icon/refresh.png');
+}
+
+.play-button {
+    background-image: url('../assetes/icon/play.png');
+}
+
+.pause-button {
+    background-image: url('../assetes/icon/pause.png');
+}
+
 .fullscreen {
     display: flex;
     background-image: url(../assetes/icon/background.jpg);
@@ -202,6 +218,10 @@ body > h1 {
     width: 100vw;
     height: 100vh;
     justify-content: center;
+}
+
+.gameplay-text {
+    font-size: 30px;
 }
 
 .bold {

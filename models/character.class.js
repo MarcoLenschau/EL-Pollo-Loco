@@ -239,10 +239,7 @@ class Character extends MovableObject {
             if (enemie.width === 100) {
                 if (this.isColliding(enemie) && this.speedY <= 0 && this.isAboveGround()) {  
                     enemie.energy = 0;
-                    setTimeout(() => {
-                        console.log(index);
-                        enemies.splice(index, 1);
-                    },1000)
+                    enemie.kill(enemies, index);
                 }
             }
         });

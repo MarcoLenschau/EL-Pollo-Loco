@@ -92,4 +92,10 @@ class Chicken extends MovableObject {
             this.moveLeft();
         }, 1000 / 60);
     }
+
+    kill(enemies, enemieQuantity) {
+        setTimeout(() => {
+            enemies.splice(enemieQuantity, 1);
+        },1000)
+    }
 }

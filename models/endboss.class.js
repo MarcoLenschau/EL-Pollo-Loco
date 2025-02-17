@@ -11,6 +11,7 @@ class Endboss extends MovableObject {
     boss_sound = new Audio("../audio/boss.mp3");
     speedY = 0;
     lastJump = 0;
+    
     /**
      * The offset values for collision detection.
      * @type {Object}
@@ -55,7 +56,7 @@ class Endboss extends MovableObject {
             }
         }, 100);
     }
-
+    
     /**
      * Makes the Endboss visible and starts attacking.
      * The Endboss jumps forward when the fight starts.

@@ -40,6 +40,8 @@ class Chicken extends MovableObject {
     
     walk = true;
     
+    killAnimationTime = 0;
+
     /**
      * Creates a new chicken instance with a random horizontal position and speed.
      * Initializes the chicken's images and starts movement and animation.
@@ -100,8 +102,26 @@ class Chicken extends MovableObject {
 
     kill(enemies, enemieQuantity) {
         this.walk = false;
-        setTimeout(() => {
+        if (this.killAnimationTime === 0) {
+            this.killAnimation();
+        } else {
+            this.showKillAnimation(enemies, enemieQuantity);
+        }       
+    }
+
+    killAnimation() {
+        this.loadImage(chickenSmallImageDead);
+        this.killAnimationTime = new Date().getTime();
+    }
+
+    showKillAnimation(enemies, enemieQuantity) {
+        const currentTime = new Date().getTime();
+        const elapsedTime = currentTime - this.killAnimationTime;   
+        if (elapsedTime > 2000) {
             enemies.splice(enemieQuantity, 1);
-        },1000)
+        } else {
+            this.killAnimation();
+            } 
+
     }
 }

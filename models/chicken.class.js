@@ -30,13 +30,16 @@ class Chicken extends MovableObject {
      * @property {number} right - The right offset for collision.
      */
     offset = {
-        top: 20,
-        bottom: 20,
-        left: 20,
-        right: 20
+        top: 5,
+        bottom: 5,
+        left: 5,
+        right: 5
     }
-    energy = 100;
 
+    energy = 100;
+    
+    walk = true;
+    
     /**
      * Creates a new chicken instance with a random horizontal position and speed.
      * Initializes the chicken's images and starts movement and animation.
@@ -89,11 +92,14 @@ class Chicken extends MovableObject {
      */
     move() {
         setStoppableInterval(() => {
-            this.moveLeft();
+            if (this.walk) {
+                this.moveLeft();
+            }
         }, 1000 / 60);
     }
 
     kill(enemies, enemieQuantity) {
+        this.walk = false;
         setTimeout(() => {
             enemies.splice(enemieQuantity, 1);
         },1000)

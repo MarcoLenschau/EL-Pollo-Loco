@@ -247,7 +247,7 @@ class World {
                 if (enemie.width !== 100) {
                     this.characterHit();
                 } else {
-                    if (!this.character.isAboveGround()) {
+                    if (!this.character.isAboveGround() && enemie.energy > 0) {
                         this.characterHit();
                     }
                 }

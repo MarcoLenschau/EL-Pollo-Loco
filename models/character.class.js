@@ -236,19 +236,4 @@ class Character extends MovableObject {
         this.collect_item_sound.pause();
         this.game_over_sound.pause();
     }
-
-    /**
-     * Handles collisions with enemies. Removes an enemy if the character jumps on it.
-     */
-    jumpOfEnemies() {
-        let enemies = world.level.enemies;
-        enemies.forEach((enemie, index) => {
-            if (enemie.width === 100) {
-                if (this.isColliding(enemie) && this.speedY <= 0 && this.isAboveGround()) {  
-                    enemie.energy = 0;
-                    enemie.kill(enemies, index);
-                }
-            }
-        });
-    }
 }

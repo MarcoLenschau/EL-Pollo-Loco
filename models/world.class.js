@@ -361,7 +361,37 @@ class World {
             this.character.hit();
         }
     }
-    
+
+    /**
+     * Handles collisions with enemies. Removes an enemy if the character jumps on it.
+     */
+    jumpOfEnemies() {
+        let enemies = this.level.enemies;
+        let character = this.character;
+        enemies.forEach((enemie, index) => {
+            if (enemie.width === 100) {
+                if (this.isEnemieDead(enemie)) {
+                    enemie.kill(enemies, index);
+                }
+                if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
+                    enemie.energy = 0;
+                    enemie.kill(enemies, index);
+                }
+            }
+        });
+    }
+
+    /**
+     * Checks if the given enemy is dead.
+     * 
+     * @param {Object} enemie - The enemy object to check.
+     * @param {number} enemie.energy - The energy level of the enemy.
+     * @returns {boolean} True if the enemy's energy is 0, otherwise false.
+     */
+    isEnemieDead(enemie) {
+        return enemie.energy === 0
+    }
+
     /**
      * Starts the main game intervals, including collision checks, input handling, and status updates.
      */
@@ -370,7 +400,7 @@ class World {
             this.checkCollisions();
             this.checkIsCharacterBeforeEndboss();
             this.checkThrowObject();
-            this.character.jumpOfEnemies();
+            this.jumpOfEnemies();
             this.checkKeys();
             this.checkCollectObjectsCollisions();
         }, 50);

@@ -105,7 +105,7 @@ class Chicken extends MovableObject {
         if (this.killAnimationTime === 0) {
             this.killAnimation();
         } else {
-            this.showKillAnimation(enemies, enemieQuantity);
+            this.showKillAnimation(enemies, enemieQuantity)
         }       
     }
 
@@ -121,7 +121,6 @@ class Chicken extends MovableObject {
             enemies.splice(enemieQuantity, 1);
         } else {
             this.killAnimation();
-            } 
-
+        } 
     }
 }

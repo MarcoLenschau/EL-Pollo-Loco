@@ -12,8 +12,7 @@ EL Pollo Loco is an action-packed 2D platform game that requires quick reflexes 
 | Fullscreen | F |
 
 ## 🔧 Development
-- Technologies:** HTML5, CSS, JavaScript
-- **Repository:** [GitHub](https://github.com/SnowCoder404/EL-Pollo-Loco)
+- Technologies: HTML5, CSS, JavaScript
 
 ## 💬 Feedback & Support
 Have you found any suggestions or bugs? Create an issue on [GitHub](https://github.com/SnowCoder404/EL-Pollo-Loco/issues) and help make the game even better!

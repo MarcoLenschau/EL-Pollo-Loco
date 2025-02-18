@@ -19,5 +19,3 @@ EL Pollo Loco is an action-packed 2D platform game that requires quick reflexes 
 Have you found any suggestions or bugs? Create an issue on [GitHub](https://github.com/SnowCoder404/EL-Pollo-Loco/issues) and help make the game even better!
 
 **Have fun with EL Pollo Loco** 🚀
-
-Translated with DeepL.com (free version)

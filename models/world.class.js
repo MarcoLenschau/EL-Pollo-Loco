@@ -361,7 +361,23 @@ class World {
             this.character.hit();
         }
     }
-    
+
+    /**
+     * Handles collisions with enemies. Removes an enemy if the character jumps on it.
+     */
+    jumpOfEnemies() {
+        let enemies = this.level.enemies;
+        let character = this.character;
+        enemies.forEach((enemie, index) => {
+            if (enemie.width === 100) {
+                if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
+                    enemie.energy = 0;
+                    enemie.kill(enemies, index);
+                }
+            }
+        });
+    }
+
     /**
      * Starts the main game intervals, including collision checks, input handling, and status updates.
      */
@@ -370,7 +386,7 @@ class World {
             this.checkCollisions();
             this.checkIsCharacterBeforeEndboss();
             this.checkThrowObject();
-            this.character.jumpOfEnemies();
+            this.jumpOfEnemies();
             this.checkKeys();
             this.checkCollectObjectsCollisions();
         }, 50);

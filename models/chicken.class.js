@@ -111,7 +111,9 @@ class Chicken extends MovableObject {
 
     killAnimation() {
         this.loadImage(chickenSmallImageDead);
-        this.killAnimationTime = new Date().getTime();
+        if (this.killAnimationTime === 0) {
+            this.killAnimationTime = new Date().getTime();
+        }
     }
 
     showKillAnimation(enemies, enemieQuantity) {

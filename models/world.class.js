@@ -370,6 +370,9 @@ class World {
         let character = this.character;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
+                if (enemie.energy === 0) {
+                    enemie.kill(enemies, index);
+                }
                 if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
                     enemie.energy = 0;
                     enemie.kill(enemies, index);

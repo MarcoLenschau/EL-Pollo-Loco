@@ -370,7 +370,7 @@ class World {
         let character = this.character;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
-                if (enemie.energy === 0) {
+                if (this.isEnemieDead(enemie)) {
                     enemie.kill(enemies, index);
                 }
                 if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
@@ -379,6 +379,17 @@ class World {
                 }
             }
         });
+    }
+
+    /**
+     * Checks if the given enemy is dead.
+     * 
+     * @param {Object} enemie - The enemy object to check.
+     * @param {number} enemie.energy - The energy level of the enemy.
+     * @returns {boolean} True if the enemy's energy is 0, otherwise false.
+     */
+    isEnemieDead(enemie) {
+        return enemie.energy === 0
     }
 
     /**

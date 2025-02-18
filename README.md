@@ -1,7 +1,7 @@
 # **EL Pollo Loco - The ultimate 2D action game**
 
 ## ✨ About the game
-EL Pollo Loco is an action-packed 2D platform game that requires quick reflexes and strategic skill. Face challenging opponents, master exciting levels and experience smooth gameplay with precise controls.
+EL Pollo Loco is an action-packed 2D platform game that requires quick reflexes and strategic skill. Take on challenging opponents and immerse yourself in a captivating world with fluid gameplay and precise controls.
 
 ## 🎛 Controls
 | Action | Keyboard |

@@ -118,7 +118,7 @@ class Chicken extends MovableObject {
     showKillAnimation(enemies, enemieQuantity) {
         const currentTime = new Date().getTime();
         const elapsedTime = currentTime - this.killAnimationTime;   
-        if (elapsedTime > 2000) {
+        if (elapsedTime > 1500) {
             enemies.splice(enemieQuantity, 1);
         } else {
             this.killAnimation();

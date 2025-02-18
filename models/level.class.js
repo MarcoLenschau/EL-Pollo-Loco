@@ -34,6 +34,7 @@ class Level {
      * @param {Cloud[]} clouds - The clouds in the level.
      * @param {DrawablObject[]} backgroundObject - The background objects in the level.
      */
+    
     constructor(enemies, clouds, backgroundObject) {
         this.enemies = enemies;
         this.clouds = clouds;

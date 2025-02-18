@@ -169,6 +169,22 @@ body > h1 {
     background-image: url('../assetes/icon/note.png');
 }
 
+.settings-button {
+    background-image: url('../assetes/icon/settings.png');
+}
+
+.fullscreen-button {
+    background-image: url('../assetes/icon/refresh.png');
+}
+
+.play-button {
+    background-image: url('../assetes/icon/play.png');
+}
+
+.pause-button {
+    background-image: url('../assetes/icon/pause.png');
+}
+
 .background-picture {
     background-position: center;
     background-size: cover;
@@ -192,22 +208,6 @@ body > h1 {
 .overlay-buttons > .mobile-btn {
     background-color: orange;
     margin-right: 12px;
-}
-
-.settings-button {
-    background-image: url('../assetes/icon/settings.png');
-}
-
-.fullscreen-button {
-    background-image: url('../assetes/icon/refresh.png');
-}
-
-.play-button {
-    background-image: url('../assetes/icon/play.png');
-}
-
-.pause-button {
-    background-image: url('../assetes/icon/pause.png');
 }
 
 .fullscreen {

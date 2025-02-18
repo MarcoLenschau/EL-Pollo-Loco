@@ -154,7 +154,7 @@ class MovableObject extends DrawablObject {
     hit() {
         if (this.energy > 0) {
             this.lastHit = new Date().getTime();
-            this.energy -= 2;
+            this.energy -= 0.5;
             this.showLive(1);
             if (!mute) {
                 this.hurt_sound.play();

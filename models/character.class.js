@@ -66,6 +66,13 @@ class Character extends MovableObject {
      */
     lastActionTime = 0;
 
+    offset = {
+        top: 50,
+        bottom: 10,
+        left: 20,
+        right: 30
+    }
+
     /**
      * Initializes the character by loading necessary images, applying gravity, 
      * and starting movement and animation loops.
@@ -124,7 +131,7 @@ class Character extends MovableObject {
         } else {
             this.moveRight();
         }
-        if (!mute) {
+        if (!mute && !this.isAboveGround()) {
             this.walking_sound.play();
         }
         this.otherDirection = direction;

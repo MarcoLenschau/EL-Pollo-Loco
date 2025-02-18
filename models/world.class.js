@@ -247,7 +247,7 @@ class World {
                 if (enemie.width !== 100) {
                     this.characterHit();
                 } else {
-                    if (!this.character.isAboveGround()) {
+                    if (!this.character.isAboveGround() && enemie.energy > 0) {
                         this.characterHit();
                     }
                 }
@@ -369,12 +369,10 @@ class World {
         setStoppableInterval(() => {
             this.checkCollisions();
             this.checkIsCharacterBeforeEndboss();
-        }, 500);
-        setStoppableInterval(() => {
             this.checkThrowObject();
             this.character.jumpOfEnemies();
             this.checkKeys();
             this.checkCollectObjectsCollisions();
-        }, 100);
+        }, 50);
     }
 }

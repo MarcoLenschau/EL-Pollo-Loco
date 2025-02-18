@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>models/world.class.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Background.html">Background</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Character.html">Character</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#characterIsDead">characterIsDead</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#clickKeyLeftOrRight">clickKeyLeftOrRight</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#isCharacterNotTheFarRight">isCharacterNotTheFarRight</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#isJumpKeyClicked">isJumpKeyClicked</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#isSleep">isSleep</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#jump">jump</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#moveAnimation">moveAnimation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#moveCharacter">moveCharacter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#moveCharacterLeft">moveCharacterLeft</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#reduceCameraX">reduceCameraX</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#showMoveAnimation">showMoveAnimation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Character.html#stopAllSounds">stopAllSounds</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Chicken.html">Chicken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Chicken.html#move">move</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Chicken.html#showAnimation">showAnimation</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Cloud.html">Cloud</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CollectObject.html">CollectObject</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DrawablObject.html">DrawablObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DrawablObject.html#draw">draw</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DrawablObject.html#drawFrame">drawFrame</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DrawablObject.html#loadImage">loadImage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DrawablObject.html#loadImages">loadImages</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Endboss.html">Endboss</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Endboss.html#hit">hit</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Endboss.html#jump">jump</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Endboss.html#moveAnimation">moveAnimation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Endboss.html#playBossSound">playBossSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Endboss.html#showAnimation">showAnimation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Endboss.html#showEndboss">showEndboss</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Keyboard.html">Keyboard</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Keyboard.html#arrowKeys">arrowKeys</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Keyboard.html#mobileArrowKey">mobileArrowKey</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Keyboard.html#mobileLeftKey">mobileLeftKey</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Keyboard.html#mobileRightKey">mobileRightKey</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Keyboard.html#mobileSpaceKey">mobileSpaceKey</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Keyboard.html#mobileThrowKey">mobileThrowKey</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Keyboard.html#searchKeyEvent">searchKeyEvent</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Level.html">Level</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MovableObject.html">MovableObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#applyGravity">applyGravity</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#hidden">hidden</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#hit">hit</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#isAboveGround">isAboveGround</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#isColliding">isColliding</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#isDead">isDead</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#isHurt">isHurt</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#moveLeft">moveLeft</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#moveRight">moveRight</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#playAnimation">playAnimation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MovableObject.html#showLive">showLive</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Statusbar.html">Statusbar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Statusbar.html#analysePercentage">analysePercentage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Statusbar.html#hidden">hidden</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Statusbar.html#setPercentage">setPercentage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Statusbar.html#show">show</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ThrowableObject.html">ThrowableObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ThrowableObject.html#throw">throw</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="World.html">World</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#addObjToMap">addObjToMap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#addToMap">addToMap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#characterHit">characterHit</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#checkCollectObjectsCollisions">checkCollectObjectsCollisions</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#checkCollisions">checkCollisions</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#checkEnemiesCollisions">checkEnemiesCollisions</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#checkIsCharacterBeforeEndboss">checkIsCharacterBeforeEndboss</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#checkKeys">checkKeys</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#checkThrowCollisions">checkThrowCollisions</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#checkThrowObject">checkThrowObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#draw">draw</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#drawBackground">drawBackground</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#drawCharacterAndAnemies">drawCharacterAndAnemies</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#flipImage">flipImage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#flipImageBack">flipImageBack</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#IsCharacterBeforeEndboss">IsCharacterBeforeEndboss</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#isEndboss">isEndboss</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#isEnemieDead">isEnemieDead</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#isObjectACoinOrbottle">isObjectACoinOrbottle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#isThrow">isThrow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#jumpOfEnemies">jumpOfEnemies</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#playCollectItemSound">playCollectItemSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#runInterval">runInterval</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#setWorld">setWorld</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="World.html#showSplashAnimation">showSplashAnimation</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#checkLocalStorageMute">checkLocalStorageMute</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#closeFullscreen">closeFullscreen</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createDevicesOverlay">createDevicesOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#defineEndOverlaySize">defineEndOverlaySize</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#disableEndOverlay">disableEndOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#fullscreen">fullscreen</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#fullscreenOff">fullscreenOff</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#fullscreenOnShow">fullscreenOnShow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#fullscreenStartScreen">fullscreenStartScreen</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hiddenOverlays">hiddenOverlays</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initWorld">initWorld</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loseTheGame">loseTheGame</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#muteTheGame">muteTheGame</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#openFullscreen">openFullscreen</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#playTheGame">playTheGame</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#removeItem">removeItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setStoppableInterval">setStoppableInterval</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showDevicesOverlay">showDevicesOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showEndOverlay">showEndOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showGameplay">showGameplay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showHomeScreen">showHomeScreen</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showLandscape">showLandscape</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showStartOverlay">showStartOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#stopAllSounds">stopAllSounds</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#stopTheGame">stopTheGame</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#winTheGame">winTheGame</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">models/world.class.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Represents the main game world, managing all game objects, interactions, rendering, and logic.
+ */
+class World {
+    /**
+     * The main character in the game.
+     * @type {Character}
+     */
+    character = new Character();
+
+    /**
+     * The current level being played.
+     * @type {Level}
+     */
+    level = level1;
+
+    /**
+     * The status bars displayed on the screen (e.g., health, coins, bottles).
+     * @type {Statusbar[]}
+     */
+    statusbars = [
+        new Statusbar(statusbarImages[0], 0),
+        new Statusbar(statusbarImages[1], 60),
+        new Statusbar(statusbarImages[2], 130),
+        new Statusbar(endbossStatusbarImages[5], 80, 460, false)
+    ];
+
+    /**
+     * The collectible objects in the world (e.g., coins and bottles).
+     * @type {CollectObject[]}
+     */
+    collectObjects = [
+        new CollectObject(coinImage),
+        new CollectObject(coinImage),
+        new CollectObject(coinImage),
+        new CollectObject(coinImage),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0]),
+        new CollectObject(bottleImages[0])
+    ];
+
+    /**
+     * The throwable objects (e.g., bottles) available in the game.
+     * @type {ThrowableObject[]}
+     */
+    throwableObjects = [];
+
+    /**
+     * The canvas element for rendering the game.
+     * @type {HTMLCanvasElement}
+     */
+    canvas;
+
+    /**
+     * The 2D rendering context for the canvas.
+     * @type {CanvasRenderingContext2D}
+     */
+    ctx;
+
+    /**
+     * The keyboard input for controlling the game.
+     * @type {Keyboard}
+     */
+    keyboard;
+
+    /**
+     * The camera's horizontal position offset.
+     * @type {number}
+     */
+    camera_x = 0;
+
+    /**
+     * The timestamp of the last throwable object action.
+     * @type {number}
+     */
+    lastThrow = 0;
+
+    /**
+     * Initializes the game world, setting up the canvas, character, level, and input controls.
+     * @param {HTMLCanvasElement} canvas - The canvas element for rendering.
+     * @param {Keyboard} keyboard - The keyboard input handler.
+     */
+    constructor(canvas, keyboard) {
+        this.ctx = canvas.getContext("2d");
+        this.canvas = canvas;
+        this.keyboard = keyboard;
+        this.level.enemies[3].world = this;
+        this.draw();
+        this.setWorld();
+        this.runInterval();
+    }
+
+    /**
+     * Links the character to the world for interaction with other objects.
+     */
+    setWorld() {
+        this.character.world = this;
+    }
+
+    /**
+     * Clears the canvas and redraws all game objects, including background, characters, and enemies.
+     */
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawBackground();
+        this.addObjToMap(this.collectObjects);
+        this.drawCharacterAndAnemies();
+        this.addObjToMap(this.throwableObjects);
+        this.ctx.translate(-this.camera_x - 30, 0);
+        const self = this;
+        requestAnimationFrame(() => self.draw());
+    }
+
+    /**
+     * Draws the background and clouds of the level.
+     */
+    drawBackground() {
+        this.ctx.translate(this.camera_x + 30, 0);
+        this.addObjToMap(this.level.backgroundObject);
+        this.addObjToMap(this.level.clouds);
+    }
+
+    /**
+     * Draws the character, enemies, and status bars on the canvas.
+     */
+    drawCharacterAndAnemies() {
+        this.addToMap(this.character);
+        this.ctx.translate(-this.camera_x, 0);
+        this.addObjToMap(this.statusbars);
+        this.ctx.translate(this.camera_x, 0);
+        this.addObjToMap(this.level.enemies);
+    }
+
+    /**
+     * Adds an array of objects to the canvas map.
+     * @param {MovableObject[]} objects - The objects to be added.
+     */
+    addObjToMap(objects) {
+        objects.forEach(obj => {
+            this.addToMap(obj);
+        });
+    }
+
+    /**
+     * Adds a single object to the canvas map, handling direction flipping if necessary.
+     * @param {MovableObject} object - The object to be added.
+     */
+    addToMap(object) {
+        if (object.otherDirection) {
+            this.flipImage(object);
+        }
+        object.draw(this.ctx);
+        object.drawFrame(this.ctx);
+        if (object.otherDirection) {
+            this.flipImageBack(object);
+        }
+    }
+
+    /**
+     * Flips the object's image horizontally.
+     * @param {MovableObject} object - The object whose image is flipped.
+     */
+    flipImage(object) {
+        this.ctx.save();
+        this.ctx.translate(object.width, 0);
+        this.ctx.scale(-1, 1);
+        object.x = object.x * -1;
+    }
+
+    /**
+     * Restores the original image orientation after flipping.
+     * @param {MovableObject} object - The object to restore.
+     */
+    flipImageBack(object) {
+        this.ctx.restore();
+        object.x = object.x * -1;
+    }
+
+    /**
+     * Checks for collisions between the character and other objects in the game.
+     * Includes enemy collisions, collectible object collisions, and throwable object interactions.
+     */
+    checkCollisions() {
+        this.checkEnemiesCollisions();
+        this.checkThrowCollisions();
+    }
+
+    /**
+     * Checks for collisions between throwable objects and enemies.
+     * Removes enemies or reduces their health when hit by a throwable object.
+     */
+    checkThrowCollisions() {
+        this.level.enemies.forEach((enemie, index) => {
+            this.throwableObjects.forEach(bottle => {
+                if (enemie.isColliding(bottle)) {
+                    if (this.isEndboss(enemie)) {
+                        enemie.energy = 0;
+                        this.level.enemies.splice(index, 1);
+                    } else {
+                        enemie.hit();
+                    }
+                this.showSplashAnimation(true);
+                }
+            });
+        });
+        this.showSplashAnimation(false);
+    }
+
+    /**
+     * Triggers the splash animation for throwable objects that have fallen below a certain height.
+     * Iterates through each throwable object and checks if its y-coordinate is greater than 240.
+     * If the condition is met, it sets an interval to play the splash animation at a rate of 120 frames per second.
+     */
+    showSplashAnimation(colliding = false) {
+        this.throwableObjects.forEach(bottle => {
+            if (bottle.y > 240 || colliding) { 
+                setInterval(() => {
+                    bottle.playAnimation(bottleSplashImages);
+                },1000 / 120);
+            }
+        });
+    }
+    
+    /**
+     * Checks if the given enemy is the end boss.
+     * 
+     * @param {Object} enemie - The enemy object to check.
+     * @param {number} enemie.width - The width of the enemy.
+     * @returns {boolean} True if the enemy is the end boss, otherwise false.
+     */
+    isEndboss(enemie) {
+        return enemie.width == 100;
+    }
+
+    /**
+     * Checks for collisions between the character and enemies.
+     * Handles the appropriate response (e.g., losing health or game over).
+     */
+    checkEnemiesCollisions() {
+        this.level.enemies.forEach(enemie => {
+            if (this.character.isColliding(enemie)) {
+                if (enemie.width !== 100) {
+                    this.characterHit();
+                } else {
+                    if (!this.character.isAboveGround() &amp;&amp; enemie.energy > 0) {
+                        this.characterHit();
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * Reduces the character's health and updates the health status bar.
+     */
+    characterHit() {
+        this.character.hit();
+        this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages);
+    }
+    
+    /**
+     * Checks for collisions between the character and collectible objects (coins or bottles).
+     * Updates the character's inventory and status bars accordingly.
+     */
+    checkCollectObjectsCollisions() {
+        this.collectObjects.forEach(collectObject => {
+            if (this.character.isColliding(collectObject)) {            
+                this.isObjectACoinOrbottle(collectObject);
+            }
+        });
+    }
+
+    /**
+     * Determines if a collected object is a coin or a bottle and updates the game state.
+     * @param {CollectObject} collectObject - The object being collected.
+     */
+    isObjectACoinOrbottle(collectObject) {
+        if (collectObject.imgPath === coinImage &amp;&amp; this.character.isAboveGround()) {
+            this.character.coins += 20;
+            this.statusbars[2].analysePercentage(this.character.coins, statusbarCoinImages);
+            this.playCollectItemSound();
+            collectObject.hidden();
+        } else if (this.character.bottles &lt;= 4) {
+            this.character.bottles += 1;
+            this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
+            this.playCollectItemSound();
+            collectObject.hidden();
+        }
+    }
+    
+    /**
+     * Plays the sound effect for collecting an item if the sound is not muted.
+     */
+    playCollectItemSound() {
+        if (!mute) {
+            this.character.collect_item_sound.play();
+        }
+    }
+
+    /**
+     * Checks if the player is attempting to throw an object (e.g., a bottle).
+     * Throws the object if conditions are met (e.g., enough bottles, direction, and cooldown).
+     */
+    checkThrowObject() {
+        if (this.isThrow()) {
+            if (this.keyboard.D &amp;&amp; !this.character.otherDirection &amp;&amp; this.character.bottles > 0) {
+                const bottle = new ThrowableObject(this.character.x, 250);
+                this.throwableObjects.push(bottle);
+                this.character.bottles -= 1;
+                this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
+                this.lastThrow = new Date().getTime();
+            }
+        }
+    }
+
+    /**
+     * Determines if enough time has passed since the last throw to allow another throw.
+     * @returns {boolean} `true` if the character can throw again, otherwise `false`.
+     */
+    isThrow() {
+        let currentTime = new Date().getTime();
+        currentTime -= this.lastThrow;
+        return currentTime > 1000;
+    }
+    
+    /**
+     * Check if key tap and then if key tap analastic which key tap. 
+     */
+    checkKeys() {
+        if (this.keyboard.F) {
+            fullscreen();
+            this.keyboard.F = false;
+        } else if (this.keyboard.M) {
+            muteTheGame();
+            this.keyboard.M = false;
+        }
+    }
+
+    /**
+     * Determines if the character has reached the position before the end boss.
+     * @param {MovableObject} endboss - The end boss object.
+     * @returns {boolean} `true` if the character is past the end boss, otherwise `false`.
+     */
+    IsCharacterBeforeEndboss(endboss) {
+        return this.character.x > endboss.x;
+    }
+
+    /**
+     * Checks if the character has reached the end boss and triggers the appropriate game logic.
+     */
+    checkIsCharacterBeforeEndboss() {
+        let endbossNumber = this.level.enemies.length - 1;
+        let endbosss = this.level.enemies[endbossNumber];
+        if (this.IsCharacterBeforeEndboss(endbosss) &amp;&amp; !endbosss.isDead()) {
+            this.character.energy -= 30;
+            this.character.hit();
+        }
+    }
+
+    /**
+     * Handles collisions with enemies. Removes an enemy if the character jumps on it.
+     */
+    jumpOfEnemies() {
+        let enemies = this.level.enemies;
+        let character = this.character;
+        enemies.forEach((enemie, index) => {
+            if (enemie.width === 100) {
+                if (this.isEnemieDead(enemie)) {
+                    enemie.kill(enemies, index);
+                }
+                if (character.isColliding(enemie) &amp;&amp; character.speedY &lt;= 0 &amp;&amp; character.isAboveGround()) {  
+                    enemie.energy = 0;
+                    enemie.kill(enemies, index);
+                }
+            }
+        });
+    }
+
+    /**
+     * Checks if the given enemy is dead.
+     * 
+     * @param {Object} enemie - The enemy object to check.
+     * @param {number} enemie.energy - The energy level of the enemy.
+     * @returns {boolean} True if the enemy's energy is 0, otherwise false.
+     */
+    isEnemieDead(enemie) {
+        return enemie.energy === 0
+    }
+
+    /**
+     * Starts the main game intervals, including collision checks, input handling, and status updates.
+     */
+    runInterval() {
+        setStoppableInterval(() => {
+            this.checkCollisions();
+            this.checkIsCharacterBeforeEndboss();
+            this.checkThrowObject();
+            this.jumpOfEnemies();
+            this.checkKeys();
+            this.checkCollectObjectsCollisions();
+        }, 50);
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Feb 18 2025 20:05:51 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

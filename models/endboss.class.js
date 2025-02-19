@@ -66,12 +66,12 @@ class Endboss extends MovableObject {
         let currentTime = new Date().getTime();
         let lastJumpTime = currentTime - this.lastJump;
         if (!this.walk) {
-            this.x -= 70;
+            this.x -= 50;
             this.walk = true;
         } else {
             this.walk = false;
         }
-        if (!this.isAboveGround() && (this.lastJump === 0 || lastJumpTime >= 1500)) {
+        if (this.isAboveGround() && (this.lastJump === 0 || lastJumpTime >= 1500)) {
             this.jump();
         }
         endbossFight = true;

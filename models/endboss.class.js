@@ -137,10 +137,4 @@ class Endboss extends MovableObject {
             setTimeout(winTheGame, 500);
         }
     }
-
-    move() {
-        if (!this.isAboveGround()) {
-            this.jump();
-        }
-    }
 }

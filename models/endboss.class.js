@@ -66,12 +66,12 @@ class Endboss extends MovableObject {
         let currentTime = new Date().getTime();
         let lastJumpTime = currentTime - this.lastJump;
         if (!this.walk) {
-            this.x -= 50;
+            this.x -= 25;
             this.walk = true;
         } else {
             this.walk = false;
         }
-        if (this.isAboveGround() && (this.lastJump === 0 || lastJumpTime >= 1500)) {
+        if (this.isAboveGround() && (this.lastJump === 0 || lastJumpTime >= 2000)) {
             this.jump();
         }
         endbossFight = true;
@@ -103,15 +103,13 @@ class Endboss extends MovableObject {
             this.playAnimation(endbossDeadImages);
         } else if (currentTime - this.lastHit < 2000) {
             this.playAnimation(endbossHurtImages);
-        } else if (!endbossFight) {
-            this.playAnimation(endbossImages);
-        } else if (this.isAboveGround()) {
+        } else if (currentTime - this.lastJump < 2000) {
             this.playBossSound();
-            this.playAnimation(endbossAttackImages);
-        } else {
+            this.playAnimation(endbossAttackImages);  
+        } else if (this.walk) {
             this.playBossSound();
-            this.playAnimation(endbossWalkImages);
-        }
+            this.playAnimation(endbossWalkImages);  
+        } 
     }
 
     /**

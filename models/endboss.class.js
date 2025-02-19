@@ -11,7 +11,7 @@ class Endboss extends MovableObject {
     boss_sound = new Audio("../audio/boss.mp3");
     speedY = 0;
     lastJump = 0;
-    
+    walk = false;
     /**
      * The offset values for collision detection.
      * @type {Object}
@@ -65,8 +65,13 @@ class Endboss extends MovableObject {
         world.statusbars[3].show();
         let currentTime = new Date().getTime();
         let lastJumpTime = currentTime - this.lastJump;
-        if (this.lastJump === 0 || lastJumpTime >= 1500) {
-            this.x -= 100;
+        if (!this.walk) {
+            this.x -= 25;
+            this.walk = true;
+        } else {
+            this.walk = false;
+        }
+        if (this.isAboveGround() && (this.lastJump === 0 || lastJumpTime >= 2000)) {
             this.jump();
         }
         endbossFight = true;
@@ -98,15 +103,13 @@ class Endboss extends MovableObject {
             this.playAnimation(endbossDeadImages);
         } else if (currentTime - this.lastHit < 2000) {
             this.playAnimation(endbossHurtImages);
-        } else if (!endbossFight) {
-            this.playAnimation(endbossImages);
-        } else if (this.isAboveGround()) {
+        } else if (currentTime - this.lastJump < 2000) {
             this.playBossSound();
-            this.playAnimation(endbossAttackImages);
-        } else {
+            this.playAnimation(endbossAttackImages);  
+        } else if (this.walk) {
             this.playBossSound();
-            this.playAnimation(endbossWalkImages);
-        }
+            this.playAnimation(endbossWalkImages);  
+        } 
     }
 
     /**

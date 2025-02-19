@@ -109,16 +109,26 @@ class Chicken extends MovableObject {
         }       
     }
 
+    /**
+     * Initiates the kill animation for the chicken.
+     * Sets the killAnimationTime to the current time if it hasn't been set already.
+     */
     killAnimation() {
         if (this.killAnimationTime === 0) {
             this.killAnimationTime = new Date().getTime();
         }
     }
 
+    /**
+     * Displays the kill animation for a specified duration and removes the enemy from the list after the animation.
+     * 
+     * @param {Array} enemies - The array of enemy objects.
+     * @param {number} enemieQuantity - The index of the enemy to be removed from the array.
+     */
     showKillAnimation(enemies, enemieQuantity) {
         const currentTime = new Date().getTime();
         const elapsedTime = currentTime - this.killAnimationTime;   
-        if (elapsedTime > 2000) {
+        if (elapsedTime > 1000) {
             enemies.splice(enemieQuantity, 1);
         } else {
             this.killAnimation();

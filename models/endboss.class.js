@@ -65,11 +65,14 @@ class Endboss extends MovableObject {
         world.statusbars[3].show();
         let currentTime = new Date().getTime();
         let lastJumpTime = currentTime - this.lastJump;
-        if ((this.lastJump === 0 || lastJumpTime >= 1500)) {
-            this.x -= 100;
+        if (!this.walk) {
+            this.x -= 70;
             this.walk = true;
-            this.jump();
+        } else {
             this.walk = false;
+        }
+        if (!this.isAboveGround() && (this.lastJump === 0 || lastJumpTime >= 1500)) {
+            this.jump();
         }
         endbossFight = true;
     }
@@ -134,6 +137,12 @@ class Endboss extends MovableObject {
         } else if (this.isDead()) {
             this.playAnimation(endbossDeadImages);
             setTimeout(winTheGame, 500);
+        }
+    }
+
+    move() {
+        if (!this.isAboveGround()) {
+            this.jump();
         }
     }
 }

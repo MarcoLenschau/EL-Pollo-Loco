@@ -54,12 +54,6 @@
     }
 }
 
-@media (max-width: 1281px) {
-    .settings-overlay-button {
-        display: none;
-    }    
-}
-
 @media (max-width: 600px) {
     .overlay-start-screen {
         width: 80vw;

@@ -195,12 +195,11 @@ class World {
      * Removes enemies or reduces their health when hit by a throwable object.
      */
     checkThrowCollisions() {
-        this.level.enemies.forEach((enemie, index) => {
+        this.level.enemies.forEach((enemie) => {
             this.throwableObjects.forEach(bottle => {
                 if (enemie.isColliding(bottle)) {
                     if (this.isEndboss(enemie)) {
                         enemie.energy = 0;
-                        this.level.enemies.splice(index, 1);
                     } else {
                         enemie.hit();
                     }

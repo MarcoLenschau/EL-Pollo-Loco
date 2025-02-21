@@ -99,6 +99,12 @@
     }
 }
 
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 1281px) {
+    .settings-overlay-button {
+        display: none;
+    }    
+}
+
 @media (pointer: coarse) and (orientation: landscape) and (max-width: 1369px) and (min-width: 934px) {
     canvas {
         height: 90vh !important;

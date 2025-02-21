@@ -151,10 +151,10 @@ class MovableObject extends DrawablObject {
     /**
      * Reduces the object's energy when hit and plays a hurt sound if sound is not muted.
      */
-    hit() {
+    hit(damage) {
         if (this.energy > 0) {
             this.lastHit = new Date().getTime();
-            this.energy -= 1;
+            this.energy -= damage;
             this.showLive(1);
             if (!mute) {
                 this.hurt_sound.play();

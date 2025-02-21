@@ -242,23 +242,26 @@ class World {
      */
     checkEnemiesCollisions() {
         this.level.enemies.forEach(enemie => {
-            if (this.character.isColliding(enemie)) {
+            let currentTime = new Date().getTime();
+            let lastHitTime = currentTime - this.character.lastHit;
+            if (this.character.isColliding(enemie) && lastHitTime > 2000) {
                 if (enemie.width !== 100) {
-                    this.characterHit();
+                    this.characterHit(enemie.damage);
                 } else {
                     if (!this.character.isAboveGround() && enemie.energy > 0) {
-                        this.characterHit();
+                        this.characterHit(enemie.damage);
                     }
                 }
             }
         });
     }
 
+
     /**
      * Reduces the character's health and updates the health status bar.
      */
-    characterHit() {
-        this.character.hit();
+    characterHit(damage) {
+        this.character.hit(damage);
         this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages);
     }
     
@@ -341,27 +344,6 @@ class World {
     }
 
     /**
-     * Determines if the character has reached the position before the end boss.
-     * @param {MovableObject} endboss - The end boss object.
-     * @returns {boolean} `true` if the character is past the end boss, otherwise `false`.
-     */
-    IsCharacterBeforeEndboss(endboss) {
-        return this.character.x > endboss.x;
-    }
-
-    /**
-     * Checks if the character has reached the end boss and triggers the appropriate game logic.
-     */
-    checkIsCharacterBeforeEndboss() {
-        let endbossNumber = this.level.enemies.length - 1;
-        let endbosss = this.level.enemies[endbossNumber];
-        if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead() && this.character.lastHitTime < 2000) {
-            this.character.energy -= 50;
-            this.character.hit();
-        }
-    }
-
-    /**
      * Handles collisions with enemies. Removes an enemy if the character jumps on it.
      */
     jumpOfEnemies() {
@@ -397,7 +379,6 @@ class World {
     runInterval() {
         setStoppableInterval(() => {
             this.checkCollisions();
-            this.checkIsCharacterBeforeEndboss();
             this.checkThrowObject();
             this.jumpOfEnemies();
             this.checkKeys();

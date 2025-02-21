@@ -37,7 +37,7 @@ class Chicken extends MovableObject {
     }
 
     energy = 100;
-    
+    damage = 20;    
     walk = true;
     
     killAnimationTime = 0;
@@ -114,7 +114,7 @@ class Chicken extends MovableObject {
             this.showKillAnimation(enemies, enemieQuantity)
         }       
     }
-    
+
     /**
      * Initiates the kill animation for the chicken.
      * Sets the killAnimationTime to the current time if it hasn't been set already.

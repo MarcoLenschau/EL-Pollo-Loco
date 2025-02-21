@@ -12,6 +12,8 @@ class Endboss extends MovableObject {
     speedY = 0;
     lastJump = 0;
     walk = false;
+    damage = 50;
+
     /**
      * The offset values for collision detection.
      * @type {Object}
@@ -117,6 +119,7 @@ class Endboss extends MovableObject {
      */
     playBossSound() {
         if (!mute) {
+            this.boss_sound.volume = 0.5;
             this.boss_sound.play();
         }
     }

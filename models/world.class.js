@@ -81,6 +81,18 @@ class World {
     lastThrow = 0;
 
     /**
+     * Audio object for playing the enemy dead sound effect.
+     * @type {Audio}
+     */
+    enemie_dead_sound = new Audio("../audio/enemie.mp3");
+    
+    /**
+     * An instance of the Audio class that plays the sound effect for throwing.
+     * @type {Audio}
+     */
+    throw_sound = new Audio("../audio/throw.mp3")
+
+    /**
      * Initializes the game world, setting up the canvas, character, level, and input controls.
      * @param {HTMLCanvasElement} canvas - The canvas element for rendering.
      * @param {Keyboard} keyboard - The keyboard input handler.
@@ -195,12 +207,13 @@ class World {
      * Removes enemies or reduces their health when hit by a throwable object.
      */
     checkThrowCollisions() {
-        this.level.enemies.forEach((enemie, index) => {
+        this.level.enemies.forEach((enemie) => {
             this.throwableObjects.forEach(bottle => {
                 if (enemie.isColliding(bottle)) {
                     if (this.isEndboss(enemie)) {
                         enemie.energy = 0;
-                        this.level.enemies.splice(index, 1);
+                        this.enemie_dead_sound.volume = 0.5;
+                        this.enemie_dead_sound.play();
                     } else {
                         enemie.hit();
                     }
@@ -243,23 +256,26 @@ class World {
      */
     checkEnemiesCollisions() {
         this.level.enemies.forEach(enemie => {
-            if (this.character.isColliding(enemie)) {
+            let currentTime = new Date().getTime();
+            let lastHitTime = currentTime - this.character.lastHit;
+            if (this.character.isColliding(enemie) && lastHitTime > 2000) {
                 if (enemie.width !== 100) {
-                    this.characterHit();
+                    this.characterHit(enemie.damage);
                 } else {
                     if (!this.character.isAboveGround() && enemie.energy > 0) {
-                        this.characterHit();
+                        this.characterHit(enemie.damage);
                     }
                 }
             }
         });
     }
 
+
     /**
      * Reduces the character's health and updates the health status bar.
      */
-    characterHit() {
-        this.character.hit();
+    characterHit(damage) {
+        this.character.hit(damage);
         this.statusbars[1].analysePercentage(this.character.energy, statusbarLiveImages);
     }
     
@@ -298,6 +314,7 @@ class World {
      */
     playCollectItemSound() {
         if (!mute) {
+            this.character.collect_item_sound.volume = 0.3;
             this.character.collect_item_sound.play();
         }
     }
@@ -314,6 +331,10 @@ class World {
                 this.character.bottles -= 1;
                 this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
                 this.lastThrow = new Date().getTime();
+                if (!mute) {
+                    this.throw_sound.volume = 0.3;
+                    this.throw_sound.play();
+                }
             }
         }
     }
@@ -342,27 +363,6 @@ class World {
     }
 
     /**
-     * Determines if the character has reached the position before the end boss.
-     * @param {MovableObject} endboss - The end boss object.
-     * @returns {boolean} `true` if the character is past the end boss, otherwise `false`.
-     */
-    IsCharacterBeforeEndboss(endboss) {
-        return this.character.x > endboss.x;
-    }
-
-    /**
-     * Checks if the character has reached the end boss and triggers the appropriate game logic.
-     */
-    checkIsCharacterBeforeEndboss() {
-        let endbossNumber = this.level.enemies.length - 1;
-        let endbosss = this.level.enemies[endbossNumber];
-        if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead()) {
-            this.character.energy -= 30;
-            this.character.hit();
-        }
-    }
-
-    /**
      * Handles collisions with enemies. Removes an enemy if the character jumps on it.
      */
     jumpOfEnemies() {
@@ -376,11 +376,15 @@ class World {
                 if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
                     enemie.energy = 0;
                     enemie.kill(enemies, index);
+                    if (!mute) {
+                        this.enemie_dead_sound.volume = 0.5;
+                        this.enemie_dead_sound.play();
+                    }
                 }
             }
         });
     }
-
+    
     /**
      * Checks if the given enemy is dead.
      * 
@@ -398,7 +402,6 @@ class World {
     runInterval() {
         setStoppableInterval(() => {
             this.checkCollisions();
-            this.checkIsCharacterBeforeEndboss();
             this.checkThrowObject();
             this.jumpOfEnemies();
             this.checkKeys();

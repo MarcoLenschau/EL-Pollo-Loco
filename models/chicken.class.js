@@ -37,7 +37,7 @@ class Chicken extends MovableObject {
     }
 
     energy = 100;
-    
+    damage = 20;    
     walk = true;
     
     killAnimationTime = 0;
@@ -100,6 +100,12 @@ class Chicken extends MovableObject {
         }, 1000 / 60);
     }
 
+    /**
+     * Handles the killing of enemies by stopping the chicken's walk and triggering the appropriate kill animation.
+     * 
+     * @param {Array} enemies - An array of enemy objects.
+     * @param {number} enemieQuantity - The number of enemies to be killed.
+     */
     kill(enemies, enemieQuantity) {
         this.walk = false;
         if (this.killAnimationTime === 0) {

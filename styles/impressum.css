@@ -22,9 +22,24 @@
     height: 100vh;
 }
 
+.impress {
+    padding: 0 250px;
+}
+
+.back-image {
+    height: 74px; 
+    width: 74px;
+}
+
 @media (max-width: 970px) {
     .impressum-width {
         width: 600px;
+    }
+    * {
+        font-size: 13px;
+    }
+    .impress {
+        padding: 0 100px;
     }
 }
 
@@ -32,10 +47,30 @@
     .impressum-width {
         width: 400px;
     }
+    * {
+        font-size: 11px;
+    }
+    .impress {
+        padding: 0 30px;
+    }
+    .back-image {
+        height: 60px; 
+        width: 60px;
+    }
 }
 
 @media (max-width: 450px) {
     .impressum-width {
         width: 300px;
+    }
+    * {
+        font-size: 9px;
+    }
+    .impress {
+        padding: 0 20px;
+    }
+    .back-image {
+        height: 40px; 
+        width: 40px;
     }
 }

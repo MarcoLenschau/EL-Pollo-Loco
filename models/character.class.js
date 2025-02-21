@@ -40,6 +40,10 @@ class Character extends MovableObject {
      */
     jump_sound = new Audio("./audio/jump.mp3");
 
+    /**
+     * Audio object for the sound effect played when an item is collected.
+     * @type {HTMLAudioElement}
+     */
     collect_item_sound = new Audio("./audio/collect_item.mp3")
 
     /**

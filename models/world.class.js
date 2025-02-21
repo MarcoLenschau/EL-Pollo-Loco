@@ -355,8 +355,8 @@ class World {
     checkIsCharacterBeforeEndboss() {
         let endbossNumber = this.level.enemies.length - 1;
         let endbosss = this.level.enemies[endbossNumber];
-        if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead()) {
-            this.character.energy -= 30;
+        if (this.IsCharacterBeforeEndboss(endbosss) && !endbosss.isDead() && this.character.lastHitTime < 2000) {
+            this.character.energy -= 50;
             this.character.hit();
         }
     }

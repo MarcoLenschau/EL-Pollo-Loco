@@ -70,6 +70,19 @@ class Character extends MovableObject {
      */
     lastActionTime = 0;
 
+    /**
+     * The timestamp of the last jump action performed by the character.
+     * @type {number}
+     */
+    lastJump = 600;
+    
+    /**
+     * Offset values for the character's position.
+     * @property {number} top - The top offset value.
+     * @property {number} bottom - The bottom offset value.
+     * @property {number} left - The left offset value.
+     * @property {number} right - The right offset value.
+     */
     offset = {
         top: 50,
         bottom: 10,
@@ -161,12 +174,15 @@ class Character extends MovableObject {
      * Updates the character's animations based on its state (e.g., dead, hurt, jumping).
      */
     moveAnimation() {
+        let currentTime = new Date().getTime();
+        let lastJumpTime = currentTime - this.lastJump
         if (this.isDead()) {
             this.playAnimation(characterDeadImages);
         } else if (this.isHurt()) {
             this.playAnimation(characterHurtImages);
-        } else if (this.isAboveGround()) {
+        } else if (this.isAboveGround() && lastJumpTime > 500) {
             this.playAnimation(characterJumpImages);
+            this.lastJump = currentTime;
         } else if (this.clickKeyLeftOrRight()) {
             this.playAnimation(characterWalkImages);
         } else if (this.isSleep()) { 

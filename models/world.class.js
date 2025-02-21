@@ -81,6 +81,18 @@ class World {
     lastThrow = 0;
 
     /**
+     * Audio object for playing the enemy dead sound effect.
+     * @type {Audio}
+     */
+    enemie_dead_sound = new Audio("../audio/enemie.mp3");
+    
+    /**
+     * An instance of the Audio class that plays the sound effect for throwing.
+     * @type {Audio}
+     */
+    throw_sound = new Audio("../audio/throw.mp3")
+
+    /**
      * Initializes the game world, setting up the canvas, character, level, and input controls.
      * @param {HTMLCanvasElement} canvas - The canvas element for rendering.
      * @param {Keyboard} keyboard - The keyboard input handler.
@@ -200,6 +212,8 @@ class World {
                 if (enemie.isColliding(bottle)) {
                     if (this.isEndboss(enemie)) {
                         enemie.energy = 0;
+                        this.enemie_dead_sound.volume = 0.5;
+                        this.enemie_dead_sound.play();
                     } else {
                         enemie.hit();
                     }
@@ -300,6 +314,7 @@ class World {
      */
     playCollectItemSound() {
         if (!mute) {
+            this.character.collect_item_sound.volume = 0.3;
             this.character.collect_item_sound.play();
         }
     }
@@ -316,6 +331,10 @@ class World {
                 this.character.bottles -= 1;
                 this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
                 this.lastThrow = new Date().getTime();
+                if (!mute) {
+                    this.throw_sound.volume = 0.3;
+                    this.throw_sound.play();
+                }
             }
         }
     }
@@ -357,11 +376,15 @@ class World {
                 if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
                     enemie.energy = 0;
                     enemie.kill(enemies, index);
+                    if (!mute) {
+                        this.enemie_dead_sound.volume = 0.5;
+                        this.enemie_dead_sound.play();
+                    }
                 }
             }
         });
     }
-
+    
     /**
      * Checks if the given enemy is dead.
      * 

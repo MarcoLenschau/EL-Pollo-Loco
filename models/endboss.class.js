@@ -119,6 +119,7 @@ class Endboss extends MovableObject {
      */
     playBossSound() {
         if (!mute) {
+            this.boss_sound.volume = 0.5;
             this.boss_sound.play();
         }
     }

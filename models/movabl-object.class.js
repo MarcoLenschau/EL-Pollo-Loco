@@ -157,6 +157,7 @@ class MovableObject extends DrawablObject {
             this.energy -= damage;
             this.showLive(1);
             if (!mute) {
+                this.hurt_sound.volume = 0.5;
                 this.hurt_sound.play();
             }
         } 

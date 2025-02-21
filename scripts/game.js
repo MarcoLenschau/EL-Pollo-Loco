@@ -107,6 +107,7 @@ function stopAllSounds() {
  */
 function winTheGame() {
     let endOverlayImage = document.getElementById("end-overlay-image");
+    playWinSound();
     document.getElementById("smartphone").classList.add("d_none");
     showEndOverlay();
     endOverlayImage.classList.remove("d_none")
@@ -117,6 +118,14 @@ function winTheGame() {
         defineEndOverlaySize()
     },10);
    
+}
+
+function playWinSound() {
+    if (!mute) {
+        let win_sound = new Audio("./audio/win.mp3")
+        win_sound.volume = 0.2;
+        win_sound.play();
+    }
 }
 
 /**

@@ -198,6 +198,7 @@ class Character extends MovableObject {
         });
         this.hidden();
         if (!mute) {
+            this.game_over_sound.volume = 0.5;
             this.game_over_sound.play();
         }
         setTimeout(loseTheGame, 500);
@@ -225,6 +226,7 @@ class Character extends MovableObject {
     jump() {
         this.stopAllSounds();
         if (!mute) {
+            this.jump_sound.volume = 0.5;
             this.jump_sound.play();
         }
         this.speedY = 15;

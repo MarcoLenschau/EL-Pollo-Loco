@@ -212,8 +212,10 @@ class World {
                 if (enemie.isColliding(bottle)) {
                     if (this.isEndboss(enemie)) {
                         enemie.energy = 0;
-                        this.enemie_dead_sound.volume = 0.5;
-                        this.enemie_dead_sound.play();
+                        if (!mute) {
+                            this.enemie_dead_sound.volume = 0.3;
+                            this.enemie_dead_sound.play();
+                        }
                     } else {
                         enemie.hit();
                     }

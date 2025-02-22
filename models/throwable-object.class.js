@@ -41,12 +41,10 @@ class ThrowableObject extends MovableObject {
         this.speedY = 10;
         this.applyGravity();
         setStoppableInterval(() => {
-            this.x += 5;
-        }, 25);
-        setStoppableInterval(() => {
-            if (this.isAboveGround()) {
+            if (this.isAboveGround()) {   
+                this.x += 5;
                 this.playAnimation(bottleImages);
             }
-        }, 100);
+        }, 25);
     }
 }

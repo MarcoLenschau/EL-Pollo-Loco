@@ -210,20 +210,37 @@ class World {
         this.level.enemies.forEach((enemie) => {
             this.throwableObjects.forEach(bottle => {
                 if (enemie.isColliding(bottle)) {
-                    if (this.isEndboss(enemie)) {
-                        enemie.energy = 0;
-                        if (!mute) {
-                            this.enemie_dead_sound.volume = 0.3;
-                            this.enemie_dead_sound.play();
-                        }
-                    } else {
-                        enemie.hit();
-                    }
+                    this.enemieHit(enemie);
                 this.showSplashAnimation(true);
                 }
             });
         });
         this.showSplashAnimation(false);
+    }
+    
+    /**
+     * Handles the logic when an enemy is hit.
+     * If the enemy is the end boss, it sets the enemy's energy to 0 and plays a sound if not muted.
+     * Otherwise, it calls the hit method on the enemy.
+     *
+     * @param {Object} enemie - The enemy object that is hit.
+     * @param {boolean} enemie.energy - The energy level of the enemy.
+     * @param {Function} enemie.hit - The method to call when the enemy is hit.
+     * @param {boolean} mute - A flag indicating whether the sound should be muted.
+     * @param {Object} this.enemie_dead_sound - The sound object to play when the enemy is dead.
+     * @param {Function} this.enemie_dead_sound.play - The method to play the sound.
+     * @param {number} this.enemie_dead_sound.volume - The volume level of the sound.
+     */
+    enemieHit(enemie) {
+        if (this.isEndboss(enemie)) {
+            enemie.energy = 0;
+            if (!mute) {
+                this.enemie_dead_sound.volume = 0.3;
+                this.enemie_dead_sound.play();
+            }
+        } else {
+            enemie.hit();
+        }
     }
 
     /**

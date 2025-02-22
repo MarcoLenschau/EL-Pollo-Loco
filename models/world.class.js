@@ -278,15 +278,22 @@ class World {
             let currentTime = new Date().getTime();
             let lastHitTime = currentTime - this.character.lastHit;
             if (this.character.isColliding(enemie) && lastHitTime > 2000) {
-                if (enemie.width !== 100) {
-                    this.characterHit(enemie.damage);
-                } else {
-                    if (!this.character.isAboveGround() && enemie.energy > 0) {
-                        this.characterHit(enemie.damage);
-                    }
-                }
+                this.enemieColliding(enemie);
             }
         });
+    }
+    
+    /**
+     * Which enemie is colliding.
+     */
+    enemieColliding(enemie) {
+        if (enemie.width !== 100) {
+            this.characterHit(enemie.damage);
+        } else {
+            if (!this.character.isAboveGround() && enemie.energy > 0) {
+                this.characterHit(enemie.damage);
+            }
+        }
     }
 
     /**
@@ -349,11 +356,19 @@ class World {
                 this.character.bottles -= 1;
                 this.statusbars[0].analysePercentage(this.character.bottles * 20, statusbarbottleImages);
                 this.lastThrow = new Date().getTime();
-                if (!mute) {
-                    this.throw_sound.volume = 0.3;
-                    this.throw_sound.play();
-                }
+                this.playThrowSound();
             }
+        }
+    }
+
+    /**
+     * Plays the throw sound effect if the sound is not muted.
+     * Sets the volume of the throw sound to 0.3 before playing it.
+     */
+    playThrowSound() {
+        if (!mute) {
+            this.throw_sound.volume = 0.3;
+            this.throw_sound.play();
         }
     }
 

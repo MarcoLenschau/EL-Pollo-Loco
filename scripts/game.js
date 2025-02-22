@@ -106,19 +106,23 @@ function stopAllSounds() {
  * Displays the victory screen and stops the game.
  */
 function winTheGame() {
-    let endOverlayImage = document.getElementById("end-overlay-image");
     playWinSound();
     document.getElementById("smartphone").classList.add("d_none");
     showEndOverlay();
-    endOverlayImage.classList.remove("d_none");
-    endOverlayImage.src = "./assetes/img/9_intro_outro_screens/win/win_1.png";
-    endOverlayImage.style = "";
+    endOverlayImageDesign();
     stopTheGame();
     setInterval(() => {
         defineEndOverlaySize();
     },10);
    
 }
+
+function endOverlayImageDesign () {
+    let endOverlayImage = document.getElementById("end-overlay-image");
+    endOverlayImage.classList.remove("d_none");
+    endOverlayImage.src = "./assetes/img/9_intro_outro_screens/win/win_1.png";
+    endOverlayImage.style = "";
+};
 
 function playWinSound() {
     if (!mute) {
@@ -132,10 +136,9 @@ function playWinSound() {
  * You lose the Game.
  */
 function loseTheGame() {
-    let endOverlay = document.querySelector(".end-overlay");
     let endOverlayImage = document.getElementById("end-overlay-image");
     showEndOverlay();
-    endOverlay.classList.add("end-overlay-lose");
+    document.querySelector(".end-overlay").classList.add("end-overlay-lose");
     document.getElementById("smartphone").style = "display: none;";
     endOverlayImage.innerHTML = "";
     endOverlayImage.classList.remove("d_none");

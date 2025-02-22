@@ -84,13 +84,13 @@ class World {
      * Audio object for playing the enemy dead sound effect.
      * @type {Audio}
      */
-    enemie_dead_sound = new Audio("../audio/enemie.mp3");
+    enemie_dead_sound = new Audio("./audio/enemie.mp3");
     
     /**
      * An instance of the Audio class that plays the sound effect for throwing.
      * @type {Audio}
      */
-    throw_sound = new Audio("../audio/throw.mp3")
+    throw_sound = new Audio("./audio/throw.mp3")
 
     /**
      * Initializes the game world, setting up the canvas, character, level, and input controls.

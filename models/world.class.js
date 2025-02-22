@@ -234,7 +234,7 @@ class World {
     showSplashAnimation(colliding = false) {
         this.throwableObjects.forEach(bottle => {
             if (bottle.y > 240 || colliding) { 
-                setInterval(() => {
+                setStoppableInterval(() => {
                     bottle.playAnimation(bottleSplashImages);
                 },1000 / 120);
             }

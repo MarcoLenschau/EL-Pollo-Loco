@@ -1,12 +1,8 @@
 name: JSDoc documentation
 on:
-  pull_request:
-    types: [opened]
-    branches: 
-      - main
   push:
     branches:
-      - main
+      - feature-1
 jobs:
   documentary:
     runs-on: ubuntu-latest

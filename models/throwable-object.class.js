@@ -43,9 +43,8 @@ class ThrowableObject extends MovableObject {
         setStoppableInterval(() => {
             if (this.isAboveGround()) {   
                 this.x += 5;
-                console.log(this.x)
                 this.playAnimation(bottleImages);
             }
-        }, 100);
+        }, 25);
     }
 }

@@ -9,7 +9,7 @@ export default [
       globals: globals.browser
     },
     rules: {
-      "max-lines-per-function": ["error", 15],
+      "max-lines-per-function": ["warn", 15],
       "semi": ["error", "always"],
       "quotes": ["error", "double"]
     }

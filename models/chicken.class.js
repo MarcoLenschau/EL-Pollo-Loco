@@ -63,8 +63,8 @@ class Chicken extends MovableObject {
          */
         this.speed = 0.15 + Math.random() * 0.25;
         this.loadImages(chickenImagesVar);
-        this.loadImage(chickenImageDead);
-        this.loadImage(chickenSmallImageDead);
+        this.loadImages([chickenImageDead]);
+        this.loadImages([chickenSmallImageDead]);
         this.move();
         this.showAnimation(chickenImagesVar);
     }
@@ -81,9 +81,9 @@ class Chicken extends MovableObject {
                 this.playAnimation(chickenImagesVar);
             } else {
                 if (chickenImagesVar === chickenSmallImages) {
-                    this.loadImage(chickenSmallImageDead);
+                    this.playAnimation([chickenSmallImageDead]);
                 } else {
-                    this.loadImage(chickenImageDead);
+                    this.playAnimation([chickenImageDead]);
                 }
             }
         }, 200);

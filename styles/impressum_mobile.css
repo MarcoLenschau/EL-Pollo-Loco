@@ -1,0 +1,66 @@
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 1281px) {
+    * {
+        font-size: 12px;
+    }    
+    .back-image {
+        height: 50px; 
+        width: 50px;
+    }
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 1025px) {
+    * {
+        font-size: 11px;
+    }
+    .back-image {
+        height: 40px; 
+        width: 40px;
+    }  
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 935px) {
+    * {
+        font-size: 7px;
+    }  
+    .back-image {
+        height: 30px; 
+        width: 30px;
+    }
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 882px) {
+    * {
+        font-size: 8px;
+    }  
+    .back-image {
+        height: 30px; 
+        width: 30px;
+    }
+    .impress-text {
+        position: absolute;
+        top: 29px;
+    }
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 845px) {
+    .impress-text {
+        position: absolute;
+        top: 1px;
+    }
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 721px) {
+    .impress-text {
+        position: unset;
+        top: unset;
+    }
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 668px) {
+    .impressum-width {
+        width: 550px;
+    }
+    .main-content {
+        align-items: center;
+    }
+}

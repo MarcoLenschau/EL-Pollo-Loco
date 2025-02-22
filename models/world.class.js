@@ -90,7 +90,7 @@ class World {
      * An instance of the Audio class that plays the sound effect for throwing.
      * @type {Audio}
      */
-    throw_sound = new Audio("./audio/throw.mp3")
+    throw_sound = new Audio("./audio/throw.mp3");
 
     /**
      * Initializes the game world, setting up the canvas, character, level, and input controls.
@@ -217,7 +217,7 @@ class World {
         });
         this.showSplashAnimation(false);
     }
-    
+
     /**
      * Handles the logic when an enemy is hit.
      * If the enemy is the end boss, it sets the enemy's energy to 0 and plays a sound if not muted.
@@ -288,7 +288,6 @@ class World {
             }
         });
     }
-
 
     /**
      * Reduces the character's health and updates the health status bar.
@@ -386,22 +385,33 @@ class World {
      */
     jumpOfEnemies() {
         let enemies = this.level.enemies;
-        let character = this.character;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
                 if (this.isEnemieDead(enemie)) {
                     enemie.kill(enemies, index);
                 }
-                if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
-                    enemie.energy = 0;
-                    enemie.kill(enemies, index);
-                    if (!mute) {
-                        this.enemie_dead_sound.volume = 0.5;
-                        this.enemie_dead_sound.play();
-                    }
-                }
+                this.collidingEnemies(enemie);
             }
         });
+    }
+
+    /**
+     * Handles the collision between the character and an enemy.
+     * If the character is colliding with the enemy, is moving downwards, and is above ground,
+     * the enemy's energy is set to 0, the enemy is killed, and a sound is played if not muted.
+     *
+     * @param {Object} enemie - The enemy object that the character is colliding with.
+     */
+    collidingEnemies(enemie) {
+        let character = this.character;
+        if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
+            enemie.energy = 0;
+            enemie.kill(enemies, index);
+            if (!mute) {
+                this.enemie_dead_sound.volume = 0.5;
+                this.enemie_dead_sound.play();
+            }
+        }
     }
     
     /**
@@ -412,7 +422,7 @@ class World {
      * @returns {boolean} True if the enemy's energy is 0, otherwise false.
      */
     isEnemieDead(enemie) {
-        return enemie.energy === 0
+        return enemie.energy === 0;
     }
 
     /**

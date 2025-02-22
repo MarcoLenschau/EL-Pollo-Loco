@@ -44,7 +44,7 @@ class Character extends MovableObject {
      * Audio object for the sound effect played when an item is collected.
      * @type {HTMLAudioElement}
      */
-    collect_item_sound = new Audio("./audio/collect_item.mp3")
+    collect_item_sound = new Audio("./audio/collect_item.mp3");
 
     /**
      * The sound effect played when the character is dead.
@@ -88,7 +88,7 @@ class Character extends MovableObject {
         bottom: 10,
         left: 20,
         right: 30
-    }
+    };
 
     /**
      * Initializes the character by loading necessary images, applying gravity, 
@@ -175,7 +175,7 @@ class Character extends MovableObject {
      */
     moveAnimation() {
         let currentTime = new Date().getTime();
-        let lastJumpTime = currentTime - this.lastJump
+        let lastJumpTime = currentTime - this.lastJump;
         if (this.isDead()) {
             this.playAnimation(characterDeadImages);
         } else if (this.isHurt()) {

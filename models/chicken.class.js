@@ -34,7 +34,7 @@ class Chicken extends MovableObject {
         bottom: 5,
         left: 5,
         right: 5
-    }
+    };
 
     energy = 100;
     damage = 20;    
@@ -111,7 +111,7 @@ class Chicken extends MovableObject {
         if (this.killAnimationTime === 0) {
             this.killAnimation();
         } else {
-            this.showKillAnimation(enemies, enemieQuantity)
+            this.showKillAnimation(enemies, enemieQuantity);
         }       
     }
 

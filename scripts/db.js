@@ -73,7 +73,7 @@ const characterSleepImages = [
     "./assetes/img/2_character_pepe/1_idle/long_idle/I-18.png",
     "./assetes/img/2_character_pepe/1_idle/long_idle/I-19.png",
     "./assetes/img/2_character_pepe/1_idle/long_idle/I-20.png"
-]
+];
 
 const characterJumpImages = [
     "./assetes/img/2_character_pepe/3_jump/J-31.png",
@@ -154,7 +154,7 @@ const endbossAttackImages = [
     "./assetes/img/4_enemie_boss_chicken/3_attack/G18.png",
     "./assetes/img/4_enemie_boss_chicken/3_attack/G19.png",
     "./assetes/img/4_enemie_boss_chicken/3_attack/G20.png"
-]
+];
 
 const endbossStatusbarImages = [
     "./assetes/img/7_statusbars/2_statusbar_endboss/green/green0.png",

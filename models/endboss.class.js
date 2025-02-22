@@ -71,7 +71,7 @@ class Endboss extends MovableObject {
         bottom: 20,
         left: 20,
         right: 20
-    }
+    };
     
     /**
      * Initializes the Endboss by loading images and starting animations.

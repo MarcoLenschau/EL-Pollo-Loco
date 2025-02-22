@@ -74,7 +74,7 @@ function muteTheGame() {
         mute = true;
         stopAllSounds();
     }
-    localStorage.setItem("Mute", mute)
+    localStorage.setItem("Mute", mute);
 }
 
 /**
@@ -110,19 +110,19 @@ function winTheGame() {
     playWinSound();
     document.getElementById("smartphone").classList.add("d_none");
     showEndOverlay();
-    endOverlayImage.classList.remove("d_none")
+    endOverlayImage.classList.remove("d_none");
     endOverlayImage.src = "./assetes/img/9_intro_outro_screens/win/win_1.png";
     endOverlayImage.style = "";
     stopTheGame();
     setInterval(() => {
-        defineEndOverlaySize()
+        defineEndOverlaySize();
     },10);
    
 }
 
 function playWinSound() {
     if (!mute) {
-        let win_sound = new Audio("./audio/win.mp3")
+        let win_sound = new Audio("./audio/win.mp3");
         win_sound.volume = 0.2;
         win_sound.play();
     }
@@ -134,16 +134,15 @@ function playWinSound() {
 function loseTheGame() {
     let endOverlay = document.querySelector(".end-overlay");
     let endOverlayImage = document.getElementById("end-overlay-image");
-    let smartphone = document.getElementById("smartphone");
     showEndOverlay();
     endOverlay.classList.add("end-overlay-lose");
-    smartphone.style = "display: none;";
+    document.getElementById("smartphone").style = "display: none;";
     endOverlayImage.innerHTML = "";
     endOverlayImage.classList.remove("d_none");
     endOverlayImage.src = "./assetes/img/9_intro_outro_screens/game_over/you lost.png";
     stopTheGame();
     setInterval(() => {
-        defineEndOverlaySize()
+        defineEndOverlaySize();
     },10);
 }
 

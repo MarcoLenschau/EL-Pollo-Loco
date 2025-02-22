@@ -37,7 +37,7 @@ class CollectObject extends MovableObject {
         bottom: 20,
         left: 40,
         right: 40
-    }
+    };
 
     /**
      * Creates an instance of the CollectObject class, loading an image from the provided path and setting a random position.

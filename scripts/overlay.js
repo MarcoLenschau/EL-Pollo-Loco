@@ -14,8 +14,8 @@ function showLandscape() {
     document.getElementsByClassName("end-overlay")[0].classList.add("d_none");
     document.getElementById("end-overlay-image").classList.add("d_none");
     document.getElementById("canvas").style.width = "1080px";
-    document.getElementsByClassName("play-button")[0].classList.remove("d_none")
-    document.getElementsByClassName("mobile-gameplay")[0].classList.remove("d_none")
+    document.getElementsByClassName("play-button")[0].classList.remove("d_none");
+    document.getElementsByClassName("mobile-gameplay")[0].classList.remove("d_none");
     showStartOverlay();
     clearInterval(rotateInterval);
     intervaleNumber = 0;
@@ -29,7 +29,7 @@ function showDevicesOverlay() {
     hiddenOverlays();
     createDevicesOverlay();
     canvas.style = " width: 0 !important; position: absolute; top: 230px;";  
-    document.getElementsByClassName("play-button-end")[0].classList.add("d_none")
+    document.getElementsByClassName("play-button-end")[0].classList.add("d_none");
     removeItem("mobile-gameplay");
     removeItem("play-button");
     removeItem("overlay-buttons");
@@ -44,7 +44,7 @@ function createDevicesOverlay() {
     let endOverlay = document.getElementsByClassName("end-overlay")[0];
     disableEndOverlay();
     endOverlay.style = "width: 100vw; margin: 24vh;";
-    endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>"       
+    endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>";      
     rotateInterval = setInterval(rotateSmartphone, 4000);
 }
 

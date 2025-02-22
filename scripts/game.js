@@ -117,6 +117,10 @@ function winTheGame() {
    
 }
 
+/**
+ * Displays the end overlay image by removing the "d_none" class,
+ * setting the source to the winning image, and resetting the style.
+ */
 function endOverlayImageDesign () {
     const endOverlayImage = document.getElementById("end-overlay-image");
     endOverlayImage.classList.remove("d_none");
@@ -124,6 +128,10 @@ function endOverlayImageDesign () {
     endOverlayImage.style = "";
 };
 
+/**
+ * Plays the win sound if the game is not muted.
+ * The sound volume is set to 20%.
+ */
 function playWinSound() {
     if (!mute) {
         const win_sound = new Audio("./audio/win.mp3");

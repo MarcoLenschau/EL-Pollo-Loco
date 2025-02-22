@@ -4,16 +4,60 @@
  * It has various animations, movements, and interactions with the player.
  */
 class Endboss extends MovableObject {
+    /**
+     * The height of the end boss character.
+     * @type {number}
+     */
     heigth = 350;
-    width = 250;
-    x = 2550;
-    y = 100;
-    boss_sound = new Audio("./audio/boss.mp3");
-    speedY = 0;
-    lastJump = 0;
-    walk = false;
-    damage = 50;
 
+    /**
+     * The width of the end boss character.
+     * @type {number}
+     */
+    width = 250;
+    
+    /**
+     * The initial horizontal position of the end boss character.
+     * @type {number}
+     */
+    x = 2550;
+    
+    /**
+     * The vertical position of the end boss.
+     * @type {number}
+     */
+    y = 100;
+    
+    /**
+     * Audio object for the boss sound effect.
+     * @type {Audio}
+     */
+    boss_sound = new Audio("./audio/boss.mp3");
+    
+    /**
+     * Vertical speed of the end boss.
+     * @type {number}
+     */
+    speedY = 0;
+    
+    /**
+     * Timestamp of the last jump action performed by the end boss.
+     * @type {number}
+     */
+    lastJump = 0;
+
+    /**
+     * Indicates whether the end boss is walking.
+     * @type {boolean}
+     */
+    walk = false;
+    
+    /**
+     * The amount of damage the end boss can inflict.
+     * @type {number}
+     */
+    damage = 50;
+    
     /**
      * The offset values for collision detection.
      * @type {Object}

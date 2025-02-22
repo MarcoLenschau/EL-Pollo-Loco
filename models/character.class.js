@@ -174,8 +174,8 @@ class Character extends MovableObject {
      * Updates the character's animations based on its state (e.g., dead, hurt, jumping).
      */
     moveAnimation() {
-        let currentTime = new Date().getTime();
-        let lastJumpTime = currentTime - this.lastJump;
+        const currentTime = new Date().getTime();
+        const lastJumpTime = currentTime - this.lastJump;
         if (this.isDead()) {
             this.playAnimation(characterDeadImages);
         } else if (this.isHurt()) {
@@ -200,7 +200,7 @@ class Character extends MovableObject {
      * @returns {boolean} True if the character is sleeping, false otherwise.
      */
     isSleep() {
-        let currentTime = new Date().getTime();
+        const currentTime = new Date().getTime();
         return currentTime - this.lastActionTime > 5000;
     }
 

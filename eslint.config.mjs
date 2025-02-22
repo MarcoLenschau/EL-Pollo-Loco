@@ -11,7 +11,10 @@ export default [
     rules: {
       "max-lines-per-function": ["warn", 13],
       "semi": ["error", "always"],
-      "quotes": ["error", "double"]
+      "quotes": ["error", "double"],
+      "no-console": ["error"],
+      "indent": ["warn", 4],
+      "prefer-const": ["warn"]
     }
   }
 ];

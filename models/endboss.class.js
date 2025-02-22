@@ -109,8 +109,8 @@ class Endboss extends MovableObject {
      */
     showEndboss() {
         world.statusbars[3].show();
-        let currentTime = new Date().getTime();
-        let lastJumpTime = currentTime - this.lastJump;
+        const currentTime = new Date().getTime();
+        const lastJumpTime = currentTime - this.lastJump;
         if (!this.walk) {
             this.x -= 25;
             this.walk = true;
@@ -127,9 +127,9 @@ class Endboss extends MovableObject {
      * Makes the Endboss jump into the air.
      */
     jump() {
-        let groundY = 100;
+        const groundY = 100;
         this.speedY = 15;
-        let interval = setInterval(() => {
+        const interval = setInterval(() => {
             this.y -= this.speedY;
             this.speedY -= this.acceleration;
             if (this.speedY < 0 && this.y >= groundY) {
@@ -144,7 +144,7 @@ class Endboss extends MovableObject {
      * Controls the Endboss animations depending on its state.
      */
     showAnimation() {
-        let currentTime = new Date().getTime();
+        const currentTime = new Date().getTime();
         if (this.isDead()) {
             this.playAnimation(endbossDeadImages);
         } else if (currentTime - this.lastHit < 2000) {

@@ -2,7 +2,7 @@
  * Displays the start overlay.
  */
 function showStartOverlay() {
-    let startOverlay = document.getElementById("start-overlay");
+    const startOverlay = document.getElementById("start-overlay");
     startOverlay.classList.remove("hidden");
     startOverlay.style = "";
 }
@@ -25,7 +25,7 @@ function showLandscape() {
  * Show the turn mobile devices overlay.
  */
 function showDevicesOverlay() {
-    let canvas = document.getElementById("canvas");
+    const canvas = document.getElementById("canvas");
     hiddenOverlays();
     createDevicesOverlay();
     canvas.style = " width: 0 !important; position: absolute; top: 230px;";  
@@ -41,7 +41,7 @@ function showDevicesOverlay() {
  * Creates an overlay prompting users to rotate their devices.
  */
 function createDevicesOverlay() {
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    const endOverlay = document.getElementsByClassName("end-overlay")[0];
     disableEndOverlay();
     endOverlay.style = "width: 100vw; margin: 24vh;";
     endOverlay.innerHTML += "<h1 style='position: absolute; bottom: 0px;'>Turn your Devices</h1>";      
@@ -52,8 +52,8 @@ function createDevicesOverlay() {
  * Hidden the end overlay.
  */
 function disableEndOverlay() {
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
-    let endOverlayImage = document.getElementById("end-overlay-image");
+    const endOverlay = document.getElementsByClassName("end-overlay")[0];
+    const endOverlayImage = document.getElementById("end-overlay-image");
     endOverlay.classList.remove("d_none");
     endOverlay.classList.remove("hidden");
     endOverlayImage.src = "";
@@ -63,7 +63,7 @@ function disableEndOverlay() {
  * Show the end overlay.
  */
 function showEndOverlay() {
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    const endOverlay = document.getElementsByClassName("end-overlay")[0];
     endOverlay.classList.remove("hidden");
     endOverlay.classList.remove("d_none");
 }
@@ -72,8 +72,8 @@ function showEndOverlay() {
  * Hides the start and end overlays.
  */
 function hiddenOverlays() {
-    let startOverlay = document.getElementById("start-overlay");
-    let endOverlay = document.getElementsByClassName("end-overlay")[0];
+    const startOverlay = document.getElementById("start-overlay");
+    const endOverlay = document.getElementsByClassName("end-overlay")[0];
     startOverlay.style = "height: 0 !important;";
     startOverlay.classList.add("hidden");
     endOverlay.classList.add("hidden");
@@ -85,7 +85,7 @@ function hiddenOverlays() {
  * is set to a value proportional to the window's width.
  */
 function defineEndOverlaySize() {
-    let endOverlay = document.querySelector(".end-overlay");
+    const endOverlay = document.querySelector(".end-overlay");
     if (window.innerWidth < 1300) {
         endOverlay.style.height = window.innerWidth / 2.8 + "px";
     }

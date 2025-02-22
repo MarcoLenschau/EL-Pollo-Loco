@@ -211,7 +211,7 @@ class World {
             this.throwableObjects.forEach(bottle => {
                 if (enemie.isColliding(bottle)) {
                     this.enemieHit(enemie);
-                this.showSplashAnimation(true);
+                    this.showSplashAnimation(true);
                 }
             });
         });
@@ -275,8 +275,8 @@ class World {
      */
     checkEnemiesCollisions() {
         this.level.enemies.forEach(enemie => {
-            let currentTime = new Date().getTime();
-            let lastHitTime = currentTime - this.character.lastHit;
+            const currentTime = new Date().getTime();
+            const lastHitTime = currentTime - this.character.lastHit;
             if (this.character.isColliding(enemie) && lastHitTime > 2000) {
                 this.enemieColliding(enemie);
             }
@@ -399,7 +399,7 @@ class World {
      * Handles collisions with enemies. Removes an enemy if the character jumps on it.
      */
     jumpOfEnemies() {
-        let enemies = this.level.enemies;
+        const enemies = this.level.enemies;
         enemies.forEach((enemie, index) => {
             if (enemie.width === 100) {
                 if (this.isEnemieDead(enemie)) {
@@ -418,7 +418,7 @@ class World {
      * @param {Object} enemie - The enemy object that the character is colliding with.
      */
     collidingEnemies(enemie) {
-        let character = this.character;
+        const character = this.character;
         if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
             enemie.energy = 0;
             enemie.kill(enemies, index);

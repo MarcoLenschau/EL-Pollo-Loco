@@ -3,13 +3,13 @@ let world;
 let ctx;
 let endbossFight = false;
 const keyboard = new Keyboard();
-let intervale = [];
-let fullscreenOn = false;
+const intervale = [];
+const fullscreenOn = false;
 let mute;
 let homeScreen = true;
-let intervaleNumber = 0;
-let devicesInterval = 0;
-let rotateInterval = 0;
+const intervaleNumber = 0;
+const devicesInterval = 0;
+const rotateInterval = 0;
 let lastEnemie;
 /**
  * Starts the game by initializing the level and world and hiding overlays.
@@ -58,7 +58,7 @@ function removeItem(objectClass) {
  * @param {number} time - The interval time in milliseconds.
  */
 function setStoppableInterval(fn, time) {
-    let id = setInterval(fn, time);
+    const id = setInterval(fn, time);
     intervale.push(id);
 }
 
@@ -118,7 +118,7 @@ function winTheGame() {
 }
 
 function endOverlayImageDesign () {
-    let endOverlayImage = document.getElementById("end-overlay-image");
+    const endOverlayImage = document.getElementById("end-overlay-image");
     endOverlayImage.classList.remove("d_none");
     endOverlayImage.src = "./assetes/img/9_intro_outro_screens/win/win_1.png";
     endOverlayImage.style = "";
@@ -126,7 +126,7 @@ function endOverlayImageDesign () {
 
 function playWinSound() {
     if (!mute) {
-        let win_sound = new Audio("./audio/win.mp3");
+        const win_sound = new Audio("./audio/win.mp3");
         win_sound.volume = 0.2;
         win_sound.play();
     }
@@ -136,7 +136,7 @@ function playWinSound() {
  * You lose the Game.
  */
 function loseTheGame() {
-    let endOverlayImage = document.getElementById("end-overlay-image");
+    const endOverlayImage = document.getElementById("end-overlay-image");
     showEndOverlay();
     document.querySelector(".end-overlay").classList.add("end-overlay-lose");
     document.getElementById("smartphone").style = "display: none;";
@@ -153,7 +153,7 @@ function loseTheGame() {
  * Toggles the display of the gameplay menu.
  */
 function showGameplay() {
-    let gameplayMenu = document.querySelector(".gameplay-menu");
+    const gameplayMenu = document.querySelector(".gameplay-menu");
     if (fullscreenOn) {
         gameplayMenu.classList.toggle("fullscreen-mode");
         gameplayMenu.classList.toggle("d_none");
@@ -167,7 +167,7 @@ function showGameplay() {
  * It removes the "d_none" and "hidden" classes from the start overlay and resets its style.
  */
 function showHomeScreen() {
-    let startOverlay = document.querySelector(".overlay-start-screen");
+    const startOverlay = document.querySelector(".overlay-start-screen");
     document.querySelector(".end-overlay").classList.add("d_none");
     startOverlay.classList.remove("d_none");
     startOverlay.classList.remove("hidden");

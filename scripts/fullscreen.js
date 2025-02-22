@@ -40,7 +40,7 @@ function fullscreenOff() {
  * Requests fullscreen mode for the specified element.
  */
 function openFullscreen() {
-    let element = document.getElementById("fullscreen");
+    const element = document.getElementById("fullscreen");
     if (element.requestFullscreen) {
         element.requestFullscreen();
     } else if (element.webkitRequestFullscreen) {

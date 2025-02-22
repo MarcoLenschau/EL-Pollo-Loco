@@ -1,9 +1,5 @@
 name: JSDoc documentation
 on:
-  pull_request:
-    types: [opened]
-    branches: 
-      - main
   push:
     branches:
       - main

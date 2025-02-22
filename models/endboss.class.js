@@ -8,7 +8,7 @@ class Endboss extends MovableObject {
     width = 250;
     x = 2550;
     y = 100;
-    boss_sound = new Audio("../audio/boss.mp3");
+    boss_sound = new Audio("./audio/boss.mp3");
     speedY = 0;
     lastJump = 0;
     walk = false;

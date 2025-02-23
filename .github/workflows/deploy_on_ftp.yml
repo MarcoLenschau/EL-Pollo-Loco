@@ -10,15 +10,10 @@ jobs:
     steps:
     - name: Get latest code
       uses: actions/checkout@v4
-    - name: Extract project name
-      run: |
-        REPO_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)
-        echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.ftp_server }}
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        server-dir: ${{ env.REPO_NAME }}
-        
+        server-dir: /el-pollo-loco/

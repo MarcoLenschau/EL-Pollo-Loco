@@ -11,13 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build
-        uses: andstor/jsdoc-action@v1
-        with:
-          config_file: ../..config/jsdoc.json
-          source_dir: ./scripts
-          output_dir: ./docs
-          template: minami         
+      - name: Install JSDoc
+        run: npm install -g jsdoc
+      - name: Generate JSDoc
+        run: jsdoc -c config/jsdoc.json   
       - name: Add to repository
         run: |
             git config --global user.email "contact@marco-lenschau.de"

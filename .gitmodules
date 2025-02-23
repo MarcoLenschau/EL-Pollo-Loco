@@ -1,3 +1,0 @@
-[submodule "config"]
-	path = config
-	url = https://$GITHUB_TOKEN@github.com/SnowCoder404/shared-config.git

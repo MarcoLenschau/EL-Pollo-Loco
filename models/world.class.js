@@ -211,11 +211,12 @@ class World {
             this.throwableObjects.forEach(bottle => {
                 if (enemie.isColliding(bottle)) {
                     this.enemieHit(enemie);
-                    this.showSplashAnimation(true);
+                    bottle.isSplashed = true;
+                } else if (bottle.y > 300) {
+                    bottle.isSplashed = true;   
                 }
             });
         });
-        this.showSplashAnimation(false);
     }
 
     /**
@@ -405,7 +406,7 @@ class World {
                 if (this.isEnemieDead(enemie)) {
                     enemie.kill(enemies, index);
                 }
-                this.collidingEnemies(enemie);
+                this.collidingEnemies(enemie, index);
             }
         });
     }
@@ -417,11 +418,11 @@ class World {
      *
      * @param {Object} enemie - The enemy object that the character is colliding with.
      */
-    collidingEnemies(enemie) {
+    collidingEnemies(enemie, index) {
         const character = this.character;
         if (character.isColliding(enemie) && character.speedY <= 0 && character.isAboveGround()) {  
             enemie.energy = 0;
-            enemie.kill(enemies, index);
+            enemie.kill(this.level.enemies, index);
             if (!mute) {
                 this.enemie_dead_sound.volume = 0.5;
                 this.enemie_dead_sound.play();

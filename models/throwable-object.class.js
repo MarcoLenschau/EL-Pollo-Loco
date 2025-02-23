@@ -18,6 +18,12 @@ class ThrowableObject extends MovableObject {
     width = 150;
 
     /**
+     * Indicates whether the throwable object has splashed.
+     * @type {boolean}
+     */
+    isSplashed = false;
+    
+    /**
      * Creates an instance of the ThrowableObject class.
      * The object is initialized at the given x and y coordinates, and it starts moving forward while being affected by gravity.
      * 
@@ -41,7 +47,9 @@ class ThrowableObject extends MovableObject {
         this.speedY = 10;
         this.applyGravity();
         setStoppableInterval(() => {
-            if (this.isAboveGround()) {   
+            if (this.isSplashed) {
+                this.playAnimation(bottleSplashImages);
+            } else if (this.isAboveGround()) {   
                 this.x += 5;
                 this.playAnimation(bottleImages);
             }

@@ -14,7 +14,7 @@ jobs:
       - name: Install JSDoc
         run: npm install -g jsdoc
       - name: Generate JSDoc
-        run: jsdoc -c config/jsdoc.json   
+        run: jsdoc -c ./config/jsdoc.json
       - name: Add to repository
         run: |
             git config --global user.email "contact@marco-lenschau.de"

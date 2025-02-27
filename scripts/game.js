@@ -4,7 +4,7 @@ let ctx;
 let endbossFight = false;
 const keyboard = new Keyboard();
 const intervale = [];
-const fullscreenOn = false;
+fullscreenOn = false;
 let mute;
 let homeScreen = true;
 const intervaleNumber = 0;

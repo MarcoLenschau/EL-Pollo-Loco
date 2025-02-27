@@ -113,4 +113,7 @@
     .overlay-start-screen {
         height: 90vh !important;
     }
+    .settings-overlay-button {
+        display: none;
+    } 
 }

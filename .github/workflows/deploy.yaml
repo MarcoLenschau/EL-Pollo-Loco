@@ -18,8 +18,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SECRET_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H spain.vpn64.de >> ~/.ssh/known_hosts
+          ssh-keyscan -H marco-lenschau.de >> ~/.ssh/known_hosts
 
       - name: Deploy via SSH
         run: |
-          scp -r * github@spain.vpn64.de:/var/www/html/el-pollo-loco/
+          scp -r * github@marco-lenschau.de:/var/www/html/el-pollo-loco/
